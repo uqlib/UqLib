@@ -35,9 +35,6 @@ namespace UqLibCsharpSample
         static extern int DrawString(int x, int y, string text, int fontId, uint hexColorCode);
         
         [DllImport("UqLib.dll", CallingConvention = CallingConvention.Cdecl)]
-        static extern int UpdateWindowMessage();
-
-        [DllImport("UqLib.dll", CallingConvention = CallingConvention.Cdecl)]
         static extern int CheckPressedKey(int keyCode);
 
         [DllImport("UqLib.dll", CallingConvention = CallingConvention.Cdecl)]
@@ -108,7 +105,7 @@ namespace UqLibCsharpSample
 
             int font1 = CreateFontContener(30, "ＭＳ ゴシック");
 
-            while (UpdateWindowMessage() == 0 && BeginDrawing() == 0)
+            while (BeginDrawing() == 0)
             {
                 // サウンド再生状態をここでチェック(のちにスレッド化
                 CheckSoundPlay();

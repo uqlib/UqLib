@@ -68,6 +68,17 @@ int UqLibEnd() {
 	return 0;
 }
 
+int BeginDrawing() {
+	if (UpdateWindowMessage() == -1) {
+		return -1;
+	}
+	return GraphicsManager::GetInstance()->BeginDrawing();
+}
+
+int EndDrawing() {
+	return GraphicsManager::GetInstance()->EndDrawing();
+}
+
 int CreateFontContener(int height, const char* fontName) {
 	return GraphicsManager::GetInstance()->CreateFontContener(height, StringToWString(fontName));
 }
@@ -128,14 +139,6 @@ int CheckPressedKey(int keyCode) {
 
 int CheckPressKey(int keyCode) {
 	return g_pSystemClass->CheckPressKey(keyCode);
-}
-
-int BeginDrawing() {
-	return GraphicsManager::GetInstance()->BeginDrawing();
-}
-
-int EndDrawing() {
-	return GraphicsManager::GetInstance()->EndDrawing();
 }
 
 int PlaySoundFromFile(const char* fileName, int playType) {
