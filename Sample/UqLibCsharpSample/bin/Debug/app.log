@@ -1,0 +1,53 @@
+2,021/11/21 22:12:38.831 WARN 352208
+2,021/11/21 22:20:29.600 WARN 352208
+2,021/11/21 24:14:42.265 WARN ファイル読み込みに失敗。
+2,021/11/21 24:14:42.266 WARN bufferがNULL。
+2,021/11/21 24:14:48.055 WARN CreateDecoderFromStreamに失敗。
+2,021/11/21 24:18:49.768 WARN CreateDecoderFromStreamに失敗。
+2,021/11/21 24:42:31.185 DEBUG SoundManager.cpp SoundFileOpen end #1
+2,021/11/21 24:42:31.390 DEBUG SoundManager.cpp SoundFileOpen end #1
+2,021/11/21 24:42:31.593 DEBUG SoundManager.cpp SoundFileOpen end #1
+2,021/11/21 24:42:33.921 DEBUG SoundManager.cpp SoundFileOpen end #1
+2,021/11/21 24:42:34.125 DEBUG SoundManager.cpp SoundFileOpen end #1
+2,021/11/21 24:42:34.227 DEBUG SoundManager.cpp SoundFileOpen end #1
+2,021/11/21 24:42:34.430 DEBUG SoundManager.cpp SoundFileOpen end #1
+2,021/11/21 24:42:34.633 DEBUG SoundManager.cpp SoundFileOpen end #1
+2,021/11/21 24:42:34.836 DEBUG SoundManager.cpp SoundFileOpen end #1
+2,021/11/21 24:42:34.938 DEBUG SoundManager.cpp SoundFileOpen end #1
+2,021/11/21 24:42:35.141 DEBUG SoundManager.cpp SoundFileOpen end #1
+2,021/11/21 24:42:37.567 DEBUG SoundManager.cpp SoundFileOpen end #1
+2,021/11/21 24:42:37.770 DEBUG SoundManager.cpp SoundFileOpen end #1
+2,021/11/21 24:42:37.873 DEBUG SoundManager.cpp SoundFileOpen end #1
+2,021/11/21 24:42:38.075 DEBUG SoundManager.cpp SoundFileOpen end #1
+2,021/11/21 24:42:43.386 DEBUG SoundManager.cpp OpenWaveFromFile end #2
+2,021/11/21 24:42:49.600 DEBUG SoundManager.cpp SoundFileOpen end #1
+2,021/11/21 24:42:49.702 DEBUG SoundManager.cpp SoundFileOpen end #1
+2,021/11/21 24:42:49.905 DEBUG SoundManager.cpp SoundFileOpen end #1
+2,021/11/21 24:42:50.109 DEBUG SoundManager.cpp SoundFileOpen end #1
+2,021/11/21 24:42:50.211 DEBUG SoundManager.cpp SoundFileOpen end #1
+2,021/11/21 24:42:50.416 DEBUG SoundManager.cpp SoundFileOpen end #1
+2,021/11/21 24:42:50.517 DEBUG SoundManager.cpp SoundFileOpen end #1
+2,021/11/21 24:42:50.620 DEBUG SoundManager.cpp SoundFileOpen end #1
+2,021/11/21 24:42:50.822 DEBUG SoundManager.cpp SoundFileOpen end #1
+2,021/11/21 24:42:51.026 DEBUG SoundManager.cpp SoundFileOpen end #1
+2,021/11/21 24:42:51.128 DEBUG SoundManager.cpp SoundFileOpen end #1
+2,021/11/21 24:42:51.331 DEBUG SoundManager.cpp SoundFileOpen end #1
+2,021/11/21 24:42:51.433 DEBUG SoundManager.cpp SoundFileOpen end #1
+2,021/11/21 24:42:51.637 DEBUG SoundManager.cpp SoundFileOpen end #1
+2,021/11/21 24:42:51.739 DEBUG SoundManager.cpp SoundFileOpen end #1
+2,021/11/21 24:42:51.942 DEBUG SoundManager.cpp SoundFileOpen end #1
+2,021/11/21 24:42:52.145 DEBUG SoundManager.cpp SoundFileOpen end #1
+2,021/11/21 24:42:52.248 DEBUG SoundManager.cpp SoundFileOpen end #1
+2,021/11/21 24:42:52.349 DEBUG SoundManager.cpp SoundFileOpen end #1
+2,021/11/21 24:42:52.553 DEBUG SoundManager.cpp SoundFileOpen end #1
+2,021/11/21 24:42:52.755 DEBUG SoundManager.cpp SoundFileOpen end #1
+2,021/11/21 24:42:52.857 DEBUG SoundManager.cpp SoundFileOpen end #1
+2,021/11/21 24:42:53.061 DEBUG SoundManager.cpp SoundFileOpen end #1
+2,021/11/21 24:42:53.263 DEBUG SoundManager.cpp SoundFileOpen end #1
+2,021/11/21 24:42:53.365 DEBUG SoundManager.cpp SoundFileOpen end #1
+2,021/11/21 24:42:53.569 DEBUG SoundManager.cpp SoundFileOpen end #1
+2,021/11/21 24:42:53.671 DEBUG SoundManager.cpp SoundFileOpen end #1
+2,021/11/21 24:42:53.874 DEBUG SoundManager.cpp SoundFileOpen end #1
+2,021/11/21 24:42:53.976 DEBUG SoundManager.cpp SoundFileOpen end #1
+2,021/11/21 24:42:54.180 DEBUG SoundManager.cpp SoundFileOpen end #1
+2,021/11/21 24:42:54.383 DEBUG SoundManager.cpp SoundFileOpen end #1
