@@ -11,3 +11,15 @@ int UqLibInit(const char* title) {
 
 	return g_pSystemClass->Initialize(std::string(title), 1270, 720);
 }
+
+int UqLibEnd() {
+	return 0;
+}
+
+int BeginDrawing() {
+	return 0;
+}
+
+int EndDrawing() {
+	return 0;
+}
