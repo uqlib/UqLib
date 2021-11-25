@@ -7,7 +7,7 @@ PROGRAM = UqLib.dll
 
 ##################################################
 # 複合パラメータ
-OBJS = $(OBJDIR)/UqLib.o $(OBJDIR)/SystemClass.o
+OBJS = $(OBJDIR)/UqLib.o $(OBJDIR)/SystemClass.o $(OBJDIR)/DirectXManager.o
 CFLAGS = -shared -O2
 # -shared : DLL形式のライブラリ作成時に必要なコンパイルオプション
 # -O2 : コンパイラはサイズとコンパイル時間に妥協せずにコードのパフォーマンスを改善しようと試みる

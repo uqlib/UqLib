@@ -4,6 +4,7 @@
 // http://uqlib.com
 //-----------------------------------------------------
 #include "SystemClass.h"
+#include "DirectXManager.h"
 
 using namespace std;
 
@@ -25,6 +26,7 @@ namespace uq_lib {
 
 		InitializeWindow(title, screenWidth, screenHeight);
 		WindowResizeByClient(m_hwnd, screenWidth, screenHeight);
+		DirectXManager::GetInstance()->InitializeDirectX(m_hwnd, screenWidth, screenHeight, fullScrean);
 
 		return 0;
 	}
