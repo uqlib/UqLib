@@ -3,10 +3,10 @@
 // Licensed under the MIT License.
 // http://uqlib.com
 //-----------------------------------------------------
-#include <wincodecsdk.h>//画像表示用
-#include <wincodec.h>//画像表示用
+//#include <wincodecsdk.h>//画像表示用
+//#include <wincodec.h>//画像表示用
 #include "DirectXManager.h"
-#include "SoundManager.h"
+#//include "SoundManager.h"
 #include "GraphicsManager.h"
 
 using namespace std;

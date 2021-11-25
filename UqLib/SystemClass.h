@@ -11,7 +11,7 @@
 #include <time.h>
 #include <map>
 #include "Constants.h"
-#include "Logger.h"
+//#include "Logger.h"
 
 namespace uq_lib {
 
