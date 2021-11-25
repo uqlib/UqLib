@@ -4,6 +4,8 @@
 // http://uqlib.com
 //-----------------------------------------------------
 #include <wincodec.h>
+	#include <string.h>
+	#include <stdlib.h>
 #include "GraphicsManager.h"
 #include "DirectXManager.h"
 #include "FileManager.h"
