@@ -17,9 +17,22 @@ int UqLibEnd() {
 }
 
 int BeginDrawing() {
+	if (UpdateWindowMessage() == -1) {
+		return -1;
+	}
 	return 0;
 }
 
 int EndDrawing() {
+	return 0;
+}
+
+int UpdateWindowMessage() {
+	if (g_pSystemClass->UpdateWindow() == -1) {
+		return -1;
+	}
+	if (g_pSystemClass->IsQuitMessage() == -1) {
+		return -1;
+	}
 	return 0;
 }
