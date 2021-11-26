@@ -12,4 +12,6 @@ extern "C" __declspec (dllexport) int BeginDrawing();
 
 extern "C" __declspec (dllexport) int EndDrawing();
 
+extern "C" __declspec (dllexport) int UpdateWindowMessage();
+
 #endif
