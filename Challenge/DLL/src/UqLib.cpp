@@ -7,6 +7,9 @@ using namespace uq_lib;
 SystemClass* g_pSystemClass;
 
 int UqLibInit(const char* title) {
+	Logger::ChangeLogLevel(Log::DEBUG_LV);
+	locale::global(locale("")); // wstringのログ出力に必要
+
 	g_pSystemClass = new SystemClass();
 
 	return g_pSystemClass->Initialize(std::string(title), 1270, 720);

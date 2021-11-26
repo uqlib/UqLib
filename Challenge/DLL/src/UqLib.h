@@ -2,6 +2,7 @@
 #define UQ_LIB_H
 
 #include "SystemClass.h"
+#include "Logger.h"
 #include "Constants.h"
 
 extern "C" __declspec (dllexport) int UqLibInit(const char* title);

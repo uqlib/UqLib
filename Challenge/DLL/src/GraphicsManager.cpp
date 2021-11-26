@@ -10,7 +10,7 @@
 #include "DirectXManager.h"
 #include "FileManager.h"
 #include "Constants.h"
-//#include "Logger.h"
+#include "Logger.h"
 
 using namespace std;
 using namespace Microsoft::WRL;
@@ -149,7 +149,7 @@ namespace uq_lib {
 			&dec
 		);
 		if (FAILED(hr)) {
-			//Logger::OutputWarn("CreateDecoderFromFilenameに失敗。");
+			Logger::OutputWarn("CreateDecoderFromFilenameに失敗。");
 			return -1;
 		}
 
@@ -162,7 +162,7 @@ namespace uq_lib {
 		// 画像イメージをDirect2D形式にコンバート
 		hr = m_pImagingFactory->CreateFormatConverter(&converter);
 		if (FAILED(hr)) {
-			//Logger::OutputWarn("CreateFormatConverterに失敗。");
+			Logger::OutputWarn("CreateFormatConverterに失敗。");
 			return -1;
 		}
 
@@ -174,7 +174,7 @@ namespace uq_lib {
 			WICBitmapPaletteTypeMedianCut
 		);
 		if (FAILED(hr)) {
-			//Logger::OutputWarn("Initializeに失敗。");
+			Logger::OutputWarn("Initializeに失敗。");
 			return -1;
 		}
 
@@ -184,7 +184,7 @@ namespace uq_lib {
 			ID2D1Bitmap* pBitmap = NULL;
 		hr = m_pD2d1DeviceContext->CreateBitmapFromWicBitmap(converter, NULL, &pBitmap);
 		if (FAILED(hr)) {
-			//Logger::OutputWarn("CreateBitmapFromWicBitmapに失敗。");
+			Logger::OutputWarn("CreateBitmapFromWicBitmapに失敗。");
 			return -1;
 		}
 
@@ -217,17 +217,17 @@ namespace uq_lib {
 		hr = m_pImagingFactory->CreateStream(&pStream);
 		if (FAILED(hr))
 		{
-			//Logger::OutputWarn("CreateStreamに失敗。");
+			Logger::OutputWarn("CreateStreamに失敗。");
 			return -1;
 		}
 		if (buffer == NULL){
-			//Logger::OutputWarn("bufferがNULL。");
+			Logger::OutputWarn("bufferがNULL。");
 			return -1;
 		}
 		hr = pStream->InitializeFromMemory((byte*)buffer, size);
 		if (FAILED(hr))
 		{
-			//Logger::OutputWarn("InitializeFromMemoryに失敗。");
+			Logger::OutputWarn("InitializeFromMemoryに失敗。");
 			return -1;
 		}
 		hr = m_pImagingFactory->CreateDecoderFromStream(
@@ -237,7 +237,7 @@ namespace uq_lib {
 			&dec);
 		if (FAILED(hr))
 		{
-			//Logger::OutputWarn("CreateDecoderFromStreamに失敗。");
+			Logger::OutputWarn("CreateDecoderFromStreamに失敗。");
 			return -1;
 		}
 
@@ -251,7 +251,7 @@ namespace uq_lib {
 		hr = m_pImagingFactory->CreateFormatConverter(&converter);
 		if (FAILED(hr))
 		{
-			//Logger::OutputWarn("CreateFormatConverterに失敗。");
+			Logger::OutputWarn("CreateFormatConverterに失敗。");
 			return -1;
 		}
 
@@ -264,7 +264,7 @@ namespace uq_lib {
 		);
 		if (FAILED(hr))
 		{
-			//Logger::OutputWarn("Initializeに失敗。");
+			Logger::OutputWarn("Initializeに失敗。");
 			return -1;
 		}
 
@@ -275,7 +275,7 @@ namespace uq_lib {
 		hr = m_pD2d1DeviceContext->CreateBitmapFromWicBitmap(converter, NULL, &pBitmap);
 		if (FAILED(hr))
 		{
-			//Logger::OutputWarn("CreateBitmapFromWicBitmapに失敗。");
+			Logger::OutputWarn("CreateBitmapFromWicBitmapに失敗。");
 			return -1;
 		}
 
