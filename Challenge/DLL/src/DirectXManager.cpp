@@ -4,7 +4,7 @@
 // http://uqlib.com
 //-----------------------------------------------------
 #include "DirectXManager.h"
-//#include "GraphicsManager.h"
+#include "GraphicsManager.h"
 
 using namespace std;
 
@@ -30,20 +30,8 @@ namespace uq_lib {
 
 		D3D11CreateDevice(nullptr, D3D_DRIVER_TYPE_HARDWARE, nullptr, flags, nullptr, 0, D3D11_SDK_VERSION,
 			&d3d11Device, nullptr, &m_d3d11DeviceContext);
-		
-		/* 以下のエラーが発生する。
-		> make
-		g++ -shared -O2 -o bin/UqLib.dll obj/UqLib.o obj/SystemClass.o obj/DirectXManager.o -mwindows
-		obj/DirectXManager.o:DirectXManager.cpp:(.text+0x315): undefined reference to `D3D11CreateDevice'
-		collect2.exe: error: ld returned 1 exit status
-		make: *** [UqLib.dll] エラー 1
-		https://teratail.com/questions/371025 で質問中。
-		*/
-		
-		
-		
-		
-/*		Microsoft::WRL::ComPtr<IDXGIDevice1> dxgiDevice;
+
+		Microsoft::WRL::ComPtr<IDXGIDevice1> dxgiDevice;
 		d3d11Device.As(&dxgiDevice);
 
 		// D2D1初期化
@@ -102,7 +90,7 @@ namespace uq_lib {
 		m_d2d1DeviceContext->CreateSolidColorBrush(D2D1::ColorF(0xffffff, 1.f), &m_pBrush);
 
 		GraphicsManager::GetInstance()->Init(hWnd, m_d3d11DeviceContext, m_d3d11RenderTargetView, m_d2d1DeviceContext, m_dxgiSwapChain, m_pBrush);
-*/
+
 		return 0;
 	}
 }

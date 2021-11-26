@@ -21,7 +21,7 @@ LDFLAGS=-mwindows
 # make
 
 $(PROGRAM): $(OBJS)
-	g++ $(CFLAGS) -o $(BINDIR)/$(PROGRAM) $(OBJS) $(LDFLAGS) -ld2d1 -ldwrite -lWindowsCodecs -ldxgi -ld3d11 -lole32
+	g++ $(CFLAGS) -o $(BINDIR)/$(PROGRAM) $(OBJS) $(LDFLAGS) -ld2d1 -ldwrite -lWindowsCodecs -ldxgi -ld3d11
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	gcc $(CFLAGS) -o $@ -c $<
