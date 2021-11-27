@@ -360,7 +360,7 @@ namespace uq_lib {
 	}
 
 	int GraphicsManager::DrawString(int x, int y, string text, int fontId, UINT32 hexColorCode, float opacity) {
-		D2D1_SIZE_F targetSize = m_pD2d1DeviceContext->GetSize();
+/*		D2D1_SIZE_F targetSize = m_pD2d1DeviceContext->GetSize();
 		FontContener fc = GetFontContener(fontId);
 
 		wchar_t wbuf[256]; MultiByteToWideChar(CP_ACP, 0, text.c_str(), -1, wbuf, 256);
@@ -380,6 +380,56 @@ namespace uq_lib {
 			);
 			pBrush->Release();
 		}
+*/
+/*		ID2D1SolidColorBrush* pBrush = NULL;
+		m_pD2d1DeviceContext->CreateSolidColorBrush(
+			//D2D1::ColorF(0x00FF00, 1.0)
+			D2D1::ColorF(D2D1::ColorF::White, 1.0f)
+			, &pBrush
+		);
+		if (pBrush != NULL) {
+			m_pD2d1DeviceContext->DrawLine(
+				D2D1::Point2F((float)10, (float)10),
+				D2D1::Point2F((float)100, (float)100),
+				pBrush,
+				5
+			);
+			pBrush->Release();
+		}
+*/		
+		
+	// ブラシの生成
+		ID2D1SolidColorBrush* pBrush = NULL;
+		{
+		    m_pD2d1DeviceContext->CreateSolidColorBrush(
+		              D2D1::ColorF(
+		                      2.0f  // R
+		                    , 4.0f  // G
+		                    , 3.0f  // B
+		                    , 1.0f  // A
+		                )
+		            , &pBrush
+		        );
+		}
+
+		if ( NULL != pBrush ) {
+
+		    // 始点
+		    D2D1_POINT_2F tPosS = D2D1::Point2F( 0, 0 );
+
+		    // 終点
+		    D2D1_POINT_2F tPosE = D2D1::Point2F( 100, 200 );
+
+		    // 線の幅
+		    float fStrokeWidth = (float)( 5 );
+
+		    // 線の描画
+		    m_pD2d1DeviceContext->DrawLine( tPosS, tPosE, pBrush, fStrokeWidth );
+
+		    // ブラシの破棄
+		    pBrush->Release();
+		}
+		
 		return 0;
 	}
 

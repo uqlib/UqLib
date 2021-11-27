@@ -12,16 +12,13 @@ CFLAGS = -shared -O2
 # -shared : DLL形式のライブラリ作成時に必要なコンパイルオプション
 # -O2 : コンパイラはサイズとコンパイル時間に妥協せずにコードのパフォーマンスを改善しようと試みる
 
-#WIN_LIB	= C:\Windows\SysWOW64
-# WIN_LIBS= $(WIN_LIB)\user32.dll $(WIN_LIB)\gdi32.dll $(WIN_LIB)\kernel32.dll
-#WIN_LIBS= $(WIN_LIB)\kernel32.dll
-#LIBS = $(WIN_LIBS)
+LIBS =  -ldxgi -ld3d11 -ld2d1 -ldwrite -lWindowsCodecs -lole32
 LDFLAGS=-mwindows
 ##################################################
 # make
 
 $(PROGRAM): $(OBJS)
-	g++ $(CFLAGS) -o $(BINDIR)/$(PROGRAM) $(OBJS) $(LDFLAGS) -ld2d1 -ldwrite -lWindowsCodecs -ldxgi -ld3d11 -lole32
+	g++ $(CFLAGS) -o $(BINDIR)/$(PROGRAM) $(OBJS) $(LDFLAGS) $(LIBS)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	gcc $(CFLAGS) -o $@ -c $<
