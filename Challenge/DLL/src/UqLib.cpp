@@ -7,11 +7,7 @@ using namespace uq_lib;
 
 SystemClass* g_pSystemClass;
 
-wstring StringToWString
-(
-	string oString
-)
-{
+wstring StringToWString(string oString) {
 	// SJIS → wstring
 	int iBufferSize = MultiByteToWideChar(CP_ACP, 0, oString.c_str()
 		, -1, (wchar_t*)NULL, 0);
@@ -71,6 +67,23 @@ int CreateFontContener(int height, const char* fontName) {
 	return GraphicsManager::GetInstance()->CreateFontContener(height, StringToWString(fontName));
 }
 
+int CreateTextureFromFile(const char* fileName) {
+	return GraphicsManager::GetInstance()->CreateTextureFromFile(StringToWString(fileName), fileName);
+}
+
+int DrawTexture(int x, int y, int graphicId) {
+	Logger::OutputInfo("### DrawTexture 1");
+	if (graphicId == -1) {
+		return -1;
+	}
+	Logger::OutputInfo("### DrawTexture 2");
+	return GraphicsManager::GetInstance()->DrawTexture(graphicId, x, y);
+}
+
 int DrawString(int x, int y, const char* text, int fontId, UINT32 hexColorCode) {
 	return GraphicsManager::GetInstance()->DrawString(x, y, std::string(text), fontId, hexColorCode);
+}
+
+int DrawLine(int x, int y, int ax, int ay, UINT32 hexColorCode, float width) {
+	return GraphicsManager::GetInstance()->DrawLine(x, y, ax, ay, hexColorCode, width);
 }

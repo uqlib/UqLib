@@ -2,6 +2,8 @@
 // Copyright (c) UqLib. All rights reserved.
 // Licensed under the MIT License.
 // http://uqlib.com
+//
+// getPngSizeメソッドは「https://w.atwiki.jp/miracle_mikuru/pages/133.html」を参考にした
 //-----------------------------------------------------
 #include <wincodec.h>
 //	#include <string.h>
@@ -34,7 +36,9 @@ namespace uq_lib {
 		ComPtr<ID3D11RenderTargetView> d3d11RenderTargetView,
 		ComPtr<ID2D1DeviceContext> d2d1DeviceContext,
 		ComPtr<IDXGISwapChain> dxgiSwapChain,
-		ID2D1SolidColorBrush* pBrush
+		ID2D1SolidColorBrush* pBrush,
+		int width,
+		int height
 	) {
 		HRESULT hr = S_OK;
 		m_hwnd = hWnd;
@@ -42,6 +46,8 @@ namespace uq_lib {
 		m_pD3d11RenderTargetView = d3d11RenderTargetView;
 		m_pD2d1DeviceContext = d2d1DeviceContext;
 		m_pDxgiSwapChain = dxgiSwapChain;
+		m_width = width;
+		m_height = height;
 
 		DWriteCreateFactory(DWRITE_FACTORY_TYPE_SHARED, __uuidof(IDWriteFactory), reinterpret_cast<IUnknown**>(&m_pDWR_Factory));
 
@@ -135,14 +141,58 @@ namespace uq_lib {
 		return fc.fontId;
 	}
 
-	int GraphicsManager::CreateTextureFromFile(wstring fileName) {
+	bool getPngSize(LPCTSTR path, UINT* width, UINT* height)
+	{
+		FILE* f = fopen(path, "rb");
+		if(!f) return false;
+
+		BYTE header[8];// PNGファイルシグネチャ
+		if(fread(header, sizeof(BYTE), 8, f) < 8){ fclose(f); return false; }
+
+		const static BYTE png[] = { 0x89, 'P', 'N', 'G', 0x0d, 0x0a, 0x1a, 0x0a };
+		if(memcmp(header, png, 8) != 0){ fclose(f); return false; }
+
+		BYTE ihdr[25];// IHDRチャンク(イメージヘッダ)
+		if(fread(ihdr, sizeof(BYTE), 25, f) < 25){ fclose(f); return false; }
+
+		// length = 13 (0x0D)
+		const static BYTE length[] = { 0x00, 0x00, 0x00, 0x0D };
+		if(memcmp(ihdr, length, 4) != 0){ fclose(f); return false; }
+
+		// IHDR
+		if(memcmp(ihdr+4, "IHDR", 4) != 0){ fclose(f); return false; }
+
+		BYTE* p;
+
+		DWORD w;
+		p = (BYTE*)&w;
+		p[0] = ihdr[8+3];
+		p[1] = ihdr[8+2];
+		p[2] = ihdr[8+1];
+		p[3] = ihdr[8+0];
+
+		DWORD h;
+		p = (BYTE*)&h;
+		p[0] = ihdr[12+3];
+		p[1] = ihdr[12+2];
+		p[2] = ihdr[12+1];
+		p[3] = ihdr[12+0];
+
+		*width  = (UINT)w;
+		*height = (UINT)h;
+
+		fclose(f);
+		return true;
+	}
+
+	int GraphicsManager::CreateTextureFromFile(wstring wFileName, string fileName) {
 		HRESULT hr = S_OK;
 
 		TextureContener tc;
 		IWICBitmapDecoder* dec;
 		// デコード
 		hr = m_pImagingFactory->CreateDecoderFromFilename(
-			fileName.c_str(),
+			wFileName.c_str(),
 			NULL,
 			GENERIC_READ,
 			WICDecodeMetadataCacheOnLoad,
@@ -181,7 +231,7 @@ namespace uq_lib {
 		SAFE_RELEASE(dec);
 		SAFE_RELEASE(frame)
 
-			ID2D1Bitmap* pBitmap = NULL;
+		ID2D1Bitmap* pBitmap = NULL;
 		hr = m_pD2d1DeviceContext->CreateBitmapFromWicBitmap(converter, NULL, &pBitmap);
 		if (FAILED(hr)) {
 			Logger::OutputWarn("CreateBitmapFromWicBitmapに失敗。");
@@ -189,13 +239,15 @@ namespace uq_lib {
 		}
 
 		if (pBitmap != NULL) {
-			D2D1_SIZE_F d2d1Size = pBitmap->GetSize();
+			UINT width;
+			UINT height;
+			getPngSize(fileName.c_str(), &width, &height);
+			//D2D1_SIZE_F d2d1Size = pBitmap->GetSize(); MinGWでGetSize()は異常値が返るので使えない
 			tc.textureId = m_textureId;
 			tc.pBitmap = pBitmap;
 			tc.loadCnt = 1;
-			tc.width = d2d1Size.width;
-			tc.height = d2d1Size.height;
-
+			tc.width = width;
+			tc.height = height;
 			m_textures.push_back(tc);
 			m_textureId++;
 			return tc.textureId;
@@ -360,7 +412,6 @@ namespace uq_lib {
 	}
 
 	int GraphicsManager::DrawString(int x, int y, string text, int fontId, UINT32 hexColorCode, float opacity) {
-/*		D2D1_SIZE_F targetSize = m_pD2d1DeviceContext->GetSize();
 		FontContener fc = GetFontContener(fontId);
 
 		wchar_t wbuf[256]; MultiByteToWideChar(CP_ACP, 0, text.c_str(), -1, wbuf, 256);
@@ -375,61 +426,12 @@ namespace uq_lib {
 				wbuf
 				, wcslen(wbuf)
 				, fc.pFont
-				, D2D1::RectF((float)x, (float)y, targetSize.width, targetSize.height)
+				, D2D1::RectF((float)x, (float)y, m_width, m_height)
 				, pBrush
 			);
 			pBrush->Release();
 		}
-*/
-/*		ID2D1SolidColorBrush* pBrush = NULL;
-		m_pD2d1DeviceContext->CreateSolidColorBrush(
-			//D2D1::ColorF(0x00FF00, 1.0)
-			D2D1::ColorF(D2D1::ColorF::White, 1.0f)
-			, &pBrush
-		);
-		if (pBrush != NULL) {
-			m_pD2d1DeviceContext->DrawLine(
-				D2D1::Point2F((float)10, (float)10),
-				D2D1::Point2F((float)100, (float)100),
-				pBrush,
-				5
-			);
-			pBrush->Release();
-		}
-*/		
-		
-	// ブラシの生成
-		ID2D1SolidColorBrush* pBrush = NULL;
-		{
-		    m_pD2d1DeviceContext->CreateSolidColorBrush(
-		              D2D1::ColorF(
-		                      2.0f  // R
-		                    , 4.0f  // G
-		                    , 3.0f  // B
-		                    , 1.0f  // A
-		                )
-		            , &pBrush
-		        );
-		}
 
-		if ( NULL != pBrush ) {
-
-		    // 始点
-		    D2D1_POINT_2F tPosS = D2D1::Point2F( 0, 0 );
-
-		    // 終点
-		    D2D1_POINT_2F tPosE = D2D1::Point2F( 100, 200 );
-
-		    // 線の幅
-		    float fStrokeWidth = (float)( 5 );
-
-		    // 線の描画
-		    m_pD2d1DeviceContext->DrawLine( tPosS, tPosE, pBrush, fStrokeWidth );
-
-		    // ブラシの破棄
-		    pBrush->Release();
-		}
-		
 		return 0;
 	}
 

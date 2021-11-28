@@ -20,6 +20,7 @@ namespace uq_lib {
 	}
 
 	int DirectXManager::InitializeDirectX(HWND hWnd, int width, int height, bool isFullscreen) {
+		HRESULT hr = S_OK;
 		// D3D11初期化
 #ifdef _DEBUG
 		const UINT flags = D3D11_CREATE_DEVICE_BGRA_SUPPORT | D3D11_CREATE_DEVICE_DEBUG | D3D11_CREATE_DEVICE_SINGLETHREADED;
@@ -28,8 +29,14 @@ namespace uq_lib {
 #endif
 		Microsoft::WRL::ComPtr<ID3D11Device> d3d11Device;
 
-		D3D11CreateDevice(nullptr, D3D_DRIVER_TYPE_HARDWARE, nullptr, flags, nullptr, 0, D3D11_SDK_VERSION,
+		hr = D3D11CreateDevice(nullptr, D3D_DRIVER_TYPE_HARDWARE, nullptr, flags, nullptr, 0, D3D11_SDK_VERSION,
 			&d3d11Device, nullptr, &m_d3d11DeviceContext);
+		if (FAILED(hr))
+		{
+			Logger::OutputWarn("D3D11CreateDeviceに失敗。");
+			return -1;
+		}
+		Logger::OutputInfo("D3D11CreateDeviceに成功。");
 
 		Microsoft::WRL::ComPtr<IDXGIDevice1> dxgiDevice;
 		d3d11Device.As(&dxgiDevice);
@@ -89,7 +96,7 @@ namespace uq_lib {
 		// &pBrushは、文字列描画で使用する
 		m_d2d1DeviceContext->CreateSolidColorBrush(D2D1::ColorF(0xffffff, 1.f), &m_pBrush);
 
-		GraphicsManager::GetInstance()->Init(hWnd, m_d3d11DeviceContext, m_d3d11RenderTargetView, m_d2d1DeviceContext, m_dxgiSwapChain, m_pBrush);
+		GraphicsManager::GetInstance()->Init(hWnd, m_d3d11DeviceContext, m_d3d11RenderTargetView, m_d2d1DeviceContext, m_dxgiSwapChain, m_pBrush, width, height);
 
 		return 0;
 	}

@@ -18,11 +18,7 @@ SystemClass* g_pSystemClass;
 int g_screenWidth = DEFAULT_WIDTH;
 int g_screenHeight = DEFAULT_HEIGHT;
 
-wstring StringToWString
-(
-	string oString
-)
-{
+wstring StringToWString(string oString) {
 	// SJIS → wstring
 	int iBufferSize = MultiByteToWideChar(CP_ACP, 0, oString.c_str()
 		, -1, (wchar_t*)NULL, 0);
@@ -42,10 +38,6 @@ wstring StringToWString
 
 	// 変換結果を返す
 	return(oRet);
-}
-
-int CreateTextureFromDatFile(const char* fileName) {
-	return GraphicsManager::GetInstance()->CreateTextureFromDatFile(std::string(fileName));
 }
 
 int UqLibInit(const char* title) {
@@ -85,6 +77,10 @@ int CreateFontContener(int height, const char* fontName) {
 
 int CreateTextureFromFile(const char* fileName) {
 	return GraphicsManager::GetInstance()->CreateTextureFromFile(StringToWString(fileName));
+}
+
+int CreateTextureFromDatFile(const char* fileName) {
+	return GraphicsManager::GetInstance()->CreateTextureFromDatFile(std::string(fileName));
 }
 
 int DrawTexture(int x, int y, int graphicId) {

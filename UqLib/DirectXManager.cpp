@@ -91,7 +91,7 @@ namespace uq_lib {
 		// &pBrush‚ÍA•¶Žš—ñ•`‰æ‚ÅŽg—p‚·‚é
 		m_d2d1DeviceContext->CreateSolidColorBrush(D2D1::ColorF(0xffffff, 1.f), &m_pBrush);
 
-		GraphicsManager::GetInstance()->Init(hWnd, m_d3d11DeviceContext, m_d3d11RenderTargetView, m_d2d1DeviceContext, m_dxgiSwapChain, m_pBrush);
+		GraphicsManager::GetInstance()->Init(hWnd, m_d3d11DeviceContext, m_d3d11RenderTargetView, m_d2d1DeviceContext, m_dxgiSwapChain, m_pBrush, width, height);
 
 		return 0;
 	}

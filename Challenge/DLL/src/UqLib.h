@@ -24,6 +24,12 @@ extern "C" __declspec (dllexport) int UpdateWindowMessage();
 
 extern "C" __declspec (dllexport) int CreateFontContener(int height, const char* fontName);
 
+extern "C" __declspec (dllexport) int CreateTextureFromFile(const char * filename);
+
+extern "C" __declspec (dllexport) int DrawTexture(int x, int y, int graphicId);
+
 extern "C" __declspec (dllexport) int DrawString(int x, int y, const char* text, int fontId, UINT32 hexColorCode);
+
+extern "C" __declspec (dllexport) int DrawLine(int x, int y, int ax, int ay, UINT32 hexColorCode, float width);
 
 #endif

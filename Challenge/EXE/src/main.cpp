@@ -3,20 +3,16 @@
 
 using namespace std;
 
-//__declspec(dllimport) int UqLibInit(int, int);
-
 typedef int(*UQ_LIB_INIT)(const char* title);
 typedef int(*UQ_LIB_END)();
 typedef int(*BEGIN_DRAWING)();
 typedef int(*END_DRAWING)();
 
 typedef int(*CREATE_FONT_CONTENER)(int height, const char* fontName);
+typedef int(*CREATE_TEXTURE_FROM_FILE)(const char * filename);
+typedef int(*DRAW_TEXTURE)(int x, int y, int graphicId);
 typedef int(*DRAW_STRING)(int x, int y, const char* text, int fontId, UINT32 hexColorCode);
-//typedef int(*INIT_SCREEN_SIZE)(int screenWidth, int screenHeight);
-//typedef int(*UPDATE_WINDOW_MESSAGE)();
-//typedef int(*BEGIN_DRAWING)();
-//typedef int(*CREATE_TEXTURE_FROM_FILE)(const char* filename);
-//typedef int(*DRAW_TEXTURE)(int x, int y, int graphicId);
+typedef int(*DRAW_LINE)(int x, int y, int ax, int ay, UINT32 hexColorCode, float width);
 
 int main() {
 	HINSTANCE hDllInstance = ::LoadLibrary("UqLib.dll");//DLL‚ðŽw’è
@@ -29,12 +25,10 @@ int main() {
 	END_DRAWING EndDrawing = (END_DRAWING)GetProcAddress(hDllInstance, "EndDrawing");
 	
 	CREATE_FONT_CONTENER CreateFontContener = (CREATE_FONT_CONTENER)GetProcAddress(hDllInstance, "CreateFontContener");
+	CREATE_TEXTURE_FROM_FILE CreateTextureFromFile = (CREATE_TEXTURE_FROM_FILE)GetProcAddress(hDllInstance, "CreateTextureFromFile");
+	DRAW_TEXTURE DrawTexture = (DRAW_TEXTURE)GetProcAddress(hDllInstance, "DrawTexture");
 	DRAW_STRING DrawString = (DRAW_STRING)GetProcAddress(hDllInstance, "DrawString");
-	//INIT_SCREEN_SIZE InitScreenSize = (INIT_SCREEN_SIZE)GetProcAddress(hDllInstance, "InitScreenSize");
-	//UPDATE_WINDOW_MESSAGE UpdateWindowMessage = (UPDATE_WINDOW_MESSAGE)GetProcAddress(hDllInstance, "UpdateWindowMessage");
-	//BEGIN_DRAWING BeginDrawing = (BEGIN_DRAWING)GetProcAddress(hDllInstance, "BeginDrawing");
-	//CREATE_TEXTURE_FROM_FILE CreateTextureFromFile = (CREATE_TEXTURE_FROM_FILE)GetProcAddress(hDllInstance, "CreateTextureFromFile");
-	//DRAW_TEXTURE DrawTexture = (DRAW_TEXTURE)GetProcAddress(hDllInstance, "DrawTexture");
+	DRAW_LINE DrawLine = (DRAW_LINE)GetProcAddress(hDllInstance, "DrawLine");
 
 	int c;
 	c = UqLibInit("test‚ ");
@@ -44,8 +38,12 @@ int main() {
 	
 	printf("font1: %d\n", font1);
 	
+	int bmp1 = CreateTextureFromFile("test.png");
+
 	while (BeginDrawing() == 0) {
 		DrawString(10, 10, "AAA", font1, 0x00FF00);
+		DrawLine(250, 50, 300, 100, 0x0000FF, 5);
+		DrawTexture(30, 200, bmp1);
 		EndDrawing();
 	}
 

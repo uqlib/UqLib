@@ -67,7 +67,10 @@ namespace uq_lib {
 			Microsoft::WRL::ComPtr<ID3D11RenderTargetView> d3d11RenderTargetView,
 			Microsoft::WRL::ComPtr<ID2D1DeviceContext> d2d1DeviceContext,
 			Microsoft::WRL::ComPtr<IDXGISwapChain> dxgiSwapChain,
-			ID2D1SolidColorBrush* pBrush);
+			ID2D1SolidColorBrush* pBrush,
+			int width,
+			int height
+		);
 
 		/**
 		 * 全リリース
@@ -110,10 +113,11 @@ namespace uq_lib {
 		/**
 		 * ファイルからテクスチャ作成
 		 *
+		 * @param wFileName ワイドファイル名
 		 * @param fileName ファイル名
 		 * @return テクスチャID
 		 */
-		int CreateTextureFromFile(std::wstring fileName);
+		int CreateTextureFromFile(std::wstring wFileName, std::string fileName);
 
 		/**
 		 * Datファイルからテクスチャ作成
@@ -266,6 +270,8 @@ namespace uq_lib {
 		std::vector<FontContener> m_fonts;
 		int m_textureId;
 		int m_fontId;
+		int m_width;
+		int m_height;
 		Microsoft::WRL::ComPtr<ID3D11DeviceContext> m_pD3d11DeviceContext = NULL;
 		Microsoft::WRL::ComPtr<ID3D11RenderTargetView> m_pD3d11RenderTargetView = NULL;
 		

@@ -67,7 +67,10 @@ namespace uq_lib {
 			Microsoft::WRL::ComPtr<ID3D11RenderTargetView> d3d11RenderTargetView,
 			Microsoft::WRL::ComPtr<ID2D1DeviceContext> d2d1DeviceContext,
 			Microsoft::WRL::ComPtr<IDXGISwapChain> dxgiSwapChain,
-			ID2D1SolidColorBrush* pBrush);
+			ID2D1SolidColorBrush* pBrush,
+			int width,
+			int height
+		);
 
 		/**
 		 * ëSÉäÉäÅ[ÉX
@@ -266,6 +269,8 @@ namespace uq_lib {
 		std::vector<FontContener> m_fonts;
 		int m_textureId;
 		int m_fontId;
+		int m_width;
+		int m_height;
 		Microsoft::WRL::ComPtr<ID3D11DeviceContext> m_pD3d11DeviceContext = NULL;
 		Microsoft::WRL::ComPtr<ID3D11RenderTargetView> m_pD3d11RenderTargetView = NULL;
 		

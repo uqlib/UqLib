@@ -12,7 +12,7 @@
 #include <d2d1_1.h>
 #include <d3d11.h>
 #include "Constants.h"
-//#include "Logger.h"
+#include "Logger.h"
 
 namespace uq_lib {
 

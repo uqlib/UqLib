@@ -34,7 +34,9 @@ namespace uq_lib {
 		ComPtr<ID3D11RenderTargetView> d3d11RenderTargetView,
 		ComPtr<ID2D1DeviceContext> d2d1DeviceContext,
 		ComPtr<IDXGISwapChain> dxgiSwapChain,
-		ID2D1SolidColorBrush* pBrush
+		ID2D1SolidColorBrush* pBrush,
+		int width,
+		int height
 	) {
 		HRESULT hr = S_OK;
 		m_hwnd = hWnd;
@@ -42,6 +44,8 @@ namespace uq_lib {
 		m_pD3d11RenderTargetView = d3d11RenderTargetView;
 		m_pD2d1DeviceContext = d2d1DeviceContext;
 		m_pDxgiSwapChain = dxgiSwapChain;
+		m_width = width;
+		m_height = height;
 
 		DWriteCreateFactory(DWRITE_FACTORY_TYPE_SHARED, __uuidof(IDWriteFactory), reinterpret_cast<IUnknown**>(&m_pDWR_Factory));
 
@@ -357,7 +361,6 @@ namespace uq_lib {
 	}
 
 	int GraphicsManager::DrawString(int x, int y, string text, int fontId, UINT32 hexColorCode, float opacity) {
-		D2D1_SIZE_F targetSize = m_pD2d1DeviceContext->GetSize();
 		FontContener fc = GetFontContener(fontId);
 
 		wchar_t wbuf[256]; MultiByteToWideChar(CP_ACP, 0, text.c_str(), -1, wbuf, 256);
@@ -372,7 +375,7 @@ namespace uq_lib {
 				wbuf
 				, wcslen(wbuf)
 				, fc.pFont
-				, D2D1::RectF((float)x, (float)y, targetSize.width, targetSize.height)
+				, D2D1::RectF((float)x, (float)y, m_width, m_height)
 				, pBrush
 			);
 			pBrush->Release();
