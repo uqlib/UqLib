@@ -113,7 +113,7 @@ namespace UqLibCsharpSample
                 // RETURN
                 if (CheckPressedKey(1) != 0)
                 {
-                    PlaySoundFromFile("data/sample_se.wav", 2);
+                    PlaySoundFromFile("sample_se.wav", 2);
                     DrawString(10, 10 + n, "ENTER", font1, 0x00FF00);
                     n += 20;
                 }

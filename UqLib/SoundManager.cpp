@@ -111,7 +111,7 @@ namespace uq_lib {
 		DWORD waveSize = 0;
 		char str[256] = { 0 };
 		sprintf_s(str, "%s", fileName.c_str());
-		if (!OpenWaveFromFile(str, wFmt, &pWaveData, waveSize)) {
+		if (OpenWaveFromFile(str, wFmt, &pWaveData, waveSize) != 0) {
 			Logger::OutputDebug("SoundManager.cpp SoundFileOpen end #1");
 			return -1;
 		}
