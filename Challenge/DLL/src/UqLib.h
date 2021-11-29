@@ -1,3 +1,8 @@
+//-----------------------------------------------------
+// Copyright (c) UqLib. All rights reserved.
+// Licensed under the MIT License.
+// http://uqlib.com
+//-----------------------------------------------------
 #ifndef UQ_LIB_H
 #define UQ_LIB_H
 

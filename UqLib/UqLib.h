@@ -10,13 +10,6 @@
 #include "Logger.h"
 #include "Constants.h"
 
-// DirectX11系の静的ライブラリをリンク
-#pragma comment(lib, "d2d1.lib")
-#pragma comment(lib, "dwrite.lib")
-#pragma comment(lib, "windowscodecs.lib")//テキスト表示用
-#pragma comment(lib, "dxgi.lib")
-#pragma comment(lib, "d3d11.lib")
-
 // サウンド系の静的ライブラリをリンク
 #pragma comment(lib, "dxguid.lib")
 #pragma comment(lib, "dsound.lib")
