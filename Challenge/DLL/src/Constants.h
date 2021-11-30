@@ -11,9 +11,6 @@
 
 namespace uq_lib {
 
-	static const int DONE = 0;
-	static const int FAIL = -1;
-
 	// Logger
 	enum Log
 	{

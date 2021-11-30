@@ -1,5 +1,11 @@
+//-----------------------------------------------------
+// Copyright (c) UqLib. All rights reserved.
+// Licensed under the MIT License.
+// http://uqlib.com
+//-----------------------------------------------------
 #include <stdio.h>
 #include "UqLib.h"
+#include "SoundManager.h"
 #include "GraphicsManager.h"
 
 using namespace std;
@@ -39,6 +45,13 @@ int UqLibInit(const char* title) {
 }
 
 int UqLibEnd() {
+	SoundManager::GetInstance()->AllStop(); // サウンド全停止と破棄
+	SoundManager::GetInstance()->Destroy();
+	GraphicsManager::GetInstance()->ReleaseAll();
+	GraphicsManager::GetInstance()->Destroy();
+
+	delete g_pSystemClass;
+	g_pSystemClass = 0;
 	return 0;
 }
 
@@ -76,11 +89,9 @@ int CreateTextureFromDatFile(const char* fileName) {
 }
 
 int DrawTexture(int x, int y, int graphicId) {
-	Logger::OutputInfo("### DrawTexture 1");
 	if (graphicId == -1) {
 		return -1;
 	}
-	Logger::OutputInfo("### DrawTexture 2");
 	return GraphicsManager::GetInstance()->DrawTexture(graphicId, x, y);
 }
 
@@ -115,6 +126,14 @@ int DrawStringAlpha(int x, int y, const char* text, int fontId, UINT32 hexColorC
 
 int CheckPressedKey(int keyCode) {
 	return g_pSystemClass->CheckPressedKey(keyCode);
+}
+
+int CheckPressKey(int keyCode) {
+	return g_pSystemClass->CheckPressKey(keyCode);
+}
+
+int PlaySoundFromFile(const char* fileName, int playType) {
+	return SoundManager::GetInstance()->PlaySoundFromFile(std::string(fileName), playType);
 }
 
 int DrawLine(int x, int y, int ax, int ay, UINT32 hexColorCode, float width) {

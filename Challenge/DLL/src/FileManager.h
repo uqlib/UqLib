@@ -6,9 +6,7 @@
 #ifndef UQ_LIB_FILEMANAGER_H
 #define UQ_LIB_FILEMANAGER_H
 
-#include <string>
-
-//#include "Logger.h"
+#include "Logger.h"
 
 namespace uq_lib {
 

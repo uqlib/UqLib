@@ -154,6 +154,23 @@ extern "C" __declspec (dllexport) int DrawStringAlpha(int x, int y, const char* 
  */
 extern "C" __declspec (dllexport) int CheckPressedKey(int keyCode);
 
+/**
+ * キーを押しているか確認
+ *
+ * @param keyCode キーコード
+ * @return 0：押していない、1：押している
+ */
+extern "C" __declspec (dllexport) int CheckPressKey(int keyCode);
+
+/**
+ * ファイルからサウンド再生
+ *
+ * @param fileName ファイル名
+ * @param playType 再生タイプ
+ * @return 成功（0）、失敗（-1）
+ */
+extern "C" __declspec (dllexport) int PlaySoundFromFile(const char* fileName, int playType);
+
 extern "C" __declspec (dllexport) int DrawLine(int x, int y, int ax, int ay, UINT32 hexColorCode, float width);
 
 #endif

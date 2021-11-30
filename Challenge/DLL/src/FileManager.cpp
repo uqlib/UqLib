@@ -23,7 +23,7 @@ namespace uq_lib {
 	int FileManager::LoadFileFromDatFile(string fileName, char** buffer, long* size) {
 		FILE* fp;
 		if (fopen_s(&fp, fileName.c_str(), "rb") != 0) {
-			//Logger::OutputWarn("ファイル読み込みに失敗。");
+			Logger::OutputWarn("ファイル読み込みに失敗。");
 			return -1;
 		}
 
@@ -33,7 +33,7 @@ namespace uq_lib {
 		rewind(fp);
 		*buffer = (char*)malloc(sizeof(char) * (*size));
 		if (*buffer == NULL) {
-			//Logger::OutputWarn("メモリ確保に失敗。");
+			Logger::OutputWarn("メモリ確保に失敗。");
 			return -1;
 		}
 		fread(*buffer, 1, *size, fp);

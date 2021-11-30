@@ -20,7 +20,6 @@ namespace uq_lib {
 	}
 
 	int DirectXManager::InitializeDirectX(HWND hWnd, int width, int height, bool isFullscreen) {
-		HRESULT hr = S_OK;
 		// D3D11èâä˙âª
 #ifdef _DEBUG
 		const UINT flags = D3D11_CREATE_DEVICE_BGRA_SUPPORT | D3D11_CREATE_DEVICE_DEBUG | D3D11_CREATE_DEVICE_SINGLETHREADED;
@@ -28,15 +27,8 @@ namespace uq_lib {
 		const UINT flags = D3D11_CREATE_DEVICE_BGRA_SUPPORT | D3D11_CREATE_DEVICE_SINGLETHREADED;
 #endif
 		Microsoft::WRL::ComPtr<ID3D11Device> d3d11Device;
-
-		hr = D3D11CreateDevice(nullptr, D3D_DRIVER_TYPE_HARDWARE, nullptr, flags, nullptr, 0, D3D11_SDK_VERSION,
+		D3D11CreateDevice(nullptr, D3D_DRIVER_TYPE_HARDWARE, nullptr, flags, nullptr, 0, D3D11_SDK_VERSION,
 			&d3d11Device, nullptr, &m_d3d11DeviceContext);
-		if (FAILED(hr))
-		{
-			Logger::OutputWarn("D3D11CreateDeviceÇ…é∏îsÅB");
-			return -1;
-		}
-		Logger::OutputInfo("D3D11CreateDeviceÇ…ê¨å˜ÅB");
 
 		Microsoft::WRL::ComPtr<IDXGIDevice1> dxgiDevice;
 		d3d11Device.As(&dxgiDevice);
