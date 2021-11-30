@@ -71,6 +71,10 @@ int CreateTextureFromFile(const char* fileName) {
 	return GraphicsManager::GetInstance()->CreateTextureFromFile(StringToWString(fileName), fileName);
 }
 
+int CreateTextureFromDatFile(const char* fileName) {
+	return GraphicsManager::GetInstance()->CreateTextureFromDatFile(std::string(fileName));
+}
+
 int DrawTexture(int x, int y, int graphicId) {
 	Logger::OutputInfo("### DrawTexture 1");
 	if (graphicId == -1) {
@@ -78,6 +82,13 @@ int DrawTexture(int x, int y, int graphicId) {
 	}
 	Logger::OutputInfo("### DrawTexture 2");
 	return GraphicsManager::GetInstance()->DrawTexture(graphicId, x, y);
+}
+
+int DrawTextureAlpha(int x, int y, int graphicId, float opacity) {
+	if (graphicId == -1) {
+		return -1;
+	}
+	return GraphicsManager::GetInstance()->DrawTexture(graphicId, x, y, opacity);
 }
 
 int DrawString(int x, int y, const char* text, int fontId, UINT32 hexColorCode) {

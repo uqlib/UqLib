@@ -71,6 +71,16 @@ int EndDrawing() {
 	return GraphicsManager::GetInstance()->EndDrawing();
 }
 
+int UpdateWindowMessage() {
+	if (g_pSystemClass->UpdateWindow() == -1) {
+		return -1;
+	}
+	if (g_pSystemClass->IsQuitMessage() == -1) {
+		return -1;
+	}
+	return 0;
+}
+
 int CreateFontContener(int height, const char* fontName) {
 	return GraphicsManager::GetInstance()->CreateFontContener(height, StringToWString(fontName));
 }
@@ -117,16 +127,6 @@ int DrawString(int x, int y, const char* text, int fontId, UINT32 hexColorCode) 
 
 int DrawStringAlpha(int x, int y, const char* text, int fontId, UINT32 hexColorCode, float opacity) {
 	return GraphicsManager::GetInstance()->DrawString(x, y, std::string(text), fontId, hexColorCode, opacity);
-}
-
-int UpdateWindowMessage() {
-	if (g_pSystemClass->UpdateWindow() == -1) {
-		return -1;
-	}
-	if (g_pSystemClass->IsQuitMessage() == -1) {
-		return -1;
-	}
-	return 0;
 }
 
 int CheckPressedKey(int keyCode) {

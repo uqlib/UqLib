@@ -26,6 +26,27 @@ extern "C" __declspec (dllexport) int UqLibInit(const char* title);
 extern "C" __declspec (dllexport) int UqLibEnd();
 
 /**
+ * 描画開始
+ *
+ * @return 成功（0）、失敗（-1）
+ */
+extern "C" __declspec (dllexport) int BeginDrawing();
+
+/**
+ * 描画終了
+ *
+ * @return 成功（0）、失敗（-1）
+ */
+extern "C" __declspec (dllexport) int EndDrawing();
+
+/**
+ * ウィンドウメッセージ更新
+ *
+ * @return 成功（0）、失敗（-1）
+ */
+extern "C" __declspec (dllexport) int UpdateWindowMessage();
+
+/**
  * フォントコンテナ作成
  *
  * @param height   高さ
@@ -126,13 +147,6 @@ extern "C" __declspec (dllexport) int DrawString(int x, int y, const char* text,
 extern "C" __declspec (dllexport) int DrawStringAlpha(int x, int y, const char* text, int fontId, UINT32 hexColorCode, float opacity);
 
 /**
- * ウィンドウメッセージ更新
- *
- * @return 成功（0）、失敗（-1）
- */
-extern "C" __declspec (dllexport) int UpdateWindowMessage();
-
-/**
  * キーを押したか確認
  *
  * @param keyCode キーコード
@@ -147,20 +161,6 @@ extern "C" __declspec (dllexport) int CheckPressedKey(int keyCode);
  * @return 0：押していない、1：押している
  */
 extern "C" __declspec (dllexport) int CheckPressKey(int keyCode);
-
-/**
- * 描画開始
- *
- * @return 成功（0）、失敗（-1）
- */
-extern "C" __declspec (dllexport) int BeginDrawing();
-
-/**
- * 描画終了
- *
- * @return 成功（0）、失敗（-1）
- */
-extern "C" __declspec (dllexport) int EndDrawing();
 
 /**
  * ファイルからサウンド再生
