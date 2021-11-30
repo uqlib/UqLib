@@ -91,8 +91,30 @@ int DrawTextureAlpha(int x, int y, int graphicId, float opacity) {
 	return GraphicsManager::GetInstance()->DrawTexture(graphicId, x, y, opacity);
 }
 
+int DrawTextureClip(int x, int y, int graphicId, int cx, int cy, int cw, int ch) {
+	if (graphicId == -1) {
+		return -1;
+	}
+	return GraphicsManager::GetInstance()->DrawTexture(graphicId, x, y, cx, cy, cw, ch);
+}
+
+int DrawTextureClipAlpha(int x, int y, int graphicId, int cx, int cy, int cw, int ch, float opacity) {
+	if (graphicId == -1) {
+		return -1;
+	}
+	return GraphicsManager::GetInstance()->DrawTexture(graphicId, x, y, cx, cy, cw, ch, opacity);
+}
+
 int DrawString(int x, int y, const char* text, int fontId, UINT32 hexColorCode) {
 	return GraphicsManager::GetInstance()->DrawString(x, y, std::string(text), fontId, hexColorCode);
+}
+
+int DrawStringAlpha(int x, int y, const char* text, int fontId, UINT32 hexColorCode, float opacity) {
+	return GraphicsManager::GetInstance()->DrawString(x, y, std::string(text), fontId, hexColorCode, opacity);
+}
+
+int CheckPressedKey(int keyCode) {
+	return g_pSystemClass->CheckPressedKey(keyCode);
 }
 
 int DrawLine(int x, int y, int ax, int ay, UINT32 hexColorCode, float width) {
