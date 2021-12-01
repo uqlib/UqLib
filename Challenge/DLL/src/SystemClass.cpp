@@ -205,6 +205,15 @@ namespace uq_lib {
 	}
 
 	int SystemClass::UpdateKeyboardState() {
+		DWORD now = timeGetTime();
+
+		// “¯ˆêƒ~ƒŠ•b‚Ìê‡‚Í•ÏX‚µ‚È‚¢
+		if (m_time == now) {
+			return 0;
+		}
+
+		m_time = now;
+
 		BYTE keyStates[256];
 		if (GetKeyboardState(keyStates) == 0) {
 			// ¸”s‚·‚é‚Æ0‚ª•Ô‚é
