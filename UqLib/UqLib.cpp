@@ -1,4 +1,4 @@
-﻿//-----------------------------------------------------
+//-----------------------------------------------------
 // Copyright (c) UqLib. All rights reserved.
 // Licensed under the MIT License.
 // http://uqlib.com

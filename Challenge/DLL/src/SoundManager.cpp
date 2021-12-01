@@ -10,7 +10,7 @@ using namespace std;
 namespace uq_lib {
 
 	SoundManager* SoundManager::m_sm = NULL;
-	bool SoundManager::m_destroyFlg = true; // Phoenix Singleton‰ñ”ğ—p
+	bool SoundManager::m_destroyFlg = true; // Phoenix Singletonå›é¿ç”¨
 
 	SoundManager::SoundManager() {
 		m_hwnd = NULL;
@@ -36,7 +36,7 @@ namespace uq_lib {
 		int ret = 0;
 		switch (playType) {
 		case D_PLAY_SOUND_BGM:
-			StopSoundEX(0); // BGM‚ªÄ¶‚³‚ê‚Ä‚¢‚é‚Ì‚É‚a‚f‚l‚ğ“o˜^‚µ‚æ‚¤‚Æ‚µ‚½Û‚Ííœ‚µÄƒZƒbƒgid—l•ÏX‚Ìê‡‚Í‚±‚±C³
+			StopSoundEX(0); // BGMãŒå†ç”Ÿã•ã‚Œã¦ã„ã‚‹ã®ã«ï¼¢ï¼§ï¼­ã‚’ç™»éŒ²ã—ã‚ˆã†ã¨ã—ãŸéš›ã¯å‰Šé™¤ã—å†ã‚»ãƒƒãƒˆï¼ˆä»•æ§˜å¤‰æ›´ã®å ´åˆã¯ã“ã“ä¿®æ­£
 			ret = SoundFileOpen(fileName, DSBPLAY_LOOPING, 0);
 			break;
 		case D_PLAY_SOUND_SE:
@@ -84,7 +84,7 @@ namespace uq_lib {
 			if (m_pSoundBuffer[i] != NULL) {
 				DWORD state;
 				m_pSoundBuffer[i]->GetStatus(&state);
-				// ƒXƒe[ƒ^ƒX‚ª‚O‚Ìê‡‚ÍI—¹ó‘Ô
+				// ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãŒï¼ã®å ´åˆã¯çµ‚äº†çŠ¶æ…‹
 				if (state == 0) {
 					m_pSoundBuffer[i]->Stop();
 					SAFE_RELEASE(m_pSoundBuffer[i]);
@@ -105,7 +105,7 @@ namespace uq_lib {
 	}
 
 	int SoundManager::SoundFileOpen(string fileName, int playType, int port) {
-		// Waveƒtƒ@ƒCƒ‹ƒI[ƒvƒ“
+		// Waveãƒ•ã‚¡ã‚¤ãƒ«ã‚ªãƒ¼ãƒ—ãƒ³
 		WAVEFORMATEX wFmt;
 		char* pWaveData = 0;
 		DWORD waveSize = 0;
@@ -138,16 +138,16 @@ namespace uq_lib {
 			return -1;
 		}
 
-		// ƒZƒJƒ“ƒ_ƒŠƒoƒbƒtƒ@‚ÉWaveƒf[ƒ^‘‚«‚İ
+		// ã‚»ã‚«ãƒ³ãƒ€ãƒªãƒãƒƒãƒ•ã‚¡ã«Waveãƒ‡ãƒ¼ã‚¿æ›¸ãè¾¼ã¿
 		LPVOID lpvWrite = 0;
 		DWORD dwLength = 0;
 		if (DS_OK == m_pSoundBuffer[port]->Lock(0, 0, &lpvWrite, &dwLength, NULL, NULL, DSBLOCK_ENTIREBUFFER)) {
 			memcpy(lpvWrite, pWaveData, dwLength);
 			m_pSoundBuffer[port]->Unlock(lpvWrite, dwLength, NULL, 0);
 		}
-		delete[] pWaveData; // Œ³‰¹‚Í‚à‚¤‚¢‚ç‚È‚¢
+		delete[] pWaveData; // å…ƒéŸ³ã¯ã‚‚ã†ã„ã‚‰ãªã„
 
-		// Ä¶
+		// å†ç”Ÿ
 		m_pSoundBuffer[port]->Play(0, 0, playType);
 		return 0;
 	}
@@ -161,19 +161,19 @@ namespace uq_lib {
 		HMMIO hMmio = NULL;
 		MMIOINFO mmioInfo;
 
-		// Waveƒtƒ@ƒCƒ‹ƒI[ƒvƒ“
+		// Waveãƒ•ã‚¡ã‚¤ãƒ«ã‚ªãƒ¼ãƒ—ãƒ³
 		memset(&mmioInfo, 0, sizeof(MMIOINFO));
 		hMmio = mmioOpen(const_cast<LPSTR>(filePath.c_str()), &mmioInfo, MMIO_READ);
 		if (!hMmio) {
 			Logger::OutputDebug("SoundManager.cpp OpenWaveFromFile end #2");
-			return -1; // ƒtƒ@ƒCƒ‹ƒI[ƒvƒ“¸”s
+			return -1; // ãƒ•ã‚¡ã‚¤ãƒ«ã‚ªãƒ¼ãƒ—ãƒ³å¤±æ•—
 		}
 		return OpenWave(hMmio, waveFormatEx, ppData, dataSize);
 	}
 
 	int SoundManager::OpenWave(HMMIO hMmio, WAVEFORMATEX& waveFormatEx, char** ppData, DWORD& dataSize) {
-		// RIFFƒ`ƒƒƒ“ƒNŒŸõ
-		MMRESULT mmRes = NULL;
+		// RIFFãƒãƒ£ãƒ³ã‚¯æ¤œç´¢
+		MMRESULT mmRes = 0;
 		MMCKINFO riffChunk;
 		riffChunk.fccType = mmioFOURCC('W', 'A', 'V', 'E');
 		mmRes = mmioDescend(hMmio, &riffChunk, NULL, MMIO_FINDRIFF);
@@ -183,7 +183,7 @@ namespace uq_lib {
 			return -1;
 		}
 
-		// ƒtƒH[ƒ}ƒbƒgƒ`ƒƒƒ“ƒNŒŸõ
+		// ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆãƒãƒ£ãƒ³ã‚¯æ¤œç´¢
 		MMCKINFO formatChunk;
 		formatChunk.ckid = mmioFOURCC('f', 'm', 't', ' ');
 		mmRes = mmioDescend(hMmio, &formatChunk, &riffChunk, MMIO_FINDCHUNK);
@@ -202,7 +202,7 @@ namespace uq_lib {
 
 		mmioAscend(hMmio, &formatChunk, 0);
 
-		// ƒf[ƒ^ƒ`ƒƒƒ“ƒNŒŸõ
+		// ãƒ‡ãƒ¼ã‚¿ãƒãƒ£ãƒ³ã‚¯æ¤œç´¢
 		MMCKINFO dataChunk;
 		dataChunk.ckid = mmioFOURCC('d', 'a', 't', 'a');
 		mmRes = mmioDescend(hMmio, &dataChunk, &riffChunk, MMIO_FINDCHUNK);
@@ -220,7 +220,7 @@ namespace uq_lib {
 		}
 		dataSize = size;
 
-		// ƒnƒ“ƒhƒ‹ƒNƒ[ƒY
+		// ãƒãƒ³ãƒ‰ãƒ«ã‚¯ãƒ­ãƒ¼ã‚º
 		mmioClose(hMmio, 0);
 		return 0;
 	}

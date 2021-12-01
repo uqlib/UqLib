@@ -11,395 +11,395 @@
 #include "Constants.h"
 
 /**
- * UqLib‰Šú‰»
+ * UqLibåˆæœŸåŒ–
  *
- * @param title ƒ^ƒCƒgƒ‹
- * @return ¬Œ÷i0jA¸”si-1j
+ * @param title ã‚¿ã‚¤ãƒˆãƒ«
+ * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
  */
 extern "C" __declspec (dllexport) int UqLibInit(const char* title);
 
 /**
- * UqLibI—¹ˆ—
+ * UqLibçµ‚äº†å‡¦ç†
  *
- * @return ¬Œ÷i0jA¸”si-1j
+ * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
  */
 extern "C" __declspec (dllexport) int UqLibEnd();
 
 /**
- * •`‰æŠJn
+ * æç”»é–‹å§‹
  *
- * @return ¬Œ÷i0jA¸”si-1j
+ * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
  */
 extern "C" __declspec (dllexport) int BeginDrawing();
 
 /**
- * •`‰æI—¹
+ * æç”»çµ‚äº†
  *
- * @return ¬Œ÷i0jA¸”si-1j
+ * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
  */
 extern "C" __declspec (dllexport) int EndDrawing();
 
 /**
- * ƒEƒBƒ“ƒhƒEƒƒbƒZ[ƒWXV
+ * ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸æ›´æ–°
  *
- * @return ¬Œ÷i0jA¸”si-1j
+ * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
  */
 extern "C" __declspec (dllexport) int UpdateWindowMessage();
 
 /**
- * ƒtƒHƒ“ƒgƒRƒ“ƒeƒiì¬
+ * ãƒ•ã‚©ãƒ³ãƒˆã‚³ãƒ³ãƒ†ãƒŠä½œæˆ
  *
- * @param height   ‚‚³
- * @param fontName ƒtƒHƒ“ƒg–¼
- * @return ƒtƒHƒ“ƒgID
+ * @param height   é«˜ã•
+ * @param fontName ãƒ•ã‚©ãƒ³ãƒˆå
+ * @return ãƒ•ã‚©ãƒ³ãƒˆID
  */
 extern "C" __declspec (dllexport) int CreateFontContener(int height, const char* fontName);
 
 /**
- * ƒtƒ@ƒCƒ‹‚©‚çƒeƒNƒXƒ`ƒƒì¬
+ * ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ãƒ†ã‚¯ã‚¹ãƒãƒ£ä½œæˆ
  *
- * @param filename ƒtƒ@ƒCƒ‹–¼
- * @return ƒOƒ‰ƒtƒBƒbƒNIDi¸”s‚Í-1j
+ * @param filename ãƒ•ã‚¡ã‚¤ãƒ«å
+ * @return ã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯IDï¼ˆå¤±æ•—æ™‚ã¯-1ï¼‰
  */
 extern "C" __declspec (dllexport) int CreateTextureFromFile(const char * filename);
 
 /**
- * Datƒtƒ@ƒCƒ‹‚©‚çƒeƒNƒXƒ`ƒƒì¬
+ * Datãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ãƒ†ã‚¯ã‚¹ãƒãƒ£ä½œæˆ
  * 
- * @param filename ƒtƒ@ƒCƒ‹–¼
- * @return ƒOƒ‰ƒtƒBƒbƒNIDi¸”s‚Í-1j
+ * @param filename ãƒ•ã‚¡ã‚¤ãƒ«å
+ * @return ã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯IDï¼ˆå¤±æ•—æ™‚ã¯-1ï¼‰
  */
 extern "C" __declspec (dllexport) int CreateTextureFromDatFile(const char* fileName);
 
 /**
- * ƒeƒNƒXƒ`ƒƒ•`‰æ
+ * ãƒ†ã‚¯ã‚¹ãƒãƒ£æç”»
  *
- * @param x         XÀ•W
- * @param y         YÀ•W
- * @param graphicId ƒOƒ‰ƒtƒBƒbƒNID
- * @return ¬Œ÷i0jA¸”si-1j
+ * @param x         Xåº§æ¨™
+ * @param y         Yåº§æ¨™
+ * @param graphicId ã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯ID
+ * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
  */
 extern "C" __declspec (dllexport) int DrawTexture(int x, int y, int graphicId);
 
 /**
- * ƒeƒNƒXƒ`ƒƒ•`‰æi“§‰ß‚ ‚èj
+ * ãƒ†ã‚¯ã‚¹ãƒãƒ£æç”»ï¼ˆé€éã‚ã‚Šï¼‰
  *
- * @param x         XÀ•W
- * @param y         YÀ•W
- * @param graphicId ƒOƒ‰ƒtƒBƒbƒNID
- * @param opacity   •s“§–¾“xi“§–¾ 0.0f ` 1.0f •s“§–¾j
- * @return ¬Œ÷i0jA¸”si-1j
+ * @param x         Xåº§æ¨™
+ * @param y         Yåº§æ¨™
+ * @param graphicId ã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯ID
+ * @param opacity   ä¸é€æ˜åº¦ï¼ˆé€æ˜ 0.0f ï½ 1.0f ä¸é€æ˜ï¼‰
+ * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
  */
 extern "C" __declspec (dllexport) int DrawTextureAlpha(int x, int y, int graphicId, float opacity);
 
 /**
- * ƒeƒNƒXƒ`ƒƒ•`‰æƒNƒŠƒbƒv
+ * ãƒ†ã‚¯ã‚¹ãƒãƒ£æç”»ã‚¯ãƒªãƒƒãƒ—
  *
- * @param x         “]‘—æXÀ•W
- * @param y         “]‘—æYÀ•W
- * @param graphicId ƒOƒ‰ƒtƒBƒbƒNID
- * @param sx        “]‘—Œ³XÀ•W
- * @param sy        “]‘—Œ³YÀ•W
- * @param sw        “]‘—Œ³‹éŒ`ƒTƒCƒYi•j
- * @param sh        “]‘—Œ³‹éŒ`ƒTƒCƒYi‚‚³j
- * @return ¬Œ÷i0jA¸”si-1j
+ * @param x         è»¢é€å…ˆXåº§æ¨™
+ * @param y         è»¢é€å…ˆYåº§æ¨™
+ * @param graphicId ã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯ID
+ * @param sx        è»¢é€å…ƒXåº§æ¨™
+ * @param sy        è»¢é€å…ƒYåº§æ¨™
+ * @param sw        è»¢é€å…ƒçŸ©å½¢ã‚µã‚¤ã‚ºï¼ˆå¹…ï¼‰
+ * @param sh        è»¢é€å…ƒçŸ©å½¢ã‚µã‚¤ã‚ºï¼ˆé«˜ã•ï¼‰
+ * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
  */
 extern "C" __declspec (dllexport) int DrawTextureClip(int x, int y, int graphicId, int sx, int sy, int sw, int sh);
 
 /**
- * ƒeƒNƒXƒ`ƒƒ•`‰æƒNƒŠƒbƒvi“§‰ß‚ ‚èj
+ * ãƒ†ã‚¯ã‚¹ãƒãƒ£æç”»ã‚¯ãƒªãƒƒãƒ—ï¼ˆé€éã‚ã‚Šï¼‰
  *
- * @param x         “]‘—æXÀ•W
- * @param y         “]‘—æYÀ•W
- * @param graphicId ƒOƒ‰ƒtƒBƒbƒNID
- * @param sx        “]‘—Œ³XÀ•W
- * @param sy        “]‘—Œ³YÀ•W
- * @param sw        “]‘—Œ³‹éŒ`ƒTƒCƒYi•j
- * @param sh        “]‘—Œ³‹éŒ`ƒTƒCƒYi‚‚³j
- * @param opacity   •s“§–¾“xi“§–¾ 0.0f ` 1.0f •s“§–¾j
- * @return ¬Œ÷i0jA¸”si-1j
+ * @param x         è»¢é€å…ˆXåº§æ¨™
+ * @param y         è»¢é€å…ˆYåº§æ¨™
+ * @param graphicId ã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯ID
+ * @param sx        è»¢é€å…ƒXåº§æ¨™
+ * @param sy        è»¢é€å…ƒYåº§æ¨™
+ * @param sw        è»¢é€å…ƒçŸ©å½¢ã‚µã‚¤ã‚ºï¼ˆå¹…ï¼‰
+ * @param sh        è»¢é€å…ƒçŸ©å½¢ã‚µã‚¤ã‚ºï¼ˆé«˜ã•ï¼‰
+ * @param opacity   ä¸é€æ˜åº¦ï¼ˆé€æ˜ 0.0f ï½ 1.0f ä¸é€æ˜ï¼‰
+ * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
  */
 extern "C" __declspec (dllexport) int DrawTextureClipAlpha(int x, int y, int graphicId, int sx, int sy, int sw, int sh, float opacity);
 
 /**
- * •¶š—ñ•`‰æ
+ * æ–‡å­—åˆ—æç”»
  *
- * @param x             XÀ•W
- * @param y             YÀ•W
- * @param text          ƒeƒLƒXƒg
- * @param fontId        ƒtƒHƒ“ƒgID
- * @param hexColorCode  16i”ƒJƒ‰[ƒR[ƒh
- * @return ¬Œ÷i0jA¸”si-1j
+ * @param x             Xåº§æ¨™
+ * @param y             Yåº§æ¨™
+ * @param text          ãƒ†ã‚­ã‚¹ãƒˆ
+ * @param fontId        ãƒ•ã‚©ãƒ³ãƒˆID
+ * @param hexColorCode  16é€²æ•°ã‚«ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰
+ * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
  */
 extern "C" __declspec (dllexport) int DrawString(int x, int y, const char* text, int fontId, UINT32 hexColorCode);
 
 /**
- * •¶š—ñ•`‰æi“§‰ß‚ ‚èj
+ * æ–‡å­—åˆ—æç”»ï¼ˆé€éã‚ã‚Šï¼‰
  *
- * @param x             XÀ•W
- * @param y             YÀ•W
- * @param text          ƒeƒLƒXƒg
- * @param fontId        ƒtƒHƒ“ƒgID
- * @param hexColorCode  16i”ƒJƒ‰[ƒR[ƒh
- * @param opacity       •s“§–¾“xi“§–¾ 0.0f ` 1.0f •s“§–¾j
- * @return ¬Œ÷i0jA¸”si-1j
+ * @param x             Xåº§æ¨™
+ * @param y             Yåº§æ¨™
+ * @param text          ãƒ†ã‚­ã‚¹ãƒˆ
+ * @param fontId        ãƒ•ã‚©ãƒ³ãƒˆID
+ * @param hexColorCode  16é€²æ•°ã‚«ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰
+ * @param opacity       ä¸é€æ˜åº¦ï¼ˆé€æ˜ 0.0f ï½ 1.0f ä¸é€æ˜ï¼‰
+ * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
  */
 extern "C" __declspec (dllexport) int DrawStringAlpha(int x, int y, const char* text, int fontId, UINT32 hexColorCode, float opacity);
 
 /**
- * ƒL[‚ğ‰Ÿ‚µ‚½‚©Šm”F
+ * ã‚­ãƒ¼ã‚’æŠ¼ã—ãŸã‹ç¢ºèª
  *
- * @param keyCode ƒL[ƒR[ƒh
- * @return 0F‰Ÿ‚µ‚Ä‚¢‚È‚¢A1F‰Ÿ‚µ‚½
+ * @param keyCode ã‚­ãƒ¼ã‚³ãƒ¼ãƒ‰
+ * @return 0ï¼šæŠ¼ã—ã¦ã„ãªã„ã€1ï¼šæŠ¼ã—ãŸ
  */
 extern "C" __declspec (dllexport) int CheckPressedKey(int keyCode);
 
 /**
- * ƒL[‚ğ‰Ÿ‚µ‚Ä‚¢‚é‚©Šm”F
+ * ã‚­ãƒ¼ã‚’æŠ¼ã—ã¦ã„ã‚‹ã‹ç¢ºèª
  *
- * @param keyCode ƒL[ƒR[ƒh
- * @return 0F‰Ÿ‚µ‚Ä‚¢‚È‚¢A1F‰Ÿ‚µ‚Ä‚¢‚é
+ * @param keyCode ã‚­ãƒ¼ã‚³ãƒ¼ãƒ‰
+ * @return 0ï¼šæŠ¼ã—ã¦ã„ãªã„ã€1ï¼šæŠ¼ã—ã¦ã„ã‚‹
  */
 extern "C" __declspec (dllexport) int CheckPressKey(int keyCode);
 
 /**
- * ƒtƒ@ƒCƒ‹‚©‚çƒTƒEƒ“ƒhÄ¶
+ * ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ã‚µã‚¦ãƒ³ãƒ‰å†ç”Ÿ
  *
- * @param fileName ƒtƒ@ƒCƒ‹–¼
- * @param playType Ä¶ƒ^ƒCƒv
- * @return ¬Œ÷i0jA¸”si-1j
+ * @param fileName ãƒ•ã‚¡ã‚¤ãƒ«å
+ * @param playType å†ç”Ÿã‚¿ã‚¤ãƒ—
+ * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
  */
 extern "C" __declspec (dllexport) int PlaySoundFromFile(const char* fileName, int playType);
 
 /**
- * “o˜^EÄ¶ó‘Ôƒ`ƒFƒbƒN
+ * ç™»éŒ²ãƒ»å†ç”ŸçŠ¶æ…‹ãƒã‚§ãƒƒã‚¯
  *
- * @return ¬Œ÷i0jA¸”si-1j
+ * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
  */
 extern "C" __declspec (dllexport) int CheckSoundPlay();
 
 /**
- * ƒAƒvƒŠƒP[ƒVƒ‡ƒ“I—¹
+ * ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³çµ‚äº†
  */
 extern "C" __declspec (dllexport) void ApplicationQuit();
 
 /**
- * ƒEƒBƒ“ƒhƒEƒ^ƒCƒgƒ‹İ’è
+ * ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚¿ã‚¤ãƒˆãƒ«è¨­å®š
  *
- * @param title ƒ^ƒCƒgƒ‹
- * @return ¬Œ÷i0jA¸”si-1j
+ * @param title ã‚¿ã‚¤ãƒˆãƒ«
+ * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
  */
 extern "C" __declspec (dllexport) int SetWindowTitle(const char* title);
 
 /**
- * ƒ‰ƒCƒ“•`‰æ
+ * ãƒ©ã‚¤ãƒ³æç”»
  *
- * @param x             XÀ•W
- * @param y             YÀ•W
- * @param ax            ’Ç‰ÁXÀ•W
- * @param ay            ’Ç‰ÁYÀ•W
- * @param hexColorCode  16i”ƒJƒ‰[ƒR[ƒh
- * @param width         •
- * @return ¬Œ÷i0jA¸”si-1j
+ * @param x             Xåº§æ¨™
+ * @param y             Yåº§æ¨™
+ * @param ax            è¿½åŠ Xåº§æ¨™
+ * @param ay            è¿½åŠ Yåº§æ¨™
+ * @param hexColorCode  16é€²æ•°ã‚«ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰
+ * @param width         å¹…
+ * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
  */
 extern "C" __declspec (dllexport) int DrawLine(int x, int y, int ax, int ay, UINT32 hexColorCode, float width);
 
 /**
- * ƒ‰ƒCƒ“•`‰æi“§‰ß‚ ‚èj
+ * ãƒ©ã‚¤ãƒ³æç”»ï¼ˆé€éã‚ã‚Šï¼‰
  *
- * @param x             XÀ•W
- * @param y             YÀ•W
- * @param ax            ’Ç‰ÁXÀ•W
- * @param ay            ’Ç‰ÁYÀ•W
- * @param hexColorCode  16i”ƒJƒ‰[ƒR[ƒh
- * @param width         •
- * @param opacity       •s“§–¾“xi“§–¾ 0.0f ` 1.0f •s“§–¾j
- * @return ¬Œ÷i0jA¸”si-1j
+ * @param x             Xåº§æ¨™
+ * @param y             Yåº§æ¨™
+ * @param ax            è¿½åŠ Xåº§æ¨™
+ * @param ay            è¿½åŠ Yåº§æ¨™
+ * @param hexColorCode  16é€²æ•°ã‚«ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰
+ * @param width         å¹…
+ * @param opacity       ä¸é€æ˜åº¦ï¼ˆé€æ˜ 0.0f ï½ 1.0f ä¸é€æ˜ï¼‰
+ * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
  */
 extern "C" __declspec (dllexport) int DrawLineAlpha(int x, int y, int ax, int ay, UINT32 hexColorCode, float width, float opacity);
 
 /**
- * lŠpŒ`•`‰æ
+ * å››è§’å½¢æç”»
  *
- * @param x             XÀ•W
- * @param y             YÀ•W
- * @param ax            ’Ç‰ÁXÀ•W
- * @param ay            ’Ç‰ÁYÀ•W
- * @param hexColorCode  16i”ƒJƒ‰[ƒR[ƒh
- * @param strokeWidth   ü‚Ì‘¾‚³
- * @return ¬Œ÷i0jA¸”si-1j
+ * @param x             Xåº§æ¨™
+ * @param y             Yåº§æ¨™
+ * @param ax            è¿½åŠ Xåº§æ¨™
+ * @param ay            è¿½åŠ Yåº§æ¨™
+ * @param hexColorCode  16é€²æ•°ã‚«ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰
+ * @param strokeWidth   ç·šã®å¤ªã•
+ * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
  */
 extern "C" __declspec (dllexport) int DrawSquare(int x, int y, int sx, int sy, UINT32 hexColorCode, float strokeWidth);
 
 /**
- * lŠpŒ`•`‰æi“§‰ß‚ ‚èj
+ * å››è§’å½¢æç”»ï¼ˆé€éã‚ã‚Šï¼‰
  *
- * @param x             XÀ•W
- * @param y             YÀ•W
- * @param ax            ’Ç‰ÁXÀ•W
- * @param ay            ’Ç‰ÁYÀ•W
- * @param hexColorCode  16i”ƒJƒ‰[ƒR[ƒh
- * @param strokeWidth   ü‚Ì‘¾‚³
- * @param opacity       •s“§–¾“xi“§–¾ 0.0f ` 1.0f •s“§–¾j
- * @return ¬Œ÷i0jA¸”si-1j
+ * @param x             Xåº§æ¨™
+ * @param y             Yåº§æ¨™
+ * @param ax            è¿½åŠ Xåº§æ¨™
+ * @param ay            è¿½åŠ Yåº§æ¨™
+ * @param hexColorCode  16é€²æ•°ã‚«ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰
+ * @param strokeWidth   ç·šã®å¤ªã•
+ * @param opacity       ä¸é€æ˜åº¦ï¼ˆé€æ˜ 0.0f ï½ 1.0f ä¸é€æ˜ï¼‰
+ * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
  */
 extern "C" __declspec (dllexport) int DrawSquareAlpha(int x, int y, int sx, int sy, UINT32 hexColorCode, float strokeWidth, float opacity);
 
 /**
- * lŠpŒ` “h‚è‚Â‚Ô‚µ•`‰æ
+ * å››è§’å½¢ å¡—ã‚Šã¤ã¶ã—æç”»
  *
- * @param x             XÀ•W
- * @param y             YÀ•W
- * @param ax            ’Ç‰ÁXÀ•W
- * @param ay            ’Ç‰ÁYÀ•W
- * @param hexColorCode  16i”ƒJƒ‰[ƒR[ƒh
- * @return ¬Œ÷i0jA¸”si-1j
+ * @param x             Xåº§æ¨™
+ * @param y             Yåº§æ¨™
+ * @param ax            è¿½åŠ Xåº§æ¨™
+ * @param ay            è¿½åŠ Yåº§æ¨™
+ * @param hexColorCode  16é€²æ•°ã‚«ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰
+ * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
  */
 extern "C" __declspec (dllexport) int FillSquare(int x, int y, int sx, int sy, UINT32 hexColorCode);
 
 /**
- * lŠpŒ` “h‚è‚Â‚Ô‚µ•`‰æi“§‰ß‚ ‚èj
+ * å››è§’å½¢ å¡—ã‚Šã¤ã¶ã—æç”»ï¼ˆé€éã‚ã‚Šï¼‰
  *
- * @param x             XÀ•W
- * @param y             YÀ•W
- * @param ax            ’Ç‰ÁXÀ•W
- * @param ay            ’Ç‰ÁYÀ•W
- * @param hexColorCode  16i”ƒJƒ‰[ƒR[ƒh
- * @param opacity       •s“§–¾“xi“§–¾ 0.0f ` 1.0f •s“§–¾j
- * @return ¬Œ÷i0jA¸”si-1j
+ * @param x             Xåº§æ¨™
+ * @param y             Yåº§æ¨™
+ * @param ax            è¿½åŠ Xåº§æ¨™
+ * @param ay            è¿½åŠ Yåº§æ¨™
+ * @param hexColorCode  16é€²æ•°ã‚«ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰
+ * @param opacity       ä¸é€æ˜åº¦ï¼ˆé€æ˜ 0.0f ï½ 1.0f ä¸é€æ˜ï¼‰
+ * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
  */
 extern "C" __declspec (dllexport) int FillSquareAlpha(int x, int y, int sx, int sy, UINT32 hexColorCode, float opacity);
 
 /**
- * ŠÛ‚ßlŠpŒ`•`‰æ
+ * ä¸¸ã‚å››è§’å½¢æç”»
  *
- * @param x             XÀ•W
- * @param y             YÀ•W
- * @param ax            ’Ç‰ÁXÀ•W
- * @param ay            ’Ç‰ÁYÀ•W
- * @param hexColorCode  16i”ƒJƒ‰[ƒR[ƒh
- * @param strokeWidth   ü‚Ì‘¾‚³
- * @param radius        0FŠp‚Ì‚Ü‚Ü@A0.1ˆÈãiŠp‚ğŠÛ‚ß‚éj
- * @return ¬Œ÷i0jA¸”si-1j
+ * @param x             Xåº§æ¨™
+ * @param y             Yåº§æ¨™
+ * @param ax            è¿½åŠ Xåº§æ¨™
+ * @param ay            è¿½åŠ Yåº§æ¨™
+ * @param hexColorCode  16é€²æ•°ã‚«ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰
+ * @param strokeWidth   ç·šã®å¤ªã•
+ * @param radius        0ï¼šè§’ã®ã¾ã¾ã€€ã€0.1ä»¥ä¸Šï¼ˆè§’ã‚’ä¸¸ã‚ã‚‹ï¼‰
+ * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
  */
 extern "C" __declspec (dllexport) int DrawRoundedSquare(int x, int y, int sx, int sy, UINT32 hexColorCode, float strokeWidth, float radius);
 
 /**
- * ŠÛ‚ßlŠpŒ`•`‰æi“§‰ß‚ ‚èj
+ * ä¸¸ã‚å››è§’å½¢æç”»ï¼ˆé€éã‚ã‚Šï¼‰
  *
- * @param x             XÀ•W
- * @param y             YÀ•W
- * @param ax            ’Ç‰ÁXÀ•W
- * @param ay            ’Ç‰ÁYÀ•W
- * @param hexColorCode  16i”ƒJƒ‰[ƒR[ƒh
- * @param strokeWidth   ü‚Ì‘¾‚³
- * @param radius        0FŠp‚Ì‚Ü‚Ü@A0.1ˆÈãiŠp‚ğŠÛ‚ß‚éj
- * @param opacity       •s“§–¾“xi“§–¾ 0.0f ` 1.0f •s“§–¾j
- * @return ¬Œ÷i0jA¸”si-1j
+ * @param x             Xåº§æ¨™
+ * @param y             Yåº§æ¨™
+ * @param ax            è¿½åŠ Xåº§æ¨™
+ * @param ay            è¿½åŠ Yåº§æ¨™
+ * @param hexColorCode  16é€²æ•°ã‚«ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰
+ * @param strokeWidth   ç·šã®å¤ªã•
+ * @param radius        0ï¼šè§’ã®ã¾ã¾ã€€ã€0.1ä»¥ä¸Šï¼ˆè§’ã‚’ä¸¸ã‚ã‚‹ï¼‰
+ * @param opacity       ä¸é€æ˜åº¦ï¼ˆé€æ˜ 0.0f ï½ 1.0f ä¸é€æ˜ï¼‰
+ * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
  */
 extern "C" __declspec (dllexport) int DrawRoundedSquareAlpha(int x, int y, int sx, int sy, UINT32 hexColorCode, float strokeWidth, float radius, float opacity);
 
 /**
- * ŠÛ‚ßlŠpŒ` “h‚è‚Â‚Ô‚µ•`‰æ
+ * ä¸¸ã‚å››è§’å½¢ å¡—ã‚Šã¤ã¶ã—æç”»
  *
- * @param x             XÀ•W
- * @param y             YÀ•W
- * @param ax            ’Ç‰ÁXÀ•W
- * @param ay            ’Ç‰ÁYÀ•W
- * @param hexColorCode  16i”ƒJƒ‰[ƒR[ƒh
- * @param radius        0FŠp‚Ì‚Ü‚Ü@A0.1ˆÈãiŠp‚ğŠÛ‚ß‚éj
- * @return ¬Œ÷i0jA¸”si-1j
+ * @param x             Xåº§æ¨™
+ * @param y             Yåº§æ¨™
+ * @param ax            è¿½åŠ Xåº§æ¨™
+ * @param ay            è¿½åŠ Yåº§æ¨™
+ * @param hexColorCode  16é€²æ•°ã‚«ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰
+ * @param radius        0ï¼šè§’ã®ã¾ã¾ã€€ã€0.1ä»¥ä¸Šï¼ˆè§’ã‚’ä¸¸ã‚ã‚‹ï¼‰
+ * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
  */
 extern "C" __declspec (dllexport) int FillRoundedSquare(int x, int y, int sx, int sy, UINT32 hexColorCode, float radius);
 
 /**
- * ŠÛ‚ßlŠpŒ` “h‚è‚Â‚Ô‚µ•`‰æi“§‰ß‚ ‚èj
+ * ä¸¸ã‚å››è§’å½¢ å¡—ã‚Šã¤ã¶ã—æç”»ï¼ˆé€éã‚ã‚Šï¼‰
  *
- * @param x             XÀ•W
- * @param y             YÀ•W
- * @param ax            ’Ç‰ÁXÀ•W
- * @param ay            ’Ç‰ÁYÀ•W
- * @param hexColorCode  16i”ƒJƒ‰[ƒR[ƒh
- * @param radius        0FŠp‚Ì‚Ü‚Ü@A0.1ˆÈãiŠp‚ğŠÛ‚ß‚éj
- * @param opacity       •s“§–¾“xi“§–¾ 0.0f ` 1.0f •s“§–¾j
- * @return ¬Œ÷i0jA¸”si-1j
+ * @param x             Xåº§æ¨™
+ * @param y             Yåº§æ¨™
+ * @param ax            è¿½åŠ Xåº§æ¨™
+ * @param ay            è¿½åŠ Yåº§æ¨™
+ * @param hexColorCode  16é€²æ•°ã‚«ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰
+ * @param radius        0ï¼šè§’ã®ã¾ã¾ã€€ã€0.1ä»¥ä¸Šï¼ˆè§’ã‚’ä¸¸ã‚ã‚‹ï¼‰
+ * @param opacity       ä¸é€æ˜åº¦ï¼ˆé€æ˜ 0.0f ï½ 1.0f ä¸é€æ˜ï¼‰
+ * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
  */
 extern "C" __declspec (dllexport) int FillRoundedSquareAlpha(int x, int y, int sx, int sy, UINT32 hexColorCode, float radius, float opacity);
 
 /**
- * ‘È‰~•`‰æ
+ * æ¥•å††æç”»
  *
- * @param x             XÀ•W
- * @param y             YÀ•W
- * @param width         •i”¼Œaj
- * @param height        ‚‚³i”¼Œaj
- * @param hexColorCode  16i”ƒJƒ‰[ƒR[ƒh
- * @param strokeWidth   ü‚Ì‘¾‚³
- * @return ¬Œ÷i0jA¸”si-1j
+ * @param x             Xåº§æ¨™
+ * @param y             Yåº§æ¨™
+ * @param width         å¹…ï¼ˆåŠå¾„ï¼‰
+ * @param height        é«˜ã•ï¼ˆåŠå¾„ï¼‰
+ * @param hexColorCode  16é€²æ•°ã‚«ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰
+ * @param strokeWidth   ç·šã®å¤ªã•
+ * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
  */
 extern "C" __declspec (dllexport) int DrawEllipse(int x, int y, int width, int height, UINT32 hexColorCode, float strokeWidth);
 
 /**
- * ‘È‰~•`‰æi“§‰ß‚ ‚èj
+ * æ¥•å††æç”»ï¼ˆé€éã‚ã‚Šï¼‰
  *
- * @param x             XÀ•W
- * @param y             YÀ•W
- * @param width         •i”¼Œaj
- * @param height        ‚‚³i”¼Œaj
- * @param hexColorCode  16i”ƒJƒ‰[ƒR[ƒh
- * @param strokeWidth   ü‚Ì‘¾‚³
- * @param opacity       •s“§–¾“xi“§–¾ 0.0f ` 1.0f •s“§–¾j
- * @return ¬Œ÷i0jA¸”si-1j
+ * @param x             Xåº§æ¨™
+ * @param y             Yåº§æ¨™
+ * @param width         å¹…ï¼ˆåŠå¾„ï¼‰
+ * @param height        é«˜ã•ï¼ˆåŠå¾„ï¼‰
+ * @param hexColorCode  16é€²æ•°ã‚«ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰
+ * @param strokeWidth   ç·šã®å¤ªã•
+ * @param opacity       ä¸é€æ˜åº¦ï¼ˆé€æ˜ 0.0f ï½ 1.0f ä¸é€æ˜ï¼‰
+ * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
  */
 extern "C" __declspec (dllexport) int DrawEllipseAlpha(int x, int y, int width, int height, UINT32 hexColorCode, float strokeWidth, float opacity);
 
 /**
- * ‘È‰~ “h‚è‚Â‚Ô‚µ•`‰æ
+ * æ¥•å†† å¡—ã‚Šã¤ã¶ã—æç”»
  *
- * @param x             XÀ•W
- * @param y             YÀ•W
- * @param width         •i”¼Œaj
- * @param height        ‚‚³i”¼Œaj
- * @param hexColorCode  16i”ƒJƒ‰[ƒR[ƒh
- * @return ¬Œ÷i0jA¸”si-1j
+ * @param x             Xåº§æ¨™
+ * @param y             Yåº§æ¨™
+ * @param width         å¹…ï¼ˆåŠå¾„ï¼‰
+ * @param height        é«˜ã•ï¼ˆåŠå¾„ï¼‰
+ * @param hexColorCode  16é€²æ•°ã‚«ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰
+ * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
  */
 extern "C" __declspec (dllexport) int FillEllipse(int x, int y, int width, int height, UINT32 hexColorCode);
 
 /**
- * ‘È‰~ “h‚è‚Â‚Ô‚µ•`‰æi“§‰ß‚ ‚èj
+ * æ¥•å†† å¡—ã‚Šã¤ã¶ã—æç”»ï¼ˆé€éã‚ã‚Šï¼‰
  *
- * @param x             XÀ•W
- * @param y             YÀ•W
- * @param width         •i”¼Œaj
- * @param height        ‚‚³i”¼Œaj
- * @param hexColorCode  16i”ƒJƒ‰[ƒR[ƒh
- * @param opacity       •s“§–¾“xi“§–¾ 0.0f ` 1.0f •s“§–¾j
- * @return ¬Œ÷i0jA¸”si-1j
+ * @param x             Xåº§æ¨™
+ * @param y             Yåº§æ¨™
+ * @param width         å¹…ï¼ˆåŠå¾„ï¼‰
+ * @param height        é«˜ã•ï¼ˆåŠå¾„ï¼‰
+ * @param hexColorCode  16é€²æ•°ã‚«ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰
+ * @param opacity       ä¸é€æ˜åº¦ï¼ˆé€æ˜ 0.0f ï½ 1.0f ä¸é€æ˜ï¼‰
+ * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
  */
 extern "C" __declspec (dllexport) int FillEllipseAlpha(int x, int y, int width, int height, UINT32 hexColorCode, float opacity);
 
 /**
- * ¶ƒNƒŠƒbƒNƒ|ƒCƒ“ƒgæ“¾
+ * å·¦ã‚¯ãƒªãƒƒã‚¯ãƒã‚¤ãƒ³ãƒˆå–å¾—
  *
- * @param x XÀ•W
- * @param y YÀ•W
+ * @param x Xåº§æ¨™
+ * @param y Yåº§æ¨™
  */
 extern "C" __declspec (dllexport) void GetLeftClickPoint(int* x, int* y);
 
 /**
- * ‘Ò‹@ˆ—
+ * å¾…æ©Ÿå‡¦ç†
  *
- * @param waitTime ‘Ò‹@ŠÔimsecj
- * @return ¬Œ÷i0jA¸”si-1j
+ * @param waitTime å¾…æ©Ÿæ™‚é–“ï¼ˆmsecï¼‰
+ * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
  */
 extern "C" __declspec (dllexport) int WaitProcessing(int waitTime);
 
 /**
- * ‰æ–ÊƒTƒCƒY‰Šú‰»
+ * ç”»é¢ã‚µã‚¤ã‚ºåˆæœŸåŒ–
  *
- * @param width  •
- * @param height ‚‚³
- * @return ¬Œ÷i0jA¸”si-1j
+ * @param width  å¹…
+ * @param height é«˜ã•
+ * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
  */
 extern "C" __declspec (dllexport) int InitScreenSize(int width, int height);
 

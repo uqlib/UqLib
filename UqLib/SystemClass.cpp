@@ -17,7 +17,7 @@ namespace uq_lib {
 	int SystemClass::Initialize(string title, int screenWidth, int screenHeight) {
 		m_message = 0;
 
-		// ƒtƒ‹ƒXƒNƒŠ[ƒ“‚©ƒEƒCƒ“ƒhƒE‚©‚ğİ’è
+		// ãƒ•ãƒ«ã‚¹ã‚¯ãƒªãƒ¼ãƒ³ã‹ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã‹ã‚’è¨­å®š
 		bool fullScrean = false;
 
 		if (fullScrean) {
@@ -101,13 +101,13 @@ namespace uq_lib {
 			}
 		}
 
-		//0:ƒ{ƒ^ƒ“—£‚µ‚½
-		//1:ƒ{ƒ^ƒ“‰Ÿ‚µ‚½(CheckPushKey‘O)
-		//2:ƒ{ƒ^ƒ“‰Ÿ‚µ‚½(CheckPushKeyŒã)
-		//3:ƒ{ƒ^ƒ“—£‚µ‚½(CheckPushKey‘O)
+		//0:ãƒœã‚¿ãƒ³é›¢ã—ãŸæ™‚
+		//1:ãƒœã‚¿ãƒ³æŠ¼ã—ãŸæ™‚(CheckPushKeyå‰)
+		//2:ãƒœã‚¿ãƒ³æŠ¼ã—ãŸæ™‚(CheckPushKeyå¾Œ)
+		//3:ãƒœã‚¿ãƒ³é›¢ã—ãŸæ™‚(CheckPushKeyå‰)
 		int keyInput = m_keyInputs[keyCode];
 		if (keyInput == 0) {
-			// İ’è‚È‚µ
+			// è¨­å®šãªã—
 			return 0;
 		}
 		else if (keyInput == 1) {
@@ -126,13 +126,13 @@ namespace uq_lib {
 	}
 
 	int SystemClass::CheckPressKey(int keyCode) {
-		//0:ƒ{ƒ^ƒ“—£‚µ‚½
-		//1:ƒ{ƒ^ƒ“‰Ÿ‚µ‚½(CheckPushKey‘O)
-		//2:ƒ{ƒ^ƒ“‰Ÿ‚µ‚½(CheckPressKeyŒã)
-		//3:ƒ{ƒ^ƒ“—£‚µ‚½(CheckPushKey‘O)
+		//0:ãƒœã‚¿ãƒ³é›¢ã—ãŸæ™‚
+		//1:ãƒœã‚¿ãƒ³æŠ¼ã—ãŸæ™‚(CheckPushKeyå‰)
+		//2:ãƒœã‚¿ãƒ³æŠ¼ã—ãŸæ™‚(CheckPressKeyå¾Œ)
+		//3:ãƒœã‚¿ãƒ³é›¢ã—ãŸæ™‚(CheckPushKeyå‰)
 		int keyInput = m_keyInputs[keyCode];
 		if (keyInput == 0) {
-			// İ’è‚È‚µ
+			// è¨­å®šãªã—
 			return 0;
 		}
 		else if (keyInput == 1) {
@@ -152,7 +152,7 @@ namespace uq_lib {
 	int SystemClass::InitializeWindow(string title, int screenWidth, int screenHeight) {
 		printf("SystemClass - InitializeWindow\n");
 		WNDCLASSEX  wc;
-		char modname[] = "uqlib.dll"; // DLL–¼
+		char modname[] = "uqlib.dll"; // DLLå
 		m_hinstance = GetModuleHandle(NULL);
 		m_applicationName = title.c_str();
 		ZeroMemory(&wc, sizeof(wc));
@@ -188,14 +188,14 @@ namespace uq_lib {
 
 	int SystemClass::UpdateWindowMessage() {
 		MSG msg;
-		// ƒƒbƒZ[ƒW‚ª‘¶İ‚·‚é‚©Šm”F
+		// ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒå­˜åœ¨ã™ã‚‹ã‹ç¢ºèª
 		if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE)) {
-			// I—¹’Ê’m‚ª—ˆ‚Ä‚¢‚éê‡‚Í”²‚¯‚é
+			// çµ‚äº†é€šçŸ¥ãŒæ¥ã¦ã„ã‚‹å ´åˆã¯æŠœã‘ã‚‹
 			if (msg.message == WM_QUIT) {
 				m_isQuitMessage = true;
 			}
 			else {
-				// ƒƒbƒZ[ƒW‚ğƒEƒCƒ“ƒhƒEƒvƒƒV[ƒWƒƒ‚É“]‘—
+				// ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒ—ãƒ­ã‚·ãƒ¼ã‚¸ãƒ£ã«è»¢é€
 				TranslateMessage(&msg);
 				DispatchMessage(&msg);
 			}
@@ -207,7 +207,7 @@ namespace uq_lib {
 	int SystemClass::UpdateKeyboardState() {
 		DWORD now = timeGetTime();
 
-		// “¯ˆêƒ~ƒŠ•b‚Ìê‡‚Í•ÏX‚µ‚È‚¢
+		// åŒä¸€ãƒŸãƒªç§’ã®å ´åˆã¯å¤‰æ›´ã—ãªã„
 		if (m_time == now) {
 			return 0;
 		}
@@ -216,7 +216,7 @@ namespace uq_lib {
 
 		BYTE keyStates[256];
 		if (GetKeyboardState(keyStates) == 0) {
-			// ¸”s‚·‚é‚Æ0‚ª•Ô‚é
+			// å¤±æ•—ã™ã‚‹ã¨0ãŒè¿”ã‚‹
 			return -1;
 		}
 
@@ -260,18 +260,18 @@ namespace uq_lib {
 	}
 
 	int SystemClass::UpdateKey(BYTE* keyStates, int sysKey, int myKey) {
-		//0:ƒ{ƒ^ƒ“—£‚µ‚½
-		//1:ƒ{ƒ^ƒ“‰Ÿ‚µ‚½(CheckPushKey‘O)
-		//2:ƒ{ƒ^ƒ“‰Ÿ‚µ‚½(CheckPushKeyŒã)
-		//3:ƒ{ƒ^ƒ“—£‚µ‚½(CheckPushKey‘O)
+		//0:ãƒœã‚¿ãƒ³é›¢ã—ãŸæ™‚
+		//1:ãƒœã‚¿ãƒ³æŠ¼ã—ãŸæ™‚(CheckPushKeyå‰)
+		//2:ãƒœã‚¿ãƒ³æŠ¼ã—ãŸæ™‚(CheckPushKeyå¾Œ)
+		//3:ãƒœã‚¿ãƒ³é›¢ã—ãŸæ™‚(CheckPushKeyå‰)
 		if (keyStates[sysKey] & 0x80) {
-			// ŠY“–ƒL[‚ª‰Ÿ‚³‚ê‚Ä‚¢‚éê‡
+			// è©²å½“ã‚­ãƒ¼ãŒæŠ¼ã•ã‚Œã¦ã„ã‚‹å ´åˆ
 			if (m_keyInputs[myKey] == 0) {
 				m_keyInputs[myKey] = 1;
 			}
 		}
 		else {
-			// ŠY“–ƒL[‚ª‰Ÿ‚³‚ê‚Ä‚¢‚È‚¢ê‡
+			// è©²å½“ã‚­ãƒ¼ãŒæŠ¼ã•ã‚Œã¦ã„ãªã„å ´åˆ
 			if (m_keyInputs[myKey] == 1) {
 				m_keyInputs[myKey] = 3;
 			}
@@ -283,18 +283,18 @@ namespace uq_lib {
 	}
 
 	int SystemClass::UpdateKey2(char chara, int sysKey, int myKey) {
-		//0:ƒ{ƒ^ƒ“—£‚µ‚½
-		//1:ƒ{ƒ^ƒ“‰Ÿ‚µ‚½(CheckPushKey‘O)
-		//2:ƒ{ƒ^ƒ“‰Ÿ‚µ‚½(CheckPushKeyŒã)
-		//3:ƒ{ƒ^ƒ“—£‚µ‚½(CheckPushKey‘O)
+		//0:ãƒœã‚¿ãƒ³é›¢ã—ãŸæ™‚
+		//1:ãƒœã‚¿ãƒ³æŠ¼ã—ãŸæ™‚(CheckPushKeyå‰)
+		//2:ãƒœã‚¿ãƒ³æŠ¼ã—ãŸæ™‚(CheckPushKeyå¾Œ)
+		//3:ãƒœã‚¿ãƒ³é›¢ã—ãŸæ™‚(CheckPushKeyå‰)
 		if (GetAsyncKeyState(chara) & 0x8000) {
-			// ŠY“–ƒL[‚ª‰Ÿ‚³‚ê‚Ä‚¢‚éê‡
+			// è©²å½“ã‚­ãƒ¼ãŒæŠ¼ã•ã‚Œã¦ã„ã‚‹å ´åˆ
 			if (m_keyInputs[myKey] == 0) {
 				m_keyInputs[myKey] = 1;
 			}
 		}
 		else {
-			// ŠY“–ƒL[‚ª‰Ÿ‚³‚ê‚Ä‚¢‚È‚¢ê‡
+			// è©²å½“ã‚­ãƒ¼ãŒæŠ¼ã•ã‚Œã¦ã„ãªã„å ´åˆ
 			if (m_keyInputs[myKey] == 1) {
 				m_keyInputs[myKey] = 3;
 			}

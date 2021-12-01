@@ -11,7 +11,7 @@ using namespace std;
 namespace uq_lib {
 
 	DirectXManager* DirectXManager::m_dm = NULL;
-	bool DirectXManager::m_destroyFlg = true; // Phoenix Singleton‰ñ”ğ—p
+	bool DirectXManager::m_destroyFlg = true; // Phoenix Singletonå›é¿ç”¨
 
 	DirectXManager::DirectXManager() {
 	}
@@ -20,7 +20,7 @@ namespace uq_lib {
 	}
 
 	int DirectXManager::InitializeDirectX(HWND hWnd, int width, int height, bool isFullscreen) {
-		// D3D11‰Šú‰»
+		// D3D11åˆæœŸåŒ–
 #ifdef _DEBUG
 		const UINT flags = D3D11_CREATE_DEVICE_BGRA_SUPPORT | D3D11_CREATE_DEVICE_DEBUG | D3D11_CREATE_DEVICE_SINGLETHREADED;
 #else
@@ -33,7 +33,7 @@ namespace uq_lib {
 		Microsoft::WRL::ComPtr<IDXGIDevice1> dxgiDevice;
 		d3d11Device.As(&dxgiDevice);
 
-		// D2D1‰Šú‰»
+		// D2D1åˆæœŸåŒ–
 		Microsoft::WRL::ComPtr<ID2D1Factory1> d2d1Factory;
 		D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED, IID_PPV_ARGS(&d2d1Factory));
 
@@ -42,7 +42,7 @@ namespace uq_lib {
 
 		d2d1Device->CreateDeviceContext(D2D1_DEVICE_CONTEXT_OPTIONS_NONE, &m_d2d1DeviceContext);
 
-		// DXGIƒXƒƒbƒvƒ`ƒFƒCƒ“‚ğì‚é
+		// DXGIã‚¹ãƒ¯ãƒƒãƒ—ãƒã‚§ã‚¤ãƒ³ã‚’ä½œã‚‹
 		Microsoft::WRL::ComPtr<IDXGIAdapter> dxgiAdapter;
 		dxgiDevice->GetAdapter(&dxgiAdapter);
 
@@ -68,7 +68,7 @@ namespace uq_lib {
 
 		dxgiDevice->SetMaximumFrameLatency(1);
 
-		// D2D1‚ÉƒŒƒ“ƒ_ƒŠƒ“ƒOƒ^[ƒQƒbƒg‚ğ“o˜^
+		// D2D1ã«ãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã‚’ç™»éŒ²
 		Microsoft::WRL::ComPtr<IDXGISurface> dxgiSurface;
 		m_dxgiSwapChain->GetBuffer(0, IID_PPV_ARGS(&dxgiSurface));
 
@@ -79,13 +79,13 @@ namespace uq_lib {
 
 		m_d2d1DeviceContext->SetTarget(d2d1Bitmap.Get());
 
-		// D3D11‚ÉƒŒƒ“ƒ_ƒŠƒ“ƒOƒ^[ƒQƒbƒg‚ğİ’è
+		// D3D11ã«ãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã‚’è¨­å®š
 		Microsoft::WRL::ComPtr<ID3D11Texture2D> d3d11Texture;
 		m_dxgiSwapChain->GetBuffer(0, IID_PPV_ARGS(&d3d11Texture));
 
 		d3d11Device->CreateRenderTargetView(d3d11Texture.Get(), nullptr, &m_d3d11RenderTargetView);
 
-		// &pBrush‚ÍA•¶š—ñ•`‰æ‚Åg—p‚·‚é
+		// &pBrushã¯ã€æ–‡å­—åˆ—æç”»ã§ä½¿ç”¨ã™ã‚‹
 		m_d2d1DeviceContext->CreateSolidColorBrush(D2D1::ColorF(0xffffff, 1.f), &m_pBrush);
 
 		GraphicsManager::GetInstance()->Init(hWnd, m_d3d11DeviceContext, m_d3d11RenderTargetView, m_d2d1DeviceContext, m_dxgiSwapChain, m_pBrush, width, height);

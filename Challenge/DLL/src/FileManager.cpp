@@ -12,7 +12,7 @@ using namespace std;
 namespace uq_lib {
 
 	FileManager* FileManager::m_fm = NULL;
-	bool FileManager::m_destroyFlg = true; // Phoenix Singleton���p
+	bool FileManager::m_destroyFlg = true; // Phoenix Singleton回避用
 
 	FileManager::FileManager() {
 	}
@@ -23,17 +23,17 @@ namespace uq_lib {
 	int FileManager::LoadFileFromDatFile(string fileName, char** buffer, long* size) {
 		FILE* fp;
 		if (fopen_s(&fp, fileName.c_str(), "rb") != 0) {
-			Logger::OutputWarn("�t�@�C���ǂݍ��݂Ɏ��s�B");
+			Logger::OutputWarn("ファイル読み込みに失敗。");
 			return -1;
 		}
 
-		// �t�@�C���|�C���^fp���t�@�C���̐擪SEEK_SET����0�o�C�g�̒n�_�Ɉړ�������
+		// ファイルポインタfpをファイルの先頭SEEK_SETから0バイトの地点に移動させる
 		fseek(fp, 0, SEEK_END);
 		*size = ftell(fp);
 		rewind(fp);
 		*buffer = (char*)malloc(sizeof(char) * (*size));
 		if (*buffer == NULL) {
-			Logger::OutputWarn("�������m�ۂɎ��s�B");
+			Logger::OutputWarn("メモリ確保に失敗。");
 			return -1;
 		}
 		fread(*buffer, 1, *size, fp);

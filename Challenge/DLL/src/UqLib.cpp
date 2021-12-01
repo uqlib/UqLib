@@ -13,35 +13,35 @@ using namespace uq_lib;
 
 SystemClass* g_pSystemClass;
 
-// ƒfƒtƒHƒ‹ƒgİ’è‚ÍADVƒQ[ƒ€Œü‚¯ƒTƒCƒY
+// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆè¨­å®šã¯ADVã‚²ãƒ¼ãƒ å‘ã‘ã‚µã‚¤ã‚º
 int g_screenWidth = DEFAULT_WIDTH;
 int g_screenHeight = DEFAULT_HEIGHT;
 
 wstring StringToWString(string oString) {
-	// SJIS ¨ wstring
+	// SJIS â†’ wstring
 	int iBufferSize = MultiByteToWideChar(CP_ACP, 0, oString.c_str()
 		, -1, (wchar_t*)NULL, 0);
 
-	// ƒoƒbƒtƒ@‚Ìæ“¾
+	// ãƒãƒƒãƒ•ã‚¡ã®å–å¾—
 	wchar_t* cpUCS2 = new wchar_t[iBufferSize];
 
-	// SJIS ¨ wstring
+	// SJIS â†’ wstring
 	MultiByteToWideChar(CP_ACP, 0, oString.c_str(), -1, cpUCS2
 		, iBufferSize);
 
-	// string‚Ì¶¬
+	// stringã®ç”Ÿæˆ
 	wstring oRet(cpUCS2, cpUCS2 + iBufferSize - 1);
 
-	// ƒoƒbƒtƒ@‚Ì”jŠü
+	// ãƒãƒƒãƒ•ã‚¡ã®ç ´æ£„
 	delete[] cpUCS2;
 
-	// •ÏŠ·Œ‹‰Ê‚ğ•Ô‚·
+	// å¤‰æ›çµæœã‚’è¿”ã™
 	return(oRet);
 }
 
 int UqLibInit(const char* title) {
 	Logger::ChangeLogLevel(Log::DEBUG_LV);
-	locale::global(locale("")); // wstring‚ÌƒƒOo—Í‚É•K—v
+	locale::global(locale("")); // wstringã®ãƒ­ã‚°å‡ºåŠ›ã«å¿…è¦
 
 	g_pSystemClass = new SystemClass();
 
@@ -49,7 +49,7 @@ int UqLibInit(const char* title) {
 }
 
 int UqLibEnd() {
-	SoundManager::GetInstance()->AllStop(); // ƒTƒEƒ“ƒh‘S’â~‚Æ”jŠü
+	SoundManager::GetInstance()->AllStop(); // ã‚µã‚¦ãƒ³ãƒ‰å…¨åœæ­¢ã¨ç ´æ£„
 	SoundManager::GetInstance()->Destroy();
 	GraphicsManager::GetInstance()->ReleaseAll();
 	GraphicsManager::GetInstance()->Destroy();
@@ -213,7 +213,7 @@ void GetLeftClickPoint(int* x, int* y) {
 }
 
 int WaitProcessing(int waitTime) {
-	DWORD beginTime; // ˆê‚Â‘O‚Éó‘Ô‚ğæ“¾‚µ‚½ŠÔ
+	DWORD beginTime; // ä¸€ã¤å‰ã«çŠ¶æ…‹ã‚’å–å¾—ã—ãŸæ™‚é–“
 	beginTime = timeGetTime();
 	while (true) {
 		DWORD now = timeGetTime();

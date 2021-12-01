@@ -3,7 +3,7 @@
 // Licensed under the MIT License.
 // http://uqlib.com
 //
-// getPngSizeƒƒ\ƒbƒh‚Íuhttps://w.atwiki.jp/miracle_mikuru/pages/133.htmlv‚ğQl‚É‚µ‚½
+// getPngSizeãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€Œhttps://w.atwiki.jp/miracle_mikuru/pages/133.htmlã€ã‚’å‚è€ƒã«ã—ãŸ
 //-----------------------------------------------------
 #include <wincodec.h>
 //	#include <string.h>
@@ -20,7 +20,7 @@ using namespace Microsoft::WRL;
 namespace uq_lib {
 
 	GraphicsManager* GraphicsManager::m_gm = NULL;
-	bool GraphicsManager::m_destroyFlg = true; // Phoenix Singleton‰ñ”ğ—p
+	bool GraphicsManager::m_destroyFlg = true; // Phoenix Singletonå›é¿ç”¨
 
 	GraphicsManager::GraphicsManager() {
 		m_textureId = 0;
@@ -68,8 +68,8 @@ namespace uq_lib {
 			return -1;
 		}
 
-		//CreateFontContener(DEFAULT_FONT_SIZE, L"‚l‚r ƒSƒVƒbƒN");
-		CreateFontContener(DEFAULT_FONT_SIZE, L"");
+		CreateFontContener(DEFAULT_FONT_SIZE, L"ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯");
+		//CreateFontContener(DEFAULT_FONT_SIZE, L"");
 
 		return 0;
 	}
@@ -100,7 +100,7 @@ namespace uq_lib {
 	}
 
 	int GraphicsManager::BeginDrawing() {
-		// D3D11‚Å‰æ–Ê‚ğƒNƒŠƒA‚µ‚ÄD2D1‚Å•`‰æ
+		// D3D11ã§ç”»é¢ã‚’ã‚¯ãƒªã‚¢ã—ã¦D2D1ã§æç”»
 		const float color[] = { 0.f, 0.f, 0.f, 1.f };
 		m_pD3d11DeviceContext->ClearRenderTargetView(m_pD3d11RenderTargetView.Get(), color);
 
@@ -121,8 +121,8 @@ namespace uq_lib {
 		wstring f = L"Verdana";
 
 		m_pDWR_Factory->CreateTextFormat(
-			//fontName.c_str(),
-			f.c_str(),
+			fontName.c_str(),
+			//f.c_str(),
 			NULL,
 			DWRITE_FONT_WEIGHT_NORMAL,
 			DWRITE_FONT_STYLE_NORMAL,
@@ -146,13 +146,13 @@ namespace uq_lib {
 		FILE* f = fopen(path, "rb");
 		if(!f) return false;
 
-		BYTE header[8];// PNGƒtƒ@ƒCƒ‹ƒVƒOƒlƒ`ƒƒ
+		BYTE header[8];// PNGãƒ•ã‚¡ã‚¤ãƒ«ã‚·ã‚°ãƒãƒãƒ£
 		if(fread(header, sizeof(BYTE), 8, f) < 8){ fclose(f); return false; }
 
 		const static BYTE png[] = { 0x89, 'P', 'N', 'G', 0x0d, 0x0a, 0x1a, 0x0a };
 		if(memcmp(header, png, 8) != 0){ fclose(f); return false; }
 
-		BYTE ihdr[25];// IHDRƒ`ƒƒƒ“ƒN(ƒCƒ[ƒWƒwƒbƒ_)
+		BYTE ihdr[25];// IHDRãƒãƒ£ãƒ³ã‚¯(ã‚¤ãƒ¡ãƒ¼ã‚¸ãƒ˜ãƒƒãƒ€)
 		if(fread(ihdr, sizeof(BYTE), 25, f) < 25){ fclose(f); return false; }
 
 		// length = 13 (0x0D)
@@ -190,7 +190,7 @@ namespace uq_lib {
 
 		TextureContener tc;
 		IWICBitmapDecoder* dec;
-		// ƒfƒR[ƒh
+		// ãƒ‡ã‚³ãƒ¼ãƒ‰
 		hr = m_pImagingFactory->CreateDecoderFromFilename(
 			wFileName.c_str(),
 			NULL,
@@ -199,24 +199,24 @@ namespace uq_lib {
 			&dec
 		);
 		if (FAILED(hr)) {
-			Logger::OutputWarn("CreateDecoderFromFilename‚É¸”sB");
+			Logger::OutputWarn("CreateDecoderFromFilenameã«å¤±æ•—ã€‚");
 			return -1;
 		}
 
 		IWICBitmapFrameDecode* frame;
 
-		// ƒtƒŒ[ƒ€‚ğæ“¾
+		// ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’å–å¾—
 		dec->GetFrame(0, &frame);
 
 		IWICFormatConverter* converter;
-		// ‰æ‘œƒCƒ[ƒW‚ğDirect2DŒ`®‚ÉƒRƒ“ƒo[ƒg
+		// ç”»åƒã‚¤ãƒ¡ãƒ¼ã‚¸ã‚’Direct2Då½¢å¼ã«ã‚³ãƒ³ãƒãƒ¼ãƒˆ
 		hr = m_pImagingFactory->CreateFormatConverter(&converter);
 		if (FAILED(hr)) {
-			Logger::OutputWarn("CreateFormatConverter‚É¸”sB");
+			Logger::OutputWarn("CreateFormatConverterã«å¤±æ•—ã€‚");
 			return -1;
 		}
 
-		// ‰æ‘œ‚Ì“]‘—©‘Ì‚ÍI—¹
+		// ç”»åƒã®è»¢é€è‡ªä½“ã¯çµ‚äº†
 		hr = converter->Initialize(frame,
 			GUID_WICPixelFormat32bppPBGRA,
 			WICBitmapDitherTypeNone,
@@ -224,7 +224,7 @@ namespace uq_lib {
 			WICBitmapPaletteTypeMedianCut
 		);
 		if (FAILED(hr)) {
-			Logger::OutputWarn("Initialize‚É¸”sB");
+			Logger::OutputWarn("Initializeã«å¤±æ•—ã€‚");
 			return -1;
 		}
 
@@ -234,7 +234,7 @@ namespace uq_lib {
 		ID2D1Bitmap* pBitmap = NULL;
 		hr = m_pD2d1DeviceContext->CreateBitmapFromWicBitmap(converter, NULL, &pBitmap);
 		if (FAILED(hr)) {
-			Logger::OutputWarn("CreateBitmapFromWicBitmap‚É¸”sB");
+			Logger::OutputWarn("CreateBitmapFromWicBitmapã«å¤±æ•—ã€‚");
 			return -1;
 		}
 
@@ -242,7 +242,7 @@ namespace uq_lib {
 			UINT width;
 			UINT height;
 			getPngSize(fileName.c_str(), &width, &height);
-			//D2D1_SIZE_F d2d1Size = pBitmap->GetSize(); MinGW‚ÅGetSize()‚ÍˆÙí’l‚ª•Ô‚é‚Ì‚Åg‚¦‚È‚¢
+			//D2D1_SIZE_F d2d1Size = pBitmap->GetSize(); MinGWã§GetSize()ã¯ç•°å¸¸å€¤ãŒè¿”ã‚‹ã®ã§ä½¿ãˆãªã„
 			tc.textureId = m_textureId;
 			tc.pBitmap = pBitmap;
 			tc.loadCnt = 1;
@@ -264,22 +264,22 @@ namespace uq_lib {
 		TextureContener tc;
 		IWICBitmapDecoder* dec;
 
-		// ƒfƒR[ƒh
+		// ãƒ‡ã‚³ãƒ¼ãƒ‰
 		IWICStream* pStream;
 		hr = m_pImagingFactory->CreateStream(&pStream);
 		if (FAILED(hr))
 		{
-			Logger::OutputWarn("CreateStream‚É¸”sB");
+			Logger::OutputWarn("CreateStreamã«å¤±æ•—ã€‚");
 			return -1;
 		}
 		if (buffer == NULL){
-			Logger::OutputWarn("buffer‚ªNULLB");
+			Logger::OutputWarn("bufferãŒNULLã€‚");
 			return -1;
 		}
 		hr = pStream->InitializeFromMemory((byte*)buffer, size);
 		if (FAILED(hr))
 		{
-			Logger::OutputWarn("InitializeFromMemory‚É¸”sB");
+			Logger::OutputWarn("InitializeFromMemoryã«å¤±æ•—ã€‚");
 			return -1;
 		}
 		hr = m_pImagingFactory->CreateDecoderFromStream(
@@ -289,25 +289,25 @@ namespace uq_lib {
 			&dec);
 		if (FAILED(hr))
 		{
-			Logger::OutputWarn("CreateDecoderFromStream‚É¸”sB");
+			Logger::OutputWarn("CreateDecoderFromStreamã«å¤±æ•—ã€‚");
 			return -1;
 		}
 
 		IWICBitmapFrameDecode* frame;
 
-		// ƒtƒŒ[ƒ€‚ğæ“¾
+		// ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’å–å¾—
 		dec->GetFrame(0, &frame);
 
 		IWICFormatConverter* converter;
-		// ‰æ‘œƒCƒ[ƒW‚ğDirect2DŒ`®‚ÉƒRƒ“ƒo[ƒg
+		// ç”»åƒã‚¤ãƒ¡ãƒ¼ã‚¸ã‚’Direct2Då½¢å¼ã«ã‚³ãƒ³ãƒãƒ¼ãƒˆ
 		hr = m_pImagingFactory->CreateFormatConverter(&converter);
 		if (FAILED(hr))
 		{
-			Logger::OutputWarn("CreateFormatConverter‚É¸”sB");
+			Logger::OutputWarn("CreateFormatConverterã«å¤±æ•—ã€‚");
 			return -1;
 		}
 
-		// ‰æ‘œ‚Ì“]‘—©‘Ì‚ÍI—¹
+		// ç”»åƒã®è»¢é€è‡ªä½“ã¯çµ‚äº†
 		hr = converter->Initialize(frame,
 			GUID_WICPixelFormat32bppPBGRA,
 			WICBitmapDitherTypeNone,
@@ -316,7 +316,7 @@ namespace uq_lib {
 		);
 		if (FAILED(hr))
 		{
-			Logger::OutputWarn("Initialize‚É¸”sB");
+			Logger::OutputWarn("Initializeã«å¤±æ•—ã€‚");
 			return -1;
 		}
 
@@ -327,7 +327,7 @@ namespace uq_lib {
 		hr = m_pD2d1DeviceContext->CreateBitmapFromWicBitmap(converter, NULL, &pBitmap);
 		if (FAILED(hr))
 		{
-			Logger::OutputWarn("CreateBitmapFromWicBitmap‚É¸”sB");
+			Logger::OutputWarn("CreateBitmapFromWicBitmapã«å¤±æ•—ã€‚");
 			return -1;
 		}
 
@@ -346,7 +346,7 @@ namespace uq_lib {
 	}
 
 	GraphicsManager::TextureContener GraphicsManager::GetTextureContener(int graphicId) {
-		TextureContener tc; // ƒeƒNƒXƒ`ƒƒ‚ª“o˜^‚³‚ê‚Ä‚¢‚È‚¢ê‡‚ÍTextureId‚ğQÆ‚µƒ`ƒFƒbƒN‚ğs‚¤‚±‚Æ
+		TextureContener tc; // ãƒ†ã‚¯ã‚¹ãƒãƒ£ãŒç™»éŒ²ã•ã‚Œã¦ã„ãªã„å ´åˆã¯TextureIdã‚’å‚ç…§ã—ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†ã“ã¨
 		tc.textureId = -1;
 		if (m_textures.empty()) return tc;
 
@@ -364,16 +364,16 @@ namespace uq_lib {
 		if (tc.textureId == -1) {
 			return -1;
 		}
-		// •`‰æ‹éŒ`(ƒRƒs[æ)
+		// æç”»çŸ©å½¢(ã‚³ãƒ”ãƒ¼å…ˆ)
 		D2D1_RECT_F oDrawRect = D2D1::RectF((float)x, (float)y, x + tc.width, y + tc.height);
-		// •`‰æ‹éŒ`(ƒRƒs[Œ³)
+		// æç”»çŸ©å½¢(ã‚³ãƒ”ãƒ¼å…ƒ)
 		D2D1_RECT_F oSrcDrawRect = D2D1::RectF(0, 0, tc.width, tc.height);
 		m_pD2d1DeviceContext->DrawBitmap(
 			tc.pBitmap,
 			oDrawRect,
 			opacity,
 			D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR,
-			&oSrcDrawRect     // •`‰æŒ³‹éŒ`(‚±‚ê‚ğ’²®‚µ‚ÄƒgƒŠƒ~ƒ“ƒO‚µ‚Ü‚·)
+			&oSrcDrawRect     // æç”»å…ƒçŸ©å½¢(ã“ã‚Œã‚’èª¿æ•´ã—ã¦ãƒˆãƒªãƒŸãƒ³ã‚°ã—ã¾ã™)
 		);
 		return 0;
 	}
@@ -383,16 +383,16 @@ namespace uq_lib {
 		if (tc.textureId == -1) {
 			return -1;
 		}
-		// •`‰æ‹éŒ`(ƒRƒs[æ)
+		// æç”»çŸ©å½¢(ã‚³ãƒ”ãƒ¼å…ˆ)
 		D2D1_RECT_F oDrawRect = D2D1::RectF((float)x, (float)y, (float)(x + sw), (float)(y + sh));
-		// •`‰æ‹éŒ`(ƒRƒs[Œ³)
+		// æç”»çŸ©å½¢(ã‚³ãƒ”ãƒ¼å…ƒ)
 		D2D1_RECT_F oSrcDrawRect = D2D1::RectF((float)sx, (float)sy, (float)(sx + sw), (float)(sy + sh));
 		m_pD2d1DeviceContext->DrawBitmap(
 			tc.pBitmap,
 			oDrawRect,
 			opacity,
 			D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR,
-			&oSrcDrawRect     // •`‰æŒ³‹éŒ`(‚±‚ê‚ğ’²®‚µ‚ÄƒgƒŠƒ~ƒ“ƒO‚µ‚Ü‚·)
+			&oSrcDrawRect     // æç”»å…ƒçŸ©å½¢(ã“ã‚Œã‚’èª¿æ•´ã—ã¦ãƒˆãƒªãƒŸãƒ³ã‚°ã—ã¾ã™)
 		);
 		return 0;
 	}

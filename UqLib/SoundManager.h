@@ -19,18 +19,18 @@ namespace uq_lib {
 	public:
 
 		/**
-		 * ƒCƒ“ƒXƒ^ƒ“ƒXæ“¾
+		 * ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹å–å¾—
 		 *
-		 * @return ƒCƒ“ƒXƒ^ƒ“ƒX
+		 * @return ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
 		 */
-		 // ƒCƒ“ƒXƒ^ƒ“ƒXæ“¾
+		 // ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹å–å¾—
 		static SoundManager* GetInstance() {
 			if (!m_sm && m_destroyFlg == true) m_sm = new SoundManager();
 			return m_sm;
 		}
 
 		/**
-		 * ”jŠü
+		 * ç ´æ£„
 		 */
 		static void Destroy() {
 			m_destroyFlg = false;
@@ -39,110 +39,110 @@ namespace uq_lib {
 		}
 
 		/**
-		 * ƒfƒXƒgƒ‰ƒNƒ^
+		 * ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 		 */
 		virtual ~SoundManager();
 
 
 		/**
-		 * ‰Šú‰»
+		 * åˆæœŸåŒ–
 		 *
-		 * @param hWnd ƒEƒBƒ“ƒhƒEƒnƒ“ƒhƒ‹
-		 * @return ¬Œ÷i0jA¸”si-1j
+		 * @param hWnd ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒãƒ³ãƒ‰ãƒ«
+		 * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
 		 */
 		int Init(HWND hWnd);
 
 		/**
-		 * ƒtƒ@ƒCƒ‹‚©‚çƒTƒEƒ“ƒhÄ¶
+		 * ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ã‚µã‚¦ãƒ³ãƒ‰å†ç”Ÿ
 		 *
-		 * @param fileName ƒtƒ@ƒCƒ‹–¼
-		 * @param playType Ä¶ƒ^ƒCƒv
-		 * @return ¬Œ÷i0jA¸”si-1j
+		 * @param fileName ãƒ•ã‚¡ã‚¤ãƒ«å
+		 * @param playType å†ç”Ÿã‚¿ã‚¤ãƒ—
+		 * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
 		 */
 		int PlaySoundFromFile(std::string fileName, int playType);
 
 		/**
-		 * ƒTƒEƒ“ƒh’â~
+		 * ã‚µã‚¦ãƒ³ãƒ‰åœæ­¢
 		 *
-		 * @param slotNum ƒXƒƒbƒg”Ô†
+		 * @param slotNum ã‚¹ãƒ­ãƒƒãƒˆç•ªå·
 		 */
 		void StopSoundEX(int slotNum);
 
 		/**
-		 * ƒTƒEƒ“ƒh‘S’â~
+		 * ã‚µã‚¦ãƒ³ãƒ‰å…¨åœæ­¢
 		 */
 		void AllStop();
 
 		/**
-		 * “o˜^EÄ¶ó‘Ôƒ`ƒFƒbƒN
+		 * ç™»éŒ²ãƒ»å†ç”ŸçŠ¶æ…‹ãƒã‚§ãƒƒã‚¯
 		 *
-		 * @return ¬Œ÷i0jA¸”si-1j
+		 * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
 		 */
 		int IsPlay();
 
 	private:
-		// ƒVƒ“ƒOƒ‹ƒgƒ“
+		// ã‚·ãƒ³ã‚°ãƒ«ãƒˆãƒ³
 		static SoundManager* m_sm;
-		static bool m_destroyFlg; // Phoenix Singleton‰ñ”ğ—p
+		static bool m_destroyFlg; // Phoenix Singletonå›é¿ç”¨
 		HWND m_hwnd;
 		IDirectSound8* m_pDS8;
 
-		//! ƒTƒEƒ“ƒhƒoƒbƒtƒ@—Ìˆæ(—vŒŸ“¢ ƒTƒEƒ“ƒhƒ|[ƒg•ª‚âBGM‚âSE‚©‚ç•ª—£‚·‚é‚È‚Ç‚ÌŒŸ“¢)
+		//! ã‚µã‚¦ãƒ³ãƒ‰ãƒãƒƒãƒ•ã‚¡é ˜åŸŸ(è¦æ¤œè¨ ã‚µã‚¦ãƒ³ãƒ‰ãƒãƒ¼ãƒˆåˆ†ã‚„BGMã‚„SEã‹ã‚‰åˆ†é›¢ã™ã‚‹ãªã©ã®æ¤œè¨)
 		IDirectSoundBuffer8* m_pSoundBuffer[D_SOUND_MAX];
 
 		/**
-		 * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+		 * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 		 */
 		SoundManager();
 
 		/**
-		 * Ä¶‰Â”\ƒXƒƒbƒgæ“¾
+		 * å†ç”Ÿå¯èƒ½ã‚¹ãƒ­ãƒƒãƒˆå–å¾—
 		 *
-		 * @return ƒXƒƒbƒg”Ô†
+		 * @return ã‚¹ãƒ­ãƒƒãƒˆç•ªå·
 		 */
 		int GetPlaySlot();
 
 		/**
-		 * ƒTƒEƒ“ƒhƒtƒ@ƒCƒ‹“Ç‚İ‚İ
+		 * ã‚µã‚¦ãƒ³ãƒ‰ãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿
 		 *
-		 * @param fileName ƒtƒ@ƒCƒ‹–¼
-		 * @param playType Ä¶ƒ^ƒCƒv
-		 * @param port     ƒ|[ƒg
-		 * @return ¬Œ÷i0jA¸”si-1j
+		 * @param fileName ãƒ•ã‚¡ã‚¤ãƒ«å
+		 * @param playType å†ç”Ÿã‚¿ã‚¤ãƒ—
+		 * @param port     ãƒãƒ¼ãƒˆ
+		 * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
 		 */
 		int SoundFileOpen(std::string fileName, int playType, int port);
 
 		/**
-		 * ƒTƒEƒ“ƒhÄ¶
+		 * ã‚µã‚¦ãƒ³ãƒ‰å†ç”Ÿ
 		 *
-		 * @param pWaveData wavƒf[ƒ^
-		 * @param waveSize  wavƒTƒCƒY
-		 * @param wFmt      ƒtƒH[ƒ}ƒbƒg
-		 * @param playType  Ä¶ƒ^ƒCƒv
-		 * @param port      ƒ|[ƒg
-		 * @return ¬Œ÷i0jA¸”si-1j
+		 * @param pWaveData wavãƒ‡ãƒ¼ã‚¿
+		 * @param waveSize  wavã‚µã‚¤ã‚º
+		 * @param wFmt      ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆ
+		 * @param playType  å†ç”Ÿã‚¿ã‚¤ãƒ—
+		 * @param port      ãƒãƒ¼ãƒˆ
+		 * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
 		 */
 		int MyPlaySound(char* pWaveData, DWORD waveSize, WAVEFORMATEX wFmt, int playType, int port);
 
 		/**
-		 * ƒtƒ@ƒCƒ‹‚©‚çWavƒtƒ@ƒCƒ‹ƒI[ƒvƒ“
+		 * ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰Wavãƒ•ã‚¡ã‚¤ãƒ«ã‚ªãƒ¼ãƒ—ãƒ³
 		 *
-		 * @param filePath     ƒtƒ@ƒCƒ‹ƒpƒX
-		 * @param waveFormatEx wavƒtƒH[ƒ}ƒbƒg
-		 * @param ppData       ƒf[ƒ^
-		 * @param dataSize     ƒf[ƒ^ƒTƒCƒY
-		 * @return ¬Œ÷i0jA¸”si-1j
+		 * @param filePath     ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹
+		 * @param waveFormatEx wavãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆ
+		 * @param ppData       ãƒ‡ãƒ¼ã‚¿
+		 * @param dataSize     ãƒ‡ãƒ¼ã‚¿ã‚µã‚¤ã‚º
+		 * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
 		 */
 		int OpenWaveFromFile(std::string filePath, WAVEFORMATEX& waveFormatEx, char** ppData, DWORD& dataSize);
 
 		/**
-		 * wav“Ç‚İ‚İ
+		 * wavèª­ã¿è¾¼ã¿
 		 *
-		 * @param hMmio        ƒ}ƒ‹ƒ`ƒƒfƒBƒAƒtƒ@ƒCƒ‹“üo—Í‚Ìƒnƒ“ƒhƒ‹
-		 * @param waveFormatEx wavƒtƒH[ƒ}ƒbƒg
-		 * @param ppData       ƒf[ƒ^
-		 * @param dataSize     ƒf[ƒ^ƒTƒCƒY
-		 * @return ¬Œ÷i0jA¸”si-1j
+		 * @param hMmio        ãƒãƒ«ãƒãƒ¡ãƒ‡ã‚£ã‚¢ãƒ•ã‚¡ã‚¤ãƒ«å…¥å‡ºåŠ›ã®ãƒãƒ³ãƒ‰ãƒ«
+		 * @param waveFormatEx wavãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆ
+		 * @param ppData       ãƒ‡ãƒ¼ã‚¿
+		 * @param dataSize     ãƒ‡ãƒ¼ã‚¿ã‚µã‚¤ã‚º
+		 * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
 		 */
 		int OpenWave(HMMIO hMmio, WAVEFORMATEX& waveFormatEx, char** ppData, DWORD& dataSize);
 	};

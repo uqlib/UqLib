@@ -20,22 +20,22 @@ namespace uq_lib {
 	public:
 		struct TextureContener {
 			int textureId;
-			int loadCnt;					// ƒeƒNƒXƒ`ƒƒƒ[ƒhƒJƒEƒ“ƒ^
-			ID2D1Bitmap* pBitmap;			// ƒrƒbƒgƒ}ƒbƒv
-			float width;					// •
-			float height;					// ‚‚³
+			int loadCnt;					// ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ­ãƒ¼ãƒ‰ã‚«ã‚¦ãƒ³ã‚¿
+			ID2D1Bitmap* pBitmap;			// ãƒ“ãƒƒãƒˆãƒãƒƒãƒ—
+			float width;					// å¹…
+			float height;					// é«˜ã•
 		};
 
 		struct FontContener {
 			int fontId;
 			int height;
-			IDWriteTextFormat* pFont;	// ƒtƒHƒ“ƒgÀ‘Ì
+			IDWriteTextFormat* pFont;	// ãƒ•ã‚©ãƒ³ãƒˆå®Ÿä½“
 		};
 
 		/**
-		 * ƒCƒ“ƒXƒ^ƒ“ƒXæ“¾
+		 * ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹å–å¾—
 		 *
-		 * @return ƒCƒ“ƒXƒ^ƒ“ƒX
+		 * @return ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
 		 */
 		static GraphicsManager* GetInstance() {
 			if (!m_gm && m_destroyFlg == true) m_gm = new GraphicsManager();
@@ -43,7 +43,7 @@ namespace uq_lib {
 		}
 
 		/**
-		 * ”jŠü
+		 * ç ´æ£„
 		 */
 		static void Destroy() {
 			m_destroyFlg = false;
@@ -52,15 +52,15 @@ namespace uq_lib {
 		}
 
 		/**
-		 * ƒfƒXƒgƒ‰ƒNƒ^
+		 * ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 		 */
 		virtual ~GraphicsManager();
 
 		/**
-		 * ‰Šú‰»
+		 * åˆæœŸåŒ–
 		 *
-		 * @param device ƒfƒoƒCƒX
-		 * @return ¬Œ÷i0jA¸”si-1j
+		 * @param device ãƒ‡ãƒã‚¤ã‚¹
+		 * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
 		 */
 		int Init(HWND hWnd,
 			Microsoft::WRL::ComPtr<ID3D11DeviceContext> d3d11DeviceContext,
@@ -73,198 +73,198 @@ namespace uq_lib {
 		);
 
 		/**
-		 * ‘SƒŠƒŠ[ƒX
+		 * å…¨ãƒªãƒªãƒ¼ã‚¹
 		 */
 		void ReleaseAll();
 
 		/**
-		 * ‘SƒeƒNƒXƒ`ƒƒƒŠƒŠ[ƒX
+		 * å…¨ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒªãƒªãƒ¼ã‚¹
 		 */
 		void ReleaseAllTexture();
 
 		/**
-		 * ‘SƒtƒHƒ“ƒgƒŠƒŠ[ƒX
+		 * å…¨ãƒ•ã‚©ãƒ³ãƒˆãƒªãƒªãƒ¼ã‚¹
 		 */
 		void ReleaseAllFont();
 
 		/**
-		 * •`‰æŠJn
+		 * æç”»é–‹å§‹
 		 *
-		 * @return ¬Œ÷i0jA¸”si-1j
+		 * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
 		 */
 		int BeginDrawing();
 
 		/**
-		 * •`‰æI—¹
+		 * æç”»çµ‚äº†
 		 *
-		 * @return ¬Œ÷i0jA¸”si-1j
+		 * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
 		 */
 		int EndDrawing();
 
 		/**
-		 * ƒtƒHƒ“ƒgƒRƒ“ƒeƒiì¬
+		 * ãƒ•ã‚©ãƒ³ãƒˆã‚³ãƒ³ãƒ†ãƒŠä½œæˆ
 		 *
-		 * @param height   •¶š‚Ì‚‚³
-		 * @param fontName ƒtƒHƒ“ƒg–¼
-		 * @return ƒtƒHƒ“ƒgID
+		 * @param height   æ–‡å­—ã®é«˜ã•
+		 * @param fontName ãƒ•ã‚©ãƒ³ãƒˆå
+		 * @return ãƒ•ã‚©ãƒ³ãƒˆID
 		 */
 		int CreateFontContener(int height, std::wstring fontName);
 
 		/**
-		 * ƒtƒ@ƒCƒ‹‚©‚çƒeƒNƒXƒ`ƒƒì¬
+		 * ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ãƒ†ã‚¯ã‚¹ãƒãƒ£ä½œæˆ
 		 *
-		 * @param fileName ƒtƒ@ƒCƒ‹–¼
-		 * @return ƒeƒNƒXƒ`ƒƒID
+		 * @param fileName ãƒ•ã‚¡ã‚¤ãƒ«å
+		 * @return ãƒ†ã‚¯ã‚¹ãƒãƒ£ID
 		 */
 		int CreateTextureFromFile(std::wstring fileName);
 
 		/**
-		 * Datƒtƒ@ƒCƒ‹‚©‚çƒeƒNƒXƒ`ƒƒì¬
+		 * Datãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ãƒ†ã‚¯ã‚¹ãƒãƒ£ä½œæˆ
 		 *
-		 * @param fileName ƒtƒ@ƒCƒ‹–¼
-		 * @return ƒeƒNƒXƒ`ƒƒID
+		 * @param fileName ãƒ•ã‚¡ã‚¤ãƒ«å
+		 * @return ãƒ†ã‚¯ã‚¹ãƒãƒ£ID
 		 */
 		int CreateTextureFromDatFile(std::string fileName);
 
 		/**
-		 * ƒeƒNƒXƒ`ƒƒ•`‰æ
+		 * ãƒ†ã‚¯ã‚¹ãƒãƒ£æç”»
 		 *
-		 * @param graphicId ƒOƒ‰ƒtƒBƒbƒNID
-		 * @param x         À•WX
-		 * @param y         À•WY
-		 * @param opacity   •s“§–¾“xi“§–¾ 0.0f ` 1.0f •s“§–¾j
-		 * @return ¬Œ÷i0jA¸”si-1j
+		 * @param graphicId ã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯ID
+		 * @param x         åº§æ¨™X
+		 * @param y         åº§æ¨™Y
+		 * @param opacity   ä¸é€æ˜åº¦ï¼ˆé€æ˜ 0.0f ï½ 1.0f ä¸é€æ˜ï¼‰
+		 * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
 		 */
 		int DrawTexture(int graphicId, int x, int y, float opacity = 1.0);
 
 		/**
-		 * ƒeƒNƒXƒ`ƒƒ•`‰æ
+		 * ãƒ†ã‚¯ã‚¹ãƒãƒ£æç”»
 		 *
-		 * @param graphicId ƒOƒ‰ƒtƒBƒbƒNID
-		 * @param x         “]‘—æXÀ•W
-		 * @param y         “]‘—æYÀ•W
-		 * @param sx        “]‘—Œ³XÀ•W
-		 * @param sy        “]‘—Œ³YÀ•W
-		 * @param sw        “]‘—Œ³‹éŒ`ƒTƒCƒYi•j
-		 * @param sh        “]‘—Œ³‹éŒ`ƒTƒCƒYi‚‚³j
-		 * @param opacity   •s“§–¾“xi“§–¾ 0.0f ` 1.0f •s“§–¾j
-		 * @return ¬Œ÷i0jA¸”si-1j
+		 * @param graphicId ã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯ID
+		 * @param x         è»¢é€å…ˆXåº§æ¨™
+		 * @param y         è»¢é€å…ˆYåº§æ¨™
+		 * @param sx        è»¢é€å…ƒXåº§æ¨™
+		 * @param sy        è»¢é€å…ƒYåº§æ¨™
+		 * @param sw        è»¢é€å…ƒçŸ©å½¢ã‚µã‚¤ã‚ºï¼ˆå¹…ï¼‰
+		 * @param sh        è»¢é€å…ƒçŸ©å½¢ã‚µã‚¤ã‚ºï¼ˆé«˜ã•ï¼‰
+		 * @param opacity   ä¸é€æ˜åº¦ï¼ˆé€æ˜ 0.0f ï½ 1.0f ä¸é€æ˜ï¼‰
+		 * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
 		 */
 		int DrawTexture(int graphicId, int x, int y, int sx, int sy, int sw, int sh, float opacity = 1.0);
 
 		/**
-		 * •¶š—ñ•`‰æ
+		 * æ–‡å­—åˆ—æç”»
 		 *
-		 * @param x             XÀ•W
-		 * @param y             YÀ•W
-		 * @param text          •¶š—ñ
-		 * @param fontId        ƒtƒHƒ“ƒgID
-		 * @param hexColorCode  16i”ƒJƒ‰[ƒR[ƒh
-		 * @return ¬Œ÷i0jA¸”si-1j
+		 * @param x             Xåº§æ¨™
+		 * @param y             Yåº§æ¨™
+		 * @param text          æ–‡å­—åˆ—
+		 * @param fontId        ãƒ•ã‚©ãƒ³ãƒˆID
+		 * @param hexColorCode  16é€²æ•°ã‚«ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰
+		 * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
 		 */
 		int DrawString(int x, int y, std::string text, int fontId, UINT32 hexColorCode, float opacity = 1.0);
 
 		/**
-		 * ƒ‰ƒCƒ“•`‰æ
+		 * ãƒ©ã‚¤ãƒ³æç”»
 		 *
-		 * @param x             XÀ•W
-		 * @param y             YÀ•W
-		 * @param ax            ’Ç‰ÁXÀ•W
-		 * @param ay            ’Ç‰ÁYÀ•W
-		 * @param hexColorCode  16i”ƒJƒ‰[ƒR[ƒh
-		 * @param width         •
-		 * @param opacity       •s“§–¾“xi“§–¾ 0.0f ` 1.0f •s“§–¾j
-		 * @return ¬Œ÷i0jA¸”si-1j
+		 * @param x             Xåº§æ¨™
+		 * @param y             Yåº§æ¨™
+		 * @param ax            è¿½åŠ Xåº§æ¨™
+		 * @param ay            è¿½åŠ Yåº§æ¨™
+		 * @param hexColorCode  16é€²æ•°ã‚«ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰
+		 * @param width         å¹…
+		 * @param opacity       ä¸é€æ˜åº¦ï¼ˆé€æ˜ 0.0f ï½ 1.0f ä¸é€æ˜ï¼‰
+		 * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
 		 */
 		int DrawLine(int x, int y, int ax, int ay, UINT32 hexColorCode, float width, float opacity = 1.0);
 
 		/**
-		 * lŠpŒ`•`‰æ
+		 * å››è§’å½¢æç”»
 		 *
-		 * @param x             XÀ•W
-		 * @param y             YÀ•W
-		 * @param ax            ’Ç‰ÁXÀ•W
-		 * @param ay            ’Ç‰ÁYÀ•W
-		 * @param hexColorCode  16i”ƒJƒ‰[ƒR[ƒh
-		 * @param strokeWidth   ü‚Ì‘¾‚³
-		 * @param opacity       •s“§–¾“xi“§–¾ 0.0f ` 1.0f •s“§–¾j
-		 * @return ¬Œ÷i0jA¸”si-1j
+		 * @param x             Xåº§æ¨™
+		 * @param y             Yåº§æ¨™
+		 * @param ax            è¿½åŠ Xåº§æ¨™
+		 * @param ay            è¿½åŠ Yåº§æ¨™
+		 * @param hexColorCode  16é€²æ•°ã‚«ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰
+		 * @param strokeWidth   ç·šã®å¤ªã•
+		 * @param opacity       ä¸é€æ˜åº¦ï¼ˆé€æ˜ 0.0f ï½ 1.0f ä¸é€æ˜ï¼‰
+		 * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
 		 */
 		int DrawSquare(int x, int y, int sx, int sy, UINT32 hexColorCode, float strokeWidth, float opacity = 1.0);
 
 		/**
-		 * lŠpŒ`•`‰æi“h‚è‚Â‚Ô‚µj
+		 * å››è§’å½¢æç”»ï¼ˆå¡—ã‚Šã¤ã¶ã—ï¼‰
 		 *
-		 * @param x             XÀ•W
-		 * @param y             YÀ•W
-		 * @param ax            ’Ç‰ÁXÀ•W
-		 * @param ay            ’Ç‰ÁYÀ•W
-		 * @param hexColorCode  16i”ƒJƒ‰[ƒR[ƒh
-		 * @param opacity       •s“§–¾“xi“§–¾ 0.0f ` 1.0f •s“§–¾j
-		 * @return ¬Œ÷i0jA¸”si-1j
+		 * @param x             Xåº§æ¨™
+		 * @param y             Yåº§æ¨™
+		 * @param ax            è¿½åŠ Xåº§æ¨™
+		 * @param ay            è¿½åŠ Yåº§æ¨™
+		 * @param hexColorCode  16é€²æ•°ã‚«ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰
+		 * @param opacity       ä¸é€æ˜åº¦ï¼ˆé€æ˜ 0.0f ï½ 1.0f ä¸é€æ˜ï¼‰
+		 * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
 		 */
 		int FillSquare(int x, int y, int sx, int sy, UINT32 hexColorCode, float opacity = 1.0);
 
 		/**
-		 * ŠÛ‚ßlŠpŒ`•`‰æ
+		 * ä¸¸ã‚å››è§’å½¢æç”»
 		 *
-		 * @param x             XÀ•W
-		 * @param y             YÀ•W
-		 * @param ax            ’Ç‰ÁXÀ•W
-		 * @param ay            ’Ç‰ÁYÀ•W
-		 * @param hexColorCode  16i”ƒJƒ‰[ƒR[ƒh
-		 * @param strokeWidth   ü‚Ì‘¾‚³
-		 * @param radius        0FŠp‚Ì‚Ü‚Ü@A0.1ˆÈãiŠp‚ğŠÛ‚ß‚éj
-		 * @param opacity       •s“§–¾“xi“§–¾ 0.0f ` 1.0f •s“§–¾j
-		 * @return ¬Œ÷i0jA¸”si-1j
+		 * @param x             Xåº§æ¨™
+		 * @param y             Yåº§æ¨™
+		 * @param ax            è¿½åŠ Xåº§æ¨™
+		 * @param ay            è¿½åŠ Yåº§æ¨™
+		 * @param hexColorCode  16é€²æ•°ã‚«ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰
+		 * @param strokeWidth   ç·šã®å¤ªã•
+		 * @param radius        0ï¼šè§’ã®ã¾ã¾ã€€ã€0.1ä»¥ä¸Šï¼ˆè§’ã‚’ä¸¸ã‚ã‚‹ï¼‰
+		 * @param opacity       ä¸é€æ˜åº¦ï¼ˆé€æ˜ 0.0f ï½ 1.0f ä¸é€æ˜ï¼‰
+		 * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
 		 */
 		int DrawRoundedSquare(int x, int y, int sx, int sy, UINT32 hexColorCode, float strokeWidth, float radius, float opacity = 1.0);
 
 		/**
-		 * ŠÛ‚ßlŠpŒ`•`‰æi“h‚è‚Â‚Ô‚µj
+		 * ä¸¸ã‚å››è§’å½¢æç”»ï¼ˆå¡—ã‚Šã¤ã¶ã—ï¼‰
 		 *
-		 * @param x             XÀ•W
-		 * @param y             YÀ•W
-		 * @param ax            ’Ç‰ÁXÀ•W
-		 * @param ay            ’Ç‰ÁYÀ•W
-		 * @param hexColorCode  16i”ƒJƒ‰[ƒR[ƒh
-		 * @param radius        0FŠp‚Ì‚Ü‚Ü@A0.1ˆÈãiŠp‚ğŠÛ‚ß‚éj
-		 * @param opacity       •s“§–¾“xi“§–¾ 0.0f ` 1.0f •s“§–¾j
-		 * @return ¬Œ÷i0jA¸”si-1j
+		 * @param x             Xåº§æ¨™
+		 * @param y             Yåº§æ¨™
+		 * @param ax            è¿½åŠ Xåº§æ¨™
+		 * @param ay            è¿½åŠ Yåº§æ¨™
+		 * @param hexColorCode  16é€²æ•°ã‚«ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰
+		 * @param radius        0ï¼šè§’ã®ã¾ã¾ã€€ã€0.1ä»¥ä¸Šï¼ˆè§’ã‚’ä¸¸ã‚ã‚‹ï¼‰
+		 * @param opacity       ä¸é€æ˜åº¦ï¼ˆé€æ˜ 0.0f ï½ 1.0f ä¸é€æ˜ï¼‰
+		 * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
 		 */
 		int FillRoundedSquare(int x, int y, int sx, int sy, UINT32 hexColorCode, float radius, float opacity = 1.0);
 
 		/**
-		 * ‘È‰~•`‰æ
+		 * æ¥•å††æç”»
 		 *
-		 * @param x             XÀ•W
-		 * @param y             YÀ•W
-		 * @param width         •i”¼Œaj
-		 * @param height        ‚‚³i”¼Œaj
-		 * @param hexColorCode  16i”ƒJƒ‰[ƒR[ƒh
-		 * @param strokeWidth   ü‚Ì‘¾‚³
-		 * @param opacity       •s“§–¾“xi“§–¾ 0.0f ` 1.0f •s“§–¾j
-		 * @return ¬Œ÷i0jA¸”si-1j
+		 * @param x             Xåº§æ¨™
+		 * @param y             Yåº§æ¨™
+		 * @param width         å¹…ï¼ˆåŠå¾„ï¼‰
+		 * @param height        é«˜ã•ï¼ˆåŠå¾„ï¼‰
+		 * @param hexColorCode  16é€²æ•°ã‚«ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰
+		 * @param strokeWidth   ç·šã®å¤ªã•
+		 * @param opacity       ä¸é€æ˜åº¦ï¼ˆé€æ˜ 0.0f ï½ 1.0f ä¸é€æ˜ï¼‰
+		 * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
 		 */
 		int DrawEllipse(int x, int y, int width, int height, UINT32 hexColorCode, float strokeWidth, float opacity = 1.0);
 
 		/**
-		 * ‘È‰~•`‰æi“h‚è‚Â‚Ô‚µj
+		 * æ¥•å††æç”»ï¼ˆå¡—ã‚Šã¤ã¶ã—ï¼‰
 		 *
-		 * @param x             XÀ•W
-		 * @param y             YÀ•W
-		 * @param width         •i”¼Œaj
-		 * @param height        ‚‚³i”¼Œaj
-		 * @param hexColorCode  16i”ƒJƒ‰[ƒR[ƒh
-		 * @param opacity       •s“§–¾“xi“§–¾ 0.0f ` 1.0f •s“§–¾j
-		 * @return ¬Œ÷i0jA¸”si-1j
+		 * @param x             Xåº§æ¨™
+		 * @param y             Yåº§æ¨™
+		 * @param width         å¹…ï¼ˆåŠå¾„ï¼‰
+		 * @param height        é«˜ã•ï¼ˆåŠå¾„ï¼‰
+		 * @param hexColorCode  16é€²æ•°ã‚«ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰
+		 * @param opacity       ä¸é€æ˜åº¦ï¼ˆé€æ˜ 0.0f ï½ 1.0f ä¸é€æ˜ï¼‰
+		 * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
 		 */
 		int FillEllipse(int x, int y, int width, int height, UINT32 hexColorCode, float opacity = 1.0);
 		
 	private:
-		// ƒVƒ“ƒOƒ‹ƒgƒ“
+		// ã‚·ãƒ³ã‚°ãƒ«ãƒˆãƒ³
 		static GraphicsManager* m_gm;
-		static bool m_destroyFlg; // Phoenix Singleton‰ñ”ğ—p
+		static bool m_destroyFlg; // Phoenix Singletonå›é¿ç”¨
 		std::vector<TextureContener> m_textures;
 		std::vector<FontContener> m_fonts;
 		int m_textureId;
@@ -274,31 +274,31 @@ namespace uq_lib {
 		Microsoft::WRL::ComPtr<ID3D11DeviceContext> m_pD3d11DeviceContext = NULL;
 		Microsoft::WRL::ComPtr<ID3D11RenderTargetView> m_pD3d11RenderTargetView = NULL;
 		
-		// Direct2D 1.1‚©‚ç‚ÍID2D1DeviceContextB‚»‚êˆÈ‘O‚ÍID2D1HwndRenderTargetB
+		// Direct2D 1.1ã‹ã‚‰ã¯ID2D1DeviceContextã€‚ãã‚Œä»¥å‰ã¯ID2D1HwndRenderTargetã€‚
 		Microsoft::WRL::ComPtr<ID2D1DeviceContext> m_pD2d1DeviceContext = NULL;
 		Microsoft::WRL::ComPtr<IDXGISwapChain> m_pDxgiSwapChain = NULL;
-		IWICImagingFactory* m_pImagingFactory = NULL;//‰æ‘œ•\¦—p
+		IWICImagingFactory* m_pImagingFactory = NULL;//ç”»åƒè¡¨ç¤ºç”¨
 		IDWriteFactory* m_pDWR_Factory = NULL;
 		HWND m_hwnd = NULL;
 
 		/**
-		 * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+		 * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 		 */
 		GraphicsManager();
 
 		/**
-		 * ƒeƒNƒXƒ`ƒƒƒRƒ“ƒeƒiæ“¾
+		 * ãƒ†ã‚¯ã‚¹ãƒãƒ£ã‚³ãƒ³ãƒ†ãƒŠå–å¾—
 		 *
-		 * @param graphicId ƒOƒ‰ƒtƒBƒbƒNID
-		 * @return ƒeƒNƒXƒ`ƒƒƒRƒ“ƒeƒi
+		 * @param graphicId ã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯ID
+		 * @return ãƒ†ã‚¯ã‚¹ãƒãƒ£ã‚³ãƒ³ãƒ†ãƒŠ
 		 */
 		TextureContener GetTextureContener(int graphicId);
 
 		/**
-		 * ƒtƒHƒ“ƒgƒRƒ“ƒeƒiæ“¾
+		 * ãƒ•ã‚©ãƒ³ãƒˆã‚³ãƒ³ãƒ†ãƒŠå–å¾—
 		 *
-		 * @param fontId ƒtƒHƒ“ƒgID
-		 * @return ƒtƒHƒ“ƒgƒRƒ“ƒeƒi
+		 * @param fontId ãƒ•ã‚©ãƒ³ãƒˆID
+		 * @return ãƒ•ã‚©ãƒ³ãƒˆã‚³ãƒ³ãƒ†ãƒŠ
 		 */
 		FontContener GetFontContener(int fontId);
 	};

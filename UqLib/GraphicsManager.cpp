@@ -18,7 +18,7 @@ using namespace Microsoft::WRL;
 namespace uq_lib {
 
 	GraphicsManager* GraphicsManager::m_gm = NULL;
-	bool GraphicsManager::m_destroyFlg = true; // Phoenix Singleton���p
+	bool GraphicsManager::m_destroyFlg = true; // Phoenix Singleton回避用
 
 	GraphicsManager::GraphicsManager() {
 		m_textureId = 0;
@@ -66,7 +66,7 @@ namespace uq_lib {
 			return -1;
 		}
 
-		CreateFontContener(DEFAULT_FONT_SIZE, L"�l�r �S�V�b�N");
+		CreateFontContener(DEFAULT_FONT_SIZE, L"ＭＳ ゴシック");
 
 		return 0;
 	}
@@ -97,7 +97,7 @@ namespace uq_lib {
 	}
 
 	int GraphicsManager::BeginDrawing() {
-		// D3D11�ŉ�ʂ��N���A����D2D1�ŕ`��
+		// D3D11で画面をクリアしてD2D1で描画
 		const float color[] = { 0.f, 0.f, 0.f, 1.f };
 		m_pD3d11DeviceContext->ClearRenderTargetView(m_pD3d11RenderTargetView.Get(), color);
 
@@ -141,7 +141,7 @@ namespace uq_lib {
 
 		TextureContener tc;
 		IWICBitmapDecoder* dec;
-		// �f�R�[�h
+		// デコード
 		hr = m_pImagingFactory->CreateDecoderFromFilename(
 			fileName.c_str(),
 			NULL,
@@ -150,24 +150,24 @@ namespace uq_lib {
 			&dec
 		);
 		if (FAILED(hr)) {
-			Logger::OutputWarn("CreateDecoderFromFilename�Ɏ��s�B");
+			Logger::OutputWarn("CreateDecoderFromFilenameに失敗。");
 			return -1;
 		}
 
 		IWICBitmapFrameDecode* frame;
 
-		// �t���[�����擾
+		// フレームを取得
 		dec->GetFrame(0, &frame);
 
 		IWICFormatConverter* converter;
-		// �摜�C���[�W��Direct2D�`���ɃR���o�[�g
+		// 画像イメージをDirect2D形式にコンバート
 		hr = m_pImagingFactory->CreateFormatConverter(&converter);
 		if (FAILED(hr)) {
-			Logger::OutputWarn("CreateFormatConverter�Ɏ��s�B");
+			Logger::OutputWarn("CreateFormatConverterに失敗。");
 			return -1;
 		}
 
-		// �摜�̓]�����̂͏I��
+		// 画像の転送自体は終了
 		hr = converter->Initialize(frame,
 			GUID_WICPixelFormat32bppPBGRA,
 			WICBitmapDitherTypeNone,
@@ -175,7 +175,7 @@ namespace uq_lib {
 			WICBitmapPaletteTypeMedianCut
 		);
 		if (FAILED(hr)) {
-			Logger::OutputWarn("Initialize�Ɏ��s�B");
+			Logger::OutputWarn("Initializeに失敗。");
 			return -1;
 		}
 
@@ -185,7 +185,7 @@ namespace uq_lib {
 		ID2D1Bitmap* pBitmap = NULL;
 		hr = m_pD2d1DeviceContext->CreateBitmapFromWicBitmap(converter, NULL, &pBitmap);
 		if (FAILED(hr)) {
-			Logger::OutputWarn("CreateBitmapFromWicBitmap�Ɏ��s�B");
+			Logger::OutputWarn("CreateBitmapFromWicBitmapに失敗。");
 			return -1;
 		}
 
@@ -213,22 +213,22 @@ namespace uq_lib {
 		TextureContener tc;
 		IWICBitmapDecoder* dec;
 
-		// �f�R�[�h
+		// デコード
 		IWICStream* pStream;
 		hr = m_pImagingFactory->CreateStream(&pStream);
 		if (FAILED(hr))
 		{
-			Logger::OutputWarn("CreateStream�Ɏ��s�B");
+			Logger::OutputWarn("CreateStreamに失敗。");
 			return -1;
 		}
 		if (buffer == NULL){
-			Logger::OutputWarn("buffer��NULL�B");
+			Logger::OutputWarn("bufferがNULL。");
 			return -1;
 		}
 		hr = pStream->InitializeFromMemory((byte*)buffer, size);
 		if (FAILED(hr))
 		{
-			Logger::OutputWarn("InitializeFromMemory�Ɏ��s�B");
+			Logger::OutputWarn("InitializeFromMemoryに失敗。");
 			return -1;
 		}
 		hr = m_pImagingFactory->CreateDecoderFromStream(
@@ -238,25 +238,25 @@ namespace uq_lib {
 			&dec);
 		if (FAILED(hr))
 		{
-			Logger::OutputWarn("CreateDecoderFromStream�Ɏ��s�B");
+			Logger::OutputWarn("CreateDecoderFromStreamに失敗。");
 			return -1;
 		}
 
 		IWICBitmapFrameDecode* frame;
 
-		// �t���[�����擾
+		// フレームを取得
 		dec->GetFrame(0, &frame);
 
 		IWICFormatConverter* converter;
-		// �摜�C���[�W��Direct2D�`���ɃR���o�[�g
+		// 画像イメージをDirect2D形式にコンバート
 		hr = m_pImagingFactory->CreateFormatConverter(&converter);
 		if (FAILED(hr))
 		{
-			Logger::OutputWarn("CreateFormatConverter�Ɏ��s�B");
+			Logger::OutputWarn("CreateFormatConverterに失敗。");
 			return -1;
 		}
 
-		// �摜�̓]�����̂͏I��
+		// 画像の転送自体は終了
 		hr = converter->Initialize(frame,
 			GUID_WICPixelFormat32bppPBGRA,
 			WICBitmapDitherTypeNone,
@@ -265,7 +265,7 @@ namespace uq_lib {
 		);
 		if (FAILED(hr))
 		{
-			Logger::OutputWarn("Initialize�Ɏ��s�B");
+			Logger::OutputWarn("Initializeに失敗。");
 			return -1;
 		}
 
@@ -276,7 +276,7 @@ namespace uq_lib {
 		hr = m_pD2d1DeviceContext->CreateBitmapFromWicBitmap(converter, NULL, &pBitmap);
 		if (FAILED(hr))
 		{
-			Logger::OutputWarn("CreateBitmapFromWicBitmap�Ɏ��s�B");
+			Logger::OutputWarn("CreateBitmapFromWicBitmapに失敗。");
 			return -1;
 		}
 
@@ -295,7 +295,7 @@ namespace uq_lib {
 	}
 
 	GraphicsManager::TextureContener GraphicsManager::GetTextureContener(int graphicId) {
-		TextureContener tc; // �e�N�X�`�����o�^����Ă��Ȃ��ꍇ��TextureId���Q�Ƃ��`�F�b�N���s������
+		TextureContener tc; // テクスチャが登録されていない場合はTextureIdを参照しチェックを行うこと
 		tc.textureId = -1;
 		if (m_textures.empty()) return tc;
 
@@ -313,16 +313,16 @@ namespace uq_lib {
 		if (tc.textureId == -1) {
 			return -1;
 		}
-		// �`���`(�R�s�[��)
+		// 描画矩形(コピー先)
 		D2D1_RECT_F oDrawRect = D2D1::RectF((float)x, (float)y, x + tc.width, y + tc.height);
-		// �`���`(�R�s�[��)
+		// 描画矩形(コピー元)
 		D2D1_RECT_F oSrcDrawRect = D2D1::RectF(0, 0, tc.width, tc.height);
 		m_pD2d1DeviceContext->DrawBitmap(
 			tc.pBitmap,
 			oDrawRect,
 			opacity,
 			D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR,
-			&oSrcDrawRect     // �`�挳��`(����𒲐����ăg���~���O���܂�)
+			&oSrcDrawRect     // 描画元矩形(これを調整してトリミングします)
 		);
 		return 0;
 	}
@@ -332,16 +332,16 @@ namespace uq_lib {
 		if (tc.textureId == -1) {
 			return -1;
 		}
-		// �`���`(�R�s�[��)
+		// 描画矩形(コピー先)
 		D2D1_RECT_F oDrawRect = D2D1::RectF((float)x, (float)y, (float)(x + sw), (float)(y + sh));
-		// �`���`(�R�s�[��)
+		// 描画矩形(コピー元)
 		D2D1_RECT_F oSrcDrawRect = D2D1::RectF((float)sx, (float)sy, (float)(sx + sw), (float)(sy + sh));
 		m_pD2d1DeviceContext->DrawBitmap(
 			tc.pBitmap,
 			oDrawRect,
 			opacity,
 			D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR,
-			&oSrcDrawRect     // �`�挳��`(����𒲐����ăg���~���O���܂�)
+			&oSrcDrawRect     // 描画元矩形(これを調整してトリミングします)
 		);
 		return 0;
 	}

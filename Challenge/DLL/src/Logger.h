@@ -19,65 +19,65 @@ namespace uq_lib {
 	public:
 
 		/**
-		 * ƒƒOƒŒƒxƒ‹•ÏX
+		 * ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«å¤‰æ›´
 		 *
-		 * @param logLevel ƒƒOƒŒƒxƒ‹
+		 * @param logLevel ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«
 		 */
 		static void ChangeLogLevel(int logLevel);
 
 		/**
-		 * Error”»’è
+		 * Erroråˆ¤å®š
 		 *
-		 * @return ŠY“–itruejA”ñŠY“–ifalsej
+		 * @return è©²å½“ï¼ˆtrueï¼‰ã€éè©²å½“ï¼ˆfalseï¼‰
 		 */
 		static bool JudgeError();
 
 		/**
-		 * Warn”»’è
+		 * Warnåˆ¤å®š
 		 *
-		 * @return ŠY“–itruejA”ñŠY“–ifalsej
+		 * @return è©²å½“ï¼ˆtrueï¼‰ã€éè©²å½“ï¼ˆfalseï¼‰
 		 */
 		static bool JudgeWarn();
 
 		/**
-		 * Info”»’è
+		 * Infoåˆ¤å®š
 		 *
-		 * @return ŠY“–itruejA”ñŠY“–ifalsej
+		 * @return è©²å½“ï¼ˆtrueï¼‰ã€éè©²å½“ï¼ˆfalseï¼‰
 		 */
 		static bool JudgeInfo();
 
 		/**
-		 * Debug”»’è
+		 * Debugåˆ¤å®š
 		 *
-		 * @return ŠY“–itruejA”ñŠY“–ifalsej
+		 * @return è©²å½“ï¼ˆtrueï¼‰ã€éè©²å½“ï¼ˆfalseï¼‰
 		 */
 		static bool JudgeDebug();
 
 		/**
-		 * Erroro—Í
+		 * Errorå‡ºåŠ›
 		 *
-		 * @param msg ƒƒbƒZ[ƒW
+		 * @param msg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
 		 */
 		static void OutputError(std::string msg);
 
 		/**
-		 * Warno—Í
+		 * Warnå‡ºåŠ›
 		 *
-		 * @param msg ƒƒbƒZ[ƒW
+		 * @param msg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
 		 */
 		static void OutputWarn(std::string msg);
 
 		/**
-		 * Infoo—Í
+		 * Infoå‡ºåŠ›
 		 *
-		 * @param msg ƒƒbƒZ[ƒW
+		 * @param msg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
 		 */
 		static void OutputInfo(std::string msg);
 
 		/**
-		 * Debugo—Í
+		 * Debugå‡ºåŠ›
 		 *
-		 * @param msg ƒƒbƒZ[ƒW
+		 * @param msg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
 		 */
 		static void OutputDebug(std::string msg);
 
@@ -85,15 +85,15 @@ namespace uq_lib {
 		static int m_logLevel;
 
 		/**
-		 * o—Í
+		 * å‡ºåŠ›
 		 *
-		 * @param logLevel ƒƒOƒŒƒxƒ‹
-		 * @param msg      ƒƒbƒZ[ƒW
+		 * @param logLevel ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«
+		 * @param msg      ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
 		 */
 		static void Output(int logLevel, std::string msg);
 
 		/**
-		 * ŠÔæ“¾
+		 * æ™‚é–“å–å¾—
 		 *
 		 * @return yyyy/mm/dd hh:mm:ss.sss
 		 */

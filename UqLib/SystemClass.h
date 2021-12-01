@@ -19,74 +19,74 @@ namespace uq_lib {
 	public:
 
 		/**
-		 * ‰Šú‰»
+		 * åˆæœŸåŒ–
 		 *
-		 * @param title        ƒ^ƒCƒgƒ‹
-		 * @param screenWidth  ‰æ–Ê‚Ì•
-		 * @param screenHeight ‰æ–Ê‚Ì‚‚³
-		 * @return ¬Œ÷i0jA¸”si-1j
+		 * @param title        ã‚¿ã‚¤ãƒˆãƒ«
+		 * @param screenWidth  ç”»é¢ã®å¹…
+		 * @param screenHeight ç”»é¢ã®é«˜ã•
+		 * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
 		 */
 		int Initialize(std::string title, int screenWidth, int screenHeight);
 
 		/**
-		 * ƒEƒBƒ“ƒhƒEXV
+		 * ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦æ›´æ–°
 		 *
-		 * @return ¬Œ÷i0jA¸”si-1j
+		 * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
 		 */
 		int UpdateWindow();
 
 		/**
-		 * ƒƒbƒZ[ƒWƒnƒ“ƒhƒ‰
+		 * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒãƒ³ãƒ‰ãƒ©
 		 *
-		 * @param hWnd ƒEƒBƒ“ƒhƒEƒnƒ“ƒhƒ‹
-		 * @param message ƒƒbƒZ[ƒW
-		 * @param wParam wƒpƒ‰ƒ[ƒ^
-		 * @param lParam lƒpƒ‰ƒ[ƒ^
-		 * @return ƒƒbƒZ[ƒWˆ—‚ÌŒ‹‰Ê
+		 * @param hWnd ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒãƒ³ãƒ‰ãƒ«
+		 * @param message ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
+		 * @param wParam wãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
+		 * @param lParam lãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
+		 * @return ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸å‡¦ç†ã®çµæœ
 		 */
 		static LRESULT CALLBACK MessageHandler(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
 		/**
-		 * ƒAƒvƒŠI—¹
+		 * ã‚¢ãƒ—ãƒªçµ‚äº†
 		 */
 		void AppQuit();
 
 		/**
-		 * I—¹ƒƒbƒZ[ƒW
+		 * çµ‚äº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
 		 *
-		 * @return I—¹’Ê’m‚ª—ˆ‚Ä‚¢‚È‚¢i0jAI—¹’Ê’m‚ª—ˆ‚Ä‚¢‚éi-1j
+		 * @return çµ‚äº†é€šçŸ¥ãŒæ¥ã¦ã„ãªã„ï¼ˆ0ï¼‰ã€çµ‚äº†é€šçŸ¥ãŒæ¥ã¦ã„ã‚‹ï¼ˆ-1ï¼‰
 		 */
 		int IsQuitMessage();
 
 		/**
-		 * ƒEƒBƒ“ƒhƒEƒ^ƒCƒgƒ‹İ’è
+		 * ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚¿ã‚¤ãƒˆãƒ«è¨­å®š
 		 *
-		 * @param title ƒ^ƒCƒgƒ‹
-		 * @return ¬Œ÷i0jA¸”si-1j
+		 * @param title ã‚¿ã‚¤ãƒˆãƒ«
+		 * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
 		 */
 		int SetWindowTitle(std::string title);
 
 		/**
-		 * ¶ƒNƒŠƒbƒNƒ|ƒCƒ“ƒgæ“¾
+		 * å·¦ã‚¯ãƒªãƒƒã‚¯ãƒã‚¤ãƒ³ãƒˆå–å¾—
 		 *
-		 * @param x XÀ•W
-		 * @param y YÀ•W
+		 * @param x Xåº§æ¨™
+		 * @param y Yåº§æ¨™
 		 */
 		void GetLeftClickPoint(int* x, int* y);
 
 		/**
-		 * ƒL[‚ğ‰Ÿ‚µ‚½‚©Šm”F
+		 * ã‚­ãƒ¼ã‚’æŠ¼ã—ãŸã‹ç¢ºèª
 		 *
-		 * @param keyCode ƒL[ƒR[ƒh
-		 * @return 0F‰Ÿ‚µ‚Ä‚¢‚È‚¢A1F‰Ÿ‚µ‚½
+		 * @param keyCode ã‚­ãƒ¼ã‚³ãƒ¼ãƒ‰
+		 * @return 0ï¼šæŠ¼ã—ã¦ã„ãªã„ã€1ï¼šæŠ¼ã—ãŸ
 		 */
 		int CheckPressedKey(int keyCode);
 
 		/**
-		 * ƒL[‚ğ‰Ÿ‚µ‚Ä‚¢‚é‚©Šm”F
+		 * ã‚­ãƒ¼ã‚’æŠ¼ã—ã¦ã„ã‚‹ã‹ç¢ºèª
 		 *
-		 * @param keyCode ƒL[ƒR[ƒh
-		 * @return 0F‰Ÿ‚µ‚Ä‚¢‚È‚¢A1F‰Ÿ‚µ‚Ä‚¢‚é
+		 * @param keyCode ã‚­ãƒ¼ã‚³ãƒ¼ãƒ‰
+		 * @return 0ï¼šæŠ¼ã—ã¦ã„ãªã„ã€1ï¼šæŠ¼ã—ã¦ã„ã‚‹
 		 */
 		int CheckPressKey(int keyCode);
 
@@ -97,73 +97,73 @@ namespace uq_lib {
 		LPCSTR m_applicationName = NULL;
 		HINSTANCE m_hinstance;
 		HWND m_hwnd;
-		bool m_isQuitMessage; // I—¹’Ê’m‚ª—ˆ‚Ä‚¢‚é‚©H
+		bool m_isQuitMessage; // çµ‚äº†é€šçŸ¥ãŒæ¥ã¦ã„ã‚‹ã‹ï¼Ÿ
 		std::map<int, int> m_keyInputs;
 		DWORD m_time;
 
 		/**
-		 * ƒEƒBƒ“ƒhƒE‰Šú‰»
+		 * ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦åˆæœŸåŒ–
 		 *
-		 * @param title ƒ^ƒCƒgƒ‹
-		 * @param screenWidth ‰æ–Ê‚Ì•
-		 * @param screenHeight ‰æ–Ê‚Ì‚‚³
-		 * @return ¬Œ÷i0jA¸”si-1j
+		 * @param title ã‚¿ã‚¤ãƒˆãƒ«
+		 * @param screenWidth ç”»é¢ã®å¹…
+		 * @param screenHeight ç”»é¢ã®é«˜ã•
+		 * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
 		 */
 		int InitializeWindow(std::string title, int screenWidth, int screenHeight);
 
 		/**
-		 * ƒEƒBƒ“ƒhƒEƒƒbƒZ[ƒWXV
+		 * ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸æ›´æ–°
 		 *
-		 * @return ¬Œ÷i0jA¸”si-1j
+		 * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
 		 */
 		int UpdateWindowMessage();
 
 		/**
-		 * ƒL[ƒ{[ƒh‚Ìó‘ÔXV
+		 * ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ã®çŠ¶æ…‹æ›´æ–°
 		 *
-		 * @return ¬Œ÷i0jA¸”si-1j
+		 * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
 		 */
 		int UpdateKeyboardState();
 
 		/**
-		 * ƒL[XV
+		 * ã‚­ãƒ¼æ›´æ–°
 		 *
-		 * @param keyStates ƒL[ó‘Ô
-		 * @param sysKey    ƒVƒXƒeƒ€ƒL[
-		 * @param myKey     ƒ}ƒCƒL[
-		 * @return ¬Œ÷i0jA¸”si-1j
+		 * @param keyStates ã‚­ãƒ¼çŠ¶æ…‹
+		 * @param sysKey    ã‚·ã‚¹ãƒ†ãƒ ã‚­ãƒ¼
+		 * @param myKey     ãƒã‚¤ã‚­ãƒ¼
+		 * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
 		 */
 		int UpdateKey(BYTE* keyStates, int sysKey, int myKey);
 
 		/**
-		 * ƒL[XV
+		 * ã‚­ãƒ¼æ›´æ–°
 		 *
-		 * @param chara  •¶š
-		 * @param sysKey ƒVƒXƒeƒ€ƒL[
-		 * @param myKey  ƒ}ƒCƒL[
-		 * @return ¬Œ÷i0jA¸”si-1j
+		 * @param chara  æ–‡å­—
+		 * @param sysKey ã‚·ã‚¹ãƒ†ãƒ ã‚­ãƒ¼
+		 * @param myKey  ãƒã‚¤ã‚­ãƒ¼
+		 * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
 		 */
 		int UpdateKey2(char chara, int sysKey, int myKey);
 
 		/**
-		 * ƒNƒ‰ƒCƒAƒ“ƒg‚ÌƒEƒBƒ“ƒhƒEƒTƒCƒY•ÏX
+		 * ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆã®ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚µã‚¤ã‚ºå¤‰æ›´
 		 *
-		 * @param hWnd   ƒEƒBƒ“ƒhƒEƒnƒ“ƒhƒ‹
-		 * @param width  •
-		 * @param height ‚‚³
-		 * @return ¬Œ÷i0jA¸”si-1j
+		 * @param hWnd   ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒãƒ³ãƒ‰ãƒ«
+		 * @param width  å¹…
+		 * @param height é«˜ã•
+		 * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
 		 */
 		int WindowResizeByClient(HWND hWnd, int width, int height);
 	};
 
 	/**
-	 * ƒEƒBƒ“ƒhƒEƒvƒƒV[ƒWƒƒ
+	 * ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒ—ãƒ­ã‚·ãƒ¼ã‚¸ãƒ£
 	 *
-	 * @param hWnd     ƒEƒBƒ“ƒhƒEƒnƒ“ƒhƒ‹
-	 * @param uMessage ƒƒbƒZ[ƒW
-	 * @param wParam   wƒpƒ‰ƒ[ƒ^
-	 * @param lParam   lƒpƒ‰ƒ[ƒ^
-	 * @return ¬Œ÷i0jA¸”si-1j
+	 * @param hWnd     ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒãƒ³ãƒ‰ãƒ«
+	 * @param uMessage ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
+	 * @param wParam   wãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
+	 * @param lParam   lãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
+	 * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
 	 */
 	static LRESULT CALLBACK WndProc(HWND hWnd, UINT uMessage, WPARAM wParam, LPARAM lParam);
 }

@@ -21,9 +21,9 @@ namespace uq_lib {
 	public:
 
 		/**
-		 * ƒCƒ“ƒXƒ^ƒ“ƒXæ“¾
+		 * ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹å–å¾—
 		 *
-		 * @return ƒCƒ“ƒXƒ^ƒ“ƒX
+		 * @return ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
 		 */
 		static DirectXManager* GetInstance() {
 			if (!m_dm && m_destroyFlg == true) m_dm = new DirectXManager();
@@ -31,7 +31,7 @@ namespace uq_lib {
 		}
 
 		/**
-		 * ”jŠü
+		 * ç ´æ£„
 		 */
 		static void Destroy() {
 			m_destroyFlg = false;
@@ -40,25 +40,25 @@ namespace uq_lib {
 		}
 
 		/**
-		 * ƒfƒXƒgƒ‰ƒNƒ^
+		 * ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 		 */
 		virtual ~DirectXManager();
 
-		/** DirectX‰Šú‰»
+		/** DirectXåˆæœŸåŒ–
 		 *
-		 * @param hWnd         ƒEƒBƒ“ƒhƒEƒnƒ“ƒhƒ‹
-		 * @param width        •
-		 * @param height       ‚‚³
-		 * @param isFullscreen ƒtƒ‹ƒXƒNƒŠ[ƒ“
-		 * @return ¬Œ÷i0jA¸”si-1j
+		 * @param hWnd         ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒãƒ³ãƒ‰ãƒ«
+		 * @param width        å¹…
+		 * @param height       é«˜ã•
+		 * @param isFullscreen ãƒ•ãƒ«ã‚¹ã‚¯ãƒªãƒ¼ãƒ³
+		 * @return æˆåŠŸï¼ˆ0ï¼‰ã€å¤±æ•—ï¼ˆ-1ï¼‰
 		 */
 		int InitializeDirectX(HWND hWnd, int width, int height, bool isFullscreen);
 
 	private:
 
-		// ƒVƒ“ƒOƒ‹ƒgƒ“
+		// ã‚·ãƒ³ã‚°ãƒ«ãƒˆãƒ³
 		static DirectXManager* m_dm;
-		static bool m_destroyFlg; // Phoenix Singleton‰ñ”ğ—p
+		static bool m_destroyFlg; // Phoenix Singletonå›é¿ç”¨
 
 		Microsoft::WRL::ComPtr<ID3D11DeviceContext> m_d3d11DeviceContext;
 		Microsoft::WRL::ComPtr<ID3D11RenderTargetView> m_d3d11RenderTargetView;
@@ -67,7 +67,7 @@ namespace uq_lib {
 		ID2D1SolidColorBrush* m_pBrush;
 		IDWriteTextFormat* m_pFont;
 
-		/** ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+		/** ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 		 */
 		DirectXManager();
 	};
