@@ -431,7 +431,6 @@ namespace uq_lib {
 			);
 			pBrush->Release();
 		}
-
 		return 0;
 	}
 

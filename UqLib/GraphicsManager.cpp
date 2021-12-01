@@ -182,7 +182,7 @@ namespace uq_lib {
 		SAFE_RELEASE(dec);
 		SAFE_RELEASE(frame)
 
-			ID2D1Bitmap* pBitmap = NULL;
+		ID2D1Bitmap* pBitmap = NULL;
 		hr = m_pD2d1DeviceContext->CreateBitmapFromWicBitmap(converter, NULL, &pBitmap);
 		if (FAILED(hr)) {
 			Logger::OutputWarn("CreateBitmapFromWicBitmap‚É¸”sB");
