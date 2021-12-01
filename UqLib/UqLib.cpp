@@ -4,8 +4,7 @@
 // http://uqlib.com
 //-----------------------------------------------------
 #include <stdio.h>
-#include "UqLib.h" //先ほど定義したヘッダファイル
-#include "DirectXManager.h"
+#include "UqLib.h"
 #include "SoundManager.h"
 #include "GraphicsManager.h"
 

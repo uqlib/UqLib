@@ -45,7 +45,7 @@ int UqLibInit(const char* title) {
 
 	g_pSystemClass = new SystemClass();
 
-	return g_pSystemClass->Initialize(std::string(title), g_screenWidth, g_screenHeight);
+	return g_pSystemClass->Initialize(std::string(title), 1270, 720);
 }
 
 int UqLibEnd() {
