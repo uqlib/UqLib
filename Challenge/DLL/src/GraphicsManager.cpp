@@ -14,6 +14,8 @@
 #include "Constants.h"
 #include "Logger.h"
 
+#pragma warning(disable: 4996)
+
 using namespace std;
 using namespace Microsoft::WRL;
 
@@ -69,7 +71,6 @@ namespace uq_lib {
 		}
 
 		CreateFontContener(DEFAULT_FONT_SIZE, L"ＭＳ ゴシック");
-		//CreateFontContener(DEFAULT_FONT_SIZE, L"");
 
 		return 0;
 	}
@@ -118,11 +119,9 @@ namespace uq_lib {
 		FontContener fc;
 		fc.height = height;
 		fc.fontId = m_fontId;
-		wstring f = L"Verdana";
 
 		m_pDWR_Factory->CreateTextFormat(
 			fontName.c_str(),
-			//f.c_str(),
 			NULL,
 			DWRITE_FONT_WEIGHT_NORMAL,
 			DWRITE_FONT_STYLE_NORMAL,

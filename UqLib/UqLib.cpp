@@ -85,7 +85,7 @@ int CreateFontContener(int height, const char* fontName) {
 }
 
 int CreateTextureFromFile(const char* fileName) {
-	return GraphicsManager::GetInstance()->CreateTextureFromFile(StringToWString(fileName));
+	return GraphicsManager::GetInstance()->CreateTextureFromFile(StringToWString(fileName), fileName);
 }
 
 int CreateTextureFromDatFile(const char* fileName) {

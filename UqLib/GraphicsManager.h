@@ -113,10 +113,11 @@ namespace uq_lib {
 		/**
 		 * ファイルからテクスチャ作成
 		 *
+		 * @param wFileName ワイドファイル名
 		 * @param fileName ファイル名
 		 * @return テクスチャID
 		 */
-		int CreateTextureFromFile(std::wstring fileName);
+		int CreateTextureFromFile(std::wstring wFileName, std::string fileName);
 
 		/**
 		 * Datファイルからテクスチャ作成
