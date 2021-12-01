@@ -5,7 +5,6 @@
 //-----------------------------------------------------
 #include "SystemClass.h"
 #include "SoundManager.h"
-#include "GraphicsManager.h"
 #include "DirectXManager.h"
 
 using namespace std;
