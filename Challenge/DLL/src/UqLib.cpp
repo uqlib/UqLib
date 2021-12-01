@@ -13,6 +13,10 @@ using namespace uq_lib;
 
 SystemClass* g_pSystemClass;
 
+// デフォルト設定はADVゲーム向けサイズ
+int g_screenWidth = DEFAULT_WIDTH;
+int g_screenHeight = DEFAULT_HEIGHT;
+
 wstring StringToWString(string oString) {
 	// SJIS → wstring
 	int iBufferSize = MultiByteToWideChar(CP_ACP, 0, oString.c_str()
@@ -174,4 +178,56 @@ int FillSquareAlpha(int x, int y, int ax, int ay, UINT32 hexColorCode, float opa
 
 int DrawRoundedSquare(int x, int y, int ax, int ay, UINT32 hexColorCode, float strokeWidth, float radius) {
 	return GraphicsManager::GetInstance()->DrawRoundedSquare(x, y, ax, ay, hexColorCode, strokeWidth, radius);
+}
+
+int DrawRoundedSquareAlpha(int x, int y, int ax, int ay, UINT32 hexColorCode, float strokeWidth, float radius, float opacity) {
+	return GraphicsManager::GetInstance()->DrawRoundedSquare(x, y, ax, ay, hexColorCode, strokeWidth, radius, opacity);
+}
+
+int FillRoundedSquare(int x, int y, int ax, int ay, UINT32 hexColorCode, float radius) {
+	return GraphicsManager::GetInstance()->FillRoundedSquare(x, y, ax, ay, hexColorCode, radius);
+}
+
+int FillRoundedSquareAlpha(int x, int y, int ax, int ay, UINT32 hexColorCode, float radius, float opacity) {
+	return GraphicsManager::GetInstance()->FillRoundedSquare(x, y, ax, ay, hexColorCode, radius, opacity);
+}
+
+int DrawEllipse(int x, int y, int width, int height, UINT32 hexColorCode, float strokeWidth) {
+	return GraphicsManager::GetInstance()->DrawEllipse(x, y, width, height, hexColorCode, strokeWidth);
+}
+
+int DrawEllipseAlpha(int x, int y, int width, int height, UINT32 hexColorCode, float strokeWidth, float opacity) {
+	return GraphicsManager::GetInstance()->DrawEllipse(x, y, width, height, hexColorCode, strokeWidth, opacity);
+}
+
+int FillEllipse(int x, int y, int width, int height, UINT32 hexColorCode) {
+	return GraphicsManager::GetInstance()->FillEllipse(x, y, width, height, hexColorCode);
+}
+
+int FillEllipseAlpha(int x, int y, int width, int height, UINT32 hexColorCode, float opacity) {
+	return GraphicsManager::GetInstance()->FillEllipse(x, y, width, height, hexColorCode, opacity);
+}
+
+void GetLeftClickPoint(int* x, int* y) {
+	g_pSystemClass->GetLeftClickPoint(x, y);
+}
+
+int WaitProcessing(int waitTime) {
+	DWORD beginTime; // 一つ前に状態を取得した時間
+	beginTime = timeGetTime();
+	while (true) {
+		DWORD now = timeGetTime();
+		DWORD elapsedMilliseconds = now - beginTime;
+		if (elapsedMilliseconds > (DWORD)waitTime) {
+			break;
+		}
+		UpdateWindowMessage();
+	}
+	return 0;
+}
+
+int InitScreenSize(int screenWidth, int screenHeight) {
+	g_screenWidth = screenWidth;
+	g_screenHeight = screenHeight;
+	return 0;
 }

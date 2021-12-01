@@ -284,4 +284,123 @@ extern "C" __declspec (dllexport) int FillSquareAlpha(int x, int y, int sx, int 
  */
 extern "C" __declspec (dllexport) int DrawRoundedSquare(int x, int y, int sx, int sy, UINT32 hexColorCode, float strokeWidth, float radius);
 
+/**
+ * 丸め四角形描画（透過あり）
+ *
+ * @param x             X座標
+ * @param y             Y座標
+ * @param ax            追加X座標
+ * @param ay            追加Y座標
+ * @param hexColorCode  16進数カラーコード
+ * @param strokeWidth   線の太さ
+ * @param radius        0：角のまま　、0.1以上（角を丸める）
+ * @param opacity       不透明度（透明 0.0f ～ 1.0f 不透明）
+ * @return 成功（0）、失敗（-1）
+ */
+extern "C" __declspec (dllexport) int DrawRoundedSquareAlpha(int x, int y, int sx, int sy, UINT32 hexColorCode, float strokeWidth, float radius, float opacity);
+
+/**
+ * 丸め四角形 塗りつぶし描画
+ *
+ * @param x             X座標
+ * @param y             Y座標
+ * @param ax            追加X座標
+ * @param ay            追加Y座標
+ * @param hexColorCode  16進数カラーコード
+ * @param radius        0：角のまま　、0.1以上（角を丸める）
+ * @return 成功（0）、失敗（-1）
+ */
+extern "C" __declspec (dllexport) int FillRoundedSquare(int x, int y, int sx, int sy, UINT32 hexColorCode, float radius);
+
+/**
+ * 丸め四角形 塗りつぶし描画（透過あり）
+ *
+ * @param x             X座標
+ * @param y             Y座標
+ * @param ax            追加X座標
+ * @param ay            追加Y座標
+ * @param hexColorCode  16進数カラーコード
+ * @param radius        0：角のまま　、0.1以上（角を丸める）
+ * @param opacity       不透明度（透明 0.0f ～ 1.0f 不透明）
+ * @return 成功（0）、失敗（-1）
+ */
+extern "C" __declspec (dllexport) int FillRoundedSquareAlpha(int x, int y, int sx, int sy, UINT32 hexColorCode, float radius, float opacity);
+
+/**
+ * 楕円描画
+ *
+ * @param x             X座標
+ * @param y             Y座標
+ * @param width         幅（半径）
+ * @param height        高さ（半径）
+ * @param hexColorCode  16進数カラーコード
+ * @param strokeWidth   線の太さ
+ * @return 成功（0）、失敗（-1）
+ */
+extern "C" __declspec (dllexport) int DrawEllipse(int x, int y, int width, int height, UINT32 hexColorCode, float strokeWidth);
+
+/**
+ * 楕円描画（透過あり）
+ *
+ * @param x             X座標
+ * @param y             Y座標
+ * @param width         幅（半径）
+ * @param height        高さ（半径）
+ * @param hexColorCode  16進数カラーコード
+ * @param strokeWidth   線の太さ
+ * @param opacity       不透明度（透明 0.0f ～ 1.0f 不透明）
+ * @return 成功（0）、失敗（-1）
+ */
+extern "C" __declspec (dllexport) int DrawEllipseAlpha(int x, int y, int width, int height, UINT32 hexColorCode, float strokeWidth, float opacity);
+
+/**
+ * 楕円 塗りつぶし描画
+ *
+ * @param x             X座標
+ * @param y             Y座標
+ * @param width         幅（半径）
+ * @param height        高さ（半径）
+ * @param hexColorCode  16進数カラーコード
+ * @return 成功（0）、失敗（-1）
+ */
+extern "C" __declspec (dllexport) int FillEllipse(int x, int y, int width, int height, UINT32 hexColorCode);
+
+/**
+ * 楕円 塗りつぶし描画（透過あり）
+ *
+ * @param x             X座標
+ * @param y             Y座標
+ * @param width         幅（半径）
+ * @param height        高さ（半径）
+ * @param hexColorCode  16進数カラーコード
+ * @param opacity       不透明度（透明 0.0f ～ 1.0f 不透明）
+ * @return 成功（0）、失敗（-1）
+ */
+extern "C" __declspec (dllexport) int FillEllipseAlpha(int x, int y, int width, int height, UINT32 hexColorCode, float opacity);
+
+/**
+ * 左クリックポイント取得
+ *
+ * @param x X座標
+ * @param y Y座標
+ */
+extern "C" __declspec (dllexport) void GetLeftClickPoint(int* x, int* y);
+
+/**
+ * 待機処理
+ *
+ * @param waitTime 待機時間（msec）
+ * @return 成功（0）、失敗（-1）
+ */
+extern "C" __declspec (dllexport) int WaitProcessing(int waitTime);
+
+/**
+ * 画面サイズ初期化
+ *
+ * @param width  幅
+ * @param height 高さ
+ * @return 成功（0）、失敗（-1）
+ */
+extern "C" __declspec (dllexport) int InitScreenSize(int width, int height);
+
 #endif
