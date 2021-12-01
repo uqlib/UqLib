@@ -171,6 +171,26 @@ extern "C" __declspec (dllexport) int CheckPressKey(int keyCode);
  */
 extern "C" __declspec (dllexport) int PlaySoundFromFile(const char* fileName, int playType);
 
+/**
+ * 登録・再生状態チェック
+ *
+ * @return 成功（0）、失敗（-1）
+ */
+extern "C" __declspec (dllexport) int CheckSoundPlay();
+
+/**
+ * アプリケーション終了
+ */
+extern "C" __declspec (dllexport) void ApplicationQuit();
+
+/**
+ * ウィンドウタイトル設定
+ *
+ * @param title タイトル
+ * @return 成功（0）、失敗（-1）
+ */
+extern "C" __declspec (dllexport) int SetWindowTitle(const char* title);
+
 extern "C" __declspec (dllexport) int DrawLine(int x, int y, int ax, int ay, UINT32 hexColorCode, float width);
 
 #endif

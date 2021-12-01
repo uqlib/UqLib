@@ -136,6 +136,18 @@ int PlaySoundFromFile(const char* fileName, int playType) {
 	return SoundManager::GetInstance()->PlaySoundFromFile(std::string(fileName), playType);
 }
 
+int CheckSoundPlay() {
+	return SoundManager::GetInstance()->IsPlay();
+}
+
+void ApplicationQuit() {
+	g_pSystemClass->AppQuit();
+}
+
+int SetWindowTitle(const char* title) {
+	return g_pSystemClass->SetWindowTitle(std::string(title));
+}
+
 int DrawLine(int x, int y, int ax, int ay, UINT32 hexColorCode, float width) {
 	return GraphicsManager::GetInstance()->DrawLine(x, y, ax, ay, hexColorCode, width);
 }
