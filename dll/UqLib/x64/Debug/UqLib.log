@@ -1,0 +1,15 @@
+﻿  DirectXManager.cpp
+  FileManager.cpp
+  GraphicsManager.cpp
+C:\box\10_部門別\40_開発部\40_ゲーム開発(Win2dGames)\src\git\3\UqLib\dll\UqLib\GraphicsManager.cpp(248,15): warning C4244: '=': 'UINT' から 'float' への変換です。データが失われる可能性があります。
+C:\box\10_部門別\40_開発部\40_ゲーム開発(Win2dGames)\src\git\3\UqLib\dll\UqLib\GraphicsManager.cpp(249,16): warning C4244: '=': 'UINT' から 'float' への変換です。データが失われる可能性があります。
+C:\box\10_部門別\40_開発部\40_ゲーム開発(Win2dGames)\src\git\3\UqLib\dll\UqLib\GraphicsManager.cpp(428,48): warning C4244: '引数': 'int' から 'FLOAT' への変換です。データが失われる可能性があります。
+C:\box\10_部門別\40_開発部\40_ゲーム開発(Win2dGames)\src\git\3\UqLib\dll\UqLib\GraphicsManager.cpp(428,39): warning C4244: '引数': 'int' から 'FLOAT' への変換です。データが失われる可能性があります。
+C:\box\10_部門別\40_開発部\40_ゲーム開発(Win2dGames)\src\git\3\UqLib\dll\UqLib\GraphicsManager.cpp(430,4): warning C4267: '引数': 'size_t' から 'UINT32' に変換しました。データが失われているかもしれません。
+  Logger.cpp
+  SoundManager.cpp
+  SystemClass.cpp
+  UqLib.cpp
+  コードを生成中...
+     ライブラリ C:\box\10_部門別\40_開発部\40_ゲーム開発(Win2dGames)\src\git\3\UqLib\dll\x64\Debug\UqLib.lib とオブジェクト C:\box\10_部門別\40_開発部\40_ゲーム開発(Win2dGames)\src\git\3\UqLib\dll\x64\Debug\UqLib.exp を作成中
+  UqLib.vcxproj -> C:\box\10_部門別\40_開発部\40_ゲーム開発(Win2dGames)\src\git\3\UqLib\dll\x64\Debug\UqLib.dll
