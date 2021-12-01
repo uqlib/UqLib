@@ -163,3 +163,15 @@ int DrawSquare(int x, int y, int ax, int ay, UINT32 hexColorCode, float strokeWi
 int DrawSquareAlpha(int x, int y, int ax, int ay, UINT32 hexColorCode, float strokeWidth, float opacity) {
 	return GraphicsManager::GetInstance()->DrawSquare(x, y, ax, ay, hexColorCode, strokeWidth, opacity);
 }
+
+int FillSquare(int x, int y, int ax, int ay, UINT32 hexColorCode) {
+	return GraphicsManager::GetInstance()->FillSquare(x, y, ax, ay, hexColorCode);
+}
+
+int FillSquareAlpha(int x, int y, int ax, int ay, UINT32 hexColorCode, float opacity) {
+	return GraphicsManager::GetInstance()->FillSquare(x, y, ax, ay, hexColorCode, opacity);
+}
+
+int DrawRoundedSquare(int x, int y, int ax, int ay, UINT32 hexColorCode, float strokeWidth, float radius) {
+	return GraphicsManager::GetInstance()->DrawRoundedSquare(x, y, ax, ay, hexColorCode, strokeWidth, radius);
+}
