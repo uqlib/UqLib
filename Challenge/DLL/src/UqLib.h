@@ -191,6 +191,58 @@ extern "C" __declspec (dllexport) void ApplicationQuit();
  */
 extern "C" __declspec (dllexport) int SetWindowTitle(const char* title);
 
+/**
+ * ライン描画
+ *
+ * @param x             X座標
+ * @param y             Y座標
+ * @param ax            追加X座標
+ * @param ay            追加Y座標
+ * @param hexColorCode  16進数カラーコード
+ * @param width         幅
+ * @return 成功（0）、失敗（-1）
+ */
 extern "C" __declspec (dllexport) int DrawLine(int x, int y, int ax, int ay, UINT32 hexColorCode, float width);
+
+/**
+ * ライン描画（透過あり）
+ *
+ * @param x             X座標
+ * @param y             Y座標
+ * @param ax            追加X座標
+ * @param ay            追加Y座標
+ * @param hexColorCode  16進数カラーコード
+ * @param width         幅
+ * @param opacity       不透明度（透明 0.0f ～ 1.0f 不透明）
+ * @return 成功（0）、失敗（-1）
+ */
+extern "C" __declspec (dllexport) int DrawLineAlpha(int x, int y, int ax, int ay, UINT32 hexColorCode, float width, float opacity);
+
+/**
+ * 四角形描画
+ *
+ * @param x             X座標
+ * @param y             Y座標
+ * @param ax            追加X座標
+ * @param ay            追加Y座標
+ * @param hexColorCode  16進数カラーコード
+ * @param strokeWidth   線の太さ
+ * @return 成功（0）、失敗（-1）
+ */
+extern "C" __declspec (dllexport) int DrawSquare(int x, int y, int sx, int sy, UINT32 hexColorCode, float strokeWidth);
+
+/**
+ * 四角形描画（透過あり）
+ *
+ * @param x             X座標
+ * @param y             Y座標
+ * @param ax            追加X座標
+ * @param ay            追加Y座標
+ * @param hexColorCode  16進数カラーコード
+ * @param strokeWidth   線の太さ
+ * @param opacity       不透明度（透明 0.0f ～ 1.0f 不透明）
+ * @return 成功（0）、失敗（-1）
+ */
+extern "C" __declspec (dllexport) int DrawSquareAlpha(int x, int y, int sx, int sy, UINT32 hexColorCode, float strokeWidth, float opacity);
 
 #endif

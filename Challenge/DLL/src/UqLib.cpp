@@ -151,3 +151,15 @@ int SetWindowTitle(const char* title) {
 int DrawLine(int x, int y, int ax, int ay, UINT32 hexColorCode, float width) {
 	return GraphicsManager::GetInstance()->DrawLine(x, y, ax, ay, hexColorCode, width);
 }
+
+int DrawLineAlpha(int x, int y, int ax, int ay, UINT32 hexColorCode, float width, float opacity) {
+	return GraphicsManager::GetInstance()->DrawLine(x, y, ax, ay, hexColorCode, width, opacity);
+}
+
+int DrawSquare(int x, int y, int ax, int ay, UINT32 hexColorCode, float strokeWidth) {
+	return GraphicsManager::GetInstance()->DrawSquare(x, y, ax, ay, hexColorCode, strokeWidth);
+}
+
+int DrawSquareAlpha(int x, int y, int ax, int ay, UINT32 hexColorCode, float strokeWidth, float opacity) {
+	return GraphicsManager::GetInstance()->DrawSquare(x, y, ax, ay, hexColorCode, strokeWidth, opacity);
+}
