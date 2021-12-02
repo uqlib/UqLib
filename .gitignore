@@ -37,6 +37,10 @@
 obj
 .vs
 
+# Other
+.log
+
 # Add custom
-UqLib/Debug/
-UqLib/x64/
+dll/UqLib/Debug/
+dll/UqLib/x64/
+exe/UqLibCppSample/x64/Debug/
