@@ -245,8 +245,8 @@ namespace uq_lib {
 			tc.textureId = m_textureId;
 			tc.pBitmap = pBitmap;
 			tc.loadCnt = 1;
-			tc.width = width;
-			tc.height = height;
+			tc.width = (float)width;
+			tc.height = (float)height;
 			m_textures.push_back(tc);
 			m_textureId++;
 			return tc.textureId;
@@ -423,9 +423,9 @@ namespace uq_lib {
 		if (pBrush != NULL) {
 			m_pD2d1DeviceContext->DrawTextA(
 				wbuf
-				, wcslen(wbuf)
+				, (int)wcslen(wbuf)
 				, fc.pFont
-				, D2D1::RectF((float)x, (float)y, m_width, m_height)
+				, D2D1::RectF((float)x, (float)y, (float)m_width, (float)m_height)
 				, pBrush
 			);
 			pBrush->Release();

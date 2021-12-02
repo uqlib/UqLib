@@ -3,7 +3,7 @@
 
 using namespace std;
 
-typedef int(*INIT_SCREEN_SIZE)(int screenWidth, int screenHeight);
+typedef int(*INIT_SCREEN_SIZE)(int width, int height);
 typedef int(*UQ_LIB_INIT)(const char* title);
 typedef int(*UPDATE_WINDOW_MESSAGE)();
 typedef int(*BEGIN_DRAWING)();

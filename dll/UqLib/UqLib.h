@@ -47,6 +47,28 @@ extern "C" __declspec (dllexport) int EndDrawing();
 extern "C" __declspec (dllexport) int UpdateWindowMessage();
 
 /**
+ * 画面サイズ初期化
+ *
+ * @param width  幅
+ * @param height 高さ
+ * @return 成功（0）、失敗（-1）
+ */
+extern "C" __declspec (dllexport) int InitScreenSize(int width, int height);
+
+/**
+ * アプリケーション終了
+ */
+extern "C" __declspec (dllexport) void ApplicationQuit();
+
+/**
+ * 待機処理
+ *
+ * @param waitTime 待機時間（msec）
+ * @return 成功（0）、失敗（-1）
+ */
+extern "C" __declspec (dllexport) int WaitProcessing(int waitTime);
+
+/**
  * フォントコンテナ作成
  *
  * @param height   高さ
@@ -177,11 +199,6 @@ extern "C" __declspec (dllexport) int PlaySoundFromFile(const char* fileName, in
  * @return 成功（0）、失敗（-1）
  */
 extern "C" __declspec (dllexport) int CheckSoundPlay();
-
-/**
- * アプリケーション終了
- */
-extern "C" __declspec (dllexport) void ApplicationQuit();
 
 /**
  * ウィンドウタイトル設定
@@ -385,22 +402,5 @@ extern "C" __declspec (dllexport) int FillEllipseAlpha(int x, int y, int width, 
  * @param y Y座標
  */
 extern "C" __declspec (dllexport) void GetLeftClickPoint(int* x, int* y);
-
-/**
- * 待機処理
- *
- * @param waitTime 待機時間（msec）
- * @return 成功（0）、失敗（-1）
- */
-extern "C" __declspec (dllexport) int WaitProcessing(int waitTime);
-
-/**
- * 画面サイズ初期化
- *
- * @param width  幅
- * @param height 高さ
- * @return 成功（0）、失敗（-1）
- */
-extern "C" __declspec (dllexport) int InitScreenSize(int width, int height);
 
 #endif

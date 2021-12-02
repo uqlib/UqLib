@@ -80,6 +80,30 @@ int UpdateWindowMessage() {
 	return 0;
 }
 
+int InitScreenSize(int screenWidth, int screenHeight) {
+	g_screenWidth = screenWidth;
+	g_screenHeight = screenHeight;
+	return 0;
+}
+
+void ApplicationQuit() {
+	g_pSystemClass->AppQuit();
+}
+
+int WaitProcessing(int waitTime) {
+	DWORD beginTime; // 一つ前に状態を取得した時間
+	beginTime = timeGetTime();
+	while (true) {
+		DWORD now = timeGetTime();
+		DWORD elapsedMilliseconds = now - beginTime;
+		if (elapsedMilliseconds > (DWORD)waitTime) {
+			break;
+		}
+		UpdateWindowMessage();
+	}
+	return 0;
+}
+
 int CreateFontContener(int height, const char* fontName) {
 	return GraphicsManager::GetInstance()->CreateFontContener(height, StringToWString(fontName));
 }
@@ -144,10 +168,6 @@ int CheckSoundPlay() {
 	return SoundManager::GetInstance()->IsPlay();
 }
 
-void ApplicationQuit() {
-	g_pSystemClass->AppQuit();
-}
-
 int SetWindowTitle(const char* title) {
 	return g_pSystemClass->SetWindowTitle(std::string(title));
 }
@@ -210,24 +230,4 @@ int FillEllipseAlpha(int x, int y, int width, int height, UINT32 hexColorCode, f
 
 void GetLeftClickPoint(int* x, int* y) {
 	g_pSystemClass->GetLeftClickPoint(x, y);
-}
-
-int WaitProcessing(int waitTime) {
-	DWORD beginTime; // 一つ前に状態を取得した時間
-	beginTime = timeGetTime();
-	while (true) {
-		DWORD now = timeGetTime();
-		DWORD elapsedMilliseconds = now - beginTime;
-		if (elapsedMilliseconds > (DWORD)waitTime) {
-			break;
-		}
-		UpdateWindowMessage();
-	}
-	return 0;
-}
-
-int InitScreenSize(int screenWidth, int screenHeight) {
-	g_screenWidth = screenWidth;
-	g_screenHeight = screenHeight;
-	return 0;
 }
