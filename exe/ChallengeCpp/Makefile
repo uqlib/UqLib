@@ -3,12 +3,12 @@
 OBJDIR = obj
 SRCDIR = src
 BINDIR = bin
-PROGRAM = main.exe
+PROGRAM = UqLibCppSample.exe
 
 ##################################################
 # 複合パラメータ
-OBJS = $(OBJDIR)/main.o
-CFLAGS = -Wall -O2
+OBJS = $(OBJDIR)/GameMain.o
+CFLAGS = -Wall -O2 -Wl,-subsystem,windows
 # -Wall : 全ての警告を出力する
 # -O2 : コンパイラはサイズとコンパイル時間に妥協せずにコードのパフォーマンスを改善しようと試みる
 
