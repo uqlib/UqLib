@@ -1,8 +1,8 @@
 ##################################################
 # 単一パラメータ
-OBJDIR = obj
-SRCDIR = src
-BINDIR = bin
+OBJDIR = UqLibCppSample\x64\Gcc
+SRCDIR = UqLibCppSample
+BINDIR = x64\Debug
 PROGRAM = UqLibCppSample.exe
 
 ##################################################
