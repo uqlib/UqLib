@@ -1,8 +1,6 @@
 package com.uqlib;
 
 
-import java.io.File;
-
 import com.sun.jna.Library;
 import com.sun.jna.Native;
 
@@ -16,7 +14,7 @@ interface UqLib extends Library {
 	  int UpdateWindowMessage();
 	  void ApplicationQuit();
 
-	  int InitScreenSize(int width, int height);
+	  //int InitScreenSize(int width, int height);
 	  int CreateTextureFromFile(String filename);
 	  int BeginDrawing();
 	  int EndDrawing();
@@ -28,7 +26,7 @@ public class Main {
 	public static void main(String[] args) {
 
         UqLib uqLib = UqLib.INSTANCE;
-        uqLib.InitScreenSize(1280, 960);
+        //uqLib.InitScreenSize(1280, 960);
 
 		if (uqLib.UqLibInit("sample game") == -1)
 		{
@@ -36,9 +34,9 @@ public class Main {
 		}
 
 		int bmp1 = 0;
-		bmp1 = uqLib.CreateTextureFromFile("test2.png");
+		bmp1 = uqLib.CreateTextureFromFile("test.png");
 
-		while(uqLib.UpdateWindowMessage() == 0 && uqLib.BeginDrawing() == 0) {
+		while(uqLib.BeginDrawing() == 0) {
 			uqLib.DrawTexture(0, 0, bmp1);
 			uqLib.EndDrawing();
 		}

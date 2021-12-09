@@ -1,0 +1,3 @@
+https://mergedoc.osdn.jp/
+Eclipse 2021
+Windows64bit Java Standard Edition
