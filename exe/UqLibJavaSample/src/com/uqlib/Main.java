@@ -15,7 +15,7 @@ interface UqLib extends Library {
 	  void ApplicationQuit();
 
 	  //int InitScreenSize(int width, int height);
-	  int CreateTextureFromFile(String filename);
+	  int CreateTextureFromFile(String fileName);
 	  int BeginDrawing();
 	  int EndDrawing();
 	  int DrawTexture(int x, int y, int graphicId);

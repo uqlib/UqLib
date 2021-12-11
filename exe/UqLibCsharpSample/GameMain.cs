@@ -17,10 +17,10 @@ namespace UqLibCsharpSample
         static extern int UqLibEnd();
 
         [DllImport("UqLib.dll", CallingConvention = CallingConvention.Cdecl)]
-        static extern int CreateTextureFromFile(string filename);
+        static extern int CreateTextureFromFile(string fileName);
 
         [DllImport("UqLib.dll", CallingConvention = CallingConvention.Cdecl)]
-        static extern int CreateTextureFromZipFile(string zipFilename, string filename, string password);
+        static extern int CreateTextureFromZipFile(string zipFilename, string fileName, string password);
 
         [DllImport("UqLib.dll", CallingConvention = CallingConvention.Cdecl)]
         static extern int CreateFontContener(int height, string fontName);

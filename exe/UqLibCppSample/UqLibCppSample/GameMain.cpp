@@ -8,7 +8,7 @@ typedef int(*BEGIN_DRAWING)();
 typedef int(*END_DRAWING)();
 
 typedef int(*CREATE_FONT_CONTENER)(int height, const char* fontName);
-typedef int(*CREATE_TEXTURE_FROM_FILE)(const char* filename);
+typedef int(*CREATE_TEXTURE_FROM_FILE)(const char* fileName);
 typedef int(*DRAW_TEXTURE)(int x, int y, int graphicId);
 typedef int(*DRAW_STRING)(int x, int y, const char* text, int fontId, UINT32 hexColorCode);
 typedef int(*DRAW_LINE)(int x, int y, int ax, int ay, UINT32 hexColorCode, float width);
