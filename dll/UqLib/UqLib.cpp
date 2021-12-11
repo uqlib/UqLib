@@ -60,7 +60,10 @@ int UqLibEnd() {
 }
 
 int BeginDrawing() {
-	if (UpdateWindowMessage() == -1) {
+	if (g_pSystemClass->UpdateWindow() == -1) {
+		return -1;
+	}
+	if (g_pSystemClass->IsQuitMessage() == -1) {
 		return -1;
 	}
 	return GraphicsManager::GetInstance()->BeginDrawing();
@@ -68,16 +71,6 @@ int BeginDrawing() {
 
 int EndDrawing() {
 	return GraphicsManager::GetInstance()->EndDrawing();
-}
-
-int UpdateWindowMessage() {
-	if (g_pSystemClass->UpdateWindow() == -1) {
-		return -1;
-	}
-	if (g_pSystemClass->IsQuitMessage() == -1) {
-		return -1;
-	}
-	return 0;
 }
 
 int InitScreenSize(int screenWidth, int screenHeight) {
@@ -99,7 +92,12 @@ int WaitProcessing(int waitTime) {
 		if (elapsedMilliseconds > (DWORD)waitTime) {
 			break;
 		}
-		UpdateWindowMessage();
+		if (g_pSystemClass->UpdateWindow() == -1) {
+			return -1;
+		}
+		if (g_pSystemClass->IsQuitMessage() == -1) {
+			return -1;
+		}
 	}
 	return 0;
 }

@@ -40,13 +40,6 @@ extern "C" __declspec (dllexport) int BeginDrawing();
 extern "C" __declspec (dllexport) int EndDrawing();
 
 /**
- * ウィンドウメッセージ更新
- *
- * @return 成功（0）、失敗（-1）
- */
-extern "C" __declspec (dllexport) int UpdateWindowMessage();
-
-/**
  * 画面サイズ初期化
  *
  * @param width  幅
