@@ -76,7 +76,7 @@ extern "C" __declspec (dllexport) int CreateFontContener(int height, const char*
  * @param filename ファイル名
  * @return グラフィックID（失敗時は-1）
  */
-extern "C" __declspec (dllexport) int CreateTextureFromFile(const char * filename);
+extern "C" __declspec (dllexport) int CreateTextureFromFile(const char * fileName);
 
 /**
  * Datファイルからテクスチャ作成
