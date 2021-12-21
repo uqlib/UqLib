@@ -62,13 +62,13 @@ namespace UqLibCsharpSample
         static extern int DrawLine(int x, int y, int ax, int ay, uint hexColorCode, int width);
 
         [DllImport("UqLib.dll", CallingConvention = CallingConvention.Cdecl)]
-        static extern int DrawSquareAlpha(int x, int y, int sx, int sy, uint hexColorCode, float strokeWidth, float opacity);
+        static extern int DrawSquareBlend(int x, int y, int sx, int sy, uint hexColorCode, float strokeWidth, float opacity);
 
         [DllImport("UqLib.dll", CallingConvention = CallingConvention.Cdecl)]
-        static extern int DrawRoundedSquareAlpha(int x, int y, int sx, int sy, uint hexColorCode, float strokeWidth, float radius, float opacity);
+        static extern int DrawRoundedSquareBlend(int x, int y, int sx, int sy, uint hexColorCode, float strokeWidth, float radius, float opacity);
 
         [DllImport("UqLib.dll", CallingConvention = CallingConvention.Cdecl)]
-        static extern int DrawEllipseAlpha(int x, int y, int width, int height, uint hexColorCode, float strokeWidth, float opacity);
+        static extern int DrawEllipseBlend(int x, int y, int width, int height, uint hexColorCode, float strokeWidth, float opacity);
 
         [DllImport("UqLib.dll", CallingConvention = CallingConvention.Cdecl)]
         static extern void GetLeftClickPoint(IntPtr x, IntPtr y);
@@ -145,13 +145,13 @@ namespace UqLibCsharpSample
                 DrawTexture(0, 0, 99);
 
                 DrawLine(0, 100, 20, 300, 0xFFFFFF, 5);
-                DrawSquareAlpha(100, 200, 100, 100, 0xFFFFFF, 10, 1.0f);
-                DrawRoundedSquareAlpha(20, 100, 100, 100, 0xFFFFFF, 10, 10.0f, 0.2f);
-                DrawRoundedSquareAlpha(20, 150, 100, 100, 0xFFFFFF, 10, 2.0f, 0.2f);
-                DrawSquareAlpha(100, 600, 100, 100, 0xFFFFFF, 5, 1.0f);
-                DrawEllipseAlpha(300, 200, 100, 100, 0xFFFFFF, 1, 0.2f);
-                DrawEllipseAlpha(300, 400, 100, 100, 0xFFFFFF, 0, 0.2f);
-                DrawEllipseAlpha(300, 600, 100, 100, 0xFFFFFF, 5, 0.2f);
+                DrawSquareBlend(100, 200, 100, 100, 0xFFFFFF, 10, 1.0f);
+                DrawRoundedSquareBlend(20, 100, 100, 100, 0xFFFFFF, 10, 10.0f, 0.2f);
+                DrawRoundedSquareBlend(20, 150, 100, 100, 0xFFFFFF, 10, 2.0f, 0.2f);
+                DrawSquareBlend(100, 600, 100, 100, 0xFFFFFF, 5, 1.0f);
+                DrawEllipseBlend(300, 200, 100, 100, 0xFFFFFF, 1, 0.2f);
+                DrawEllipseBlend(300, 400, 100, 100, 0xFFFFFF, 0, 0.2f);
+                DrawEllipseBlend(300, 600, 100, 100, 0xFFFFFF, 5, 0.2f);
 
                 // 描画終了（バックバッファをメインバッファに転送）
                 EndDrawing();

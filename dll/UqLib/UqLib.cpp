@@ -121,7 +121,7 @@ int DrawTexture(int x, int y, int graphicId) {
 	return GraphicsManager::GetInstance()->DrawTexture(graphicId, x, y);
 }
 
-int DrawTextureAlpha(int x, int y, int graphicId, float opacity) {
+int DrawTextureBlend(int x, int y, int graphicId, float opacity) {
 	if (graphicId == -1) {
 		return -1;
 	}
@@ -135,7 +135,7 @@ int DrawTextureClip(int x, int y, int graphicId, int cx, int cy, int cw, int ch)
 	return GraphicsManager::GetInstance()->DrawTexture(graphicId, x, y, cx, cy, cw, ch);
 }
 
-int DrawTextureClipAlpha(int x, int y, int graphicId, int cx, int cy, int cw, int ch, float opacity) {
+int DrawTextureClipBlend(int x, int y, int graphicId, int cx, int cy, int cw, int ch, float opacity) {
 	if (graphicId == -1) {
 		return -1;
 	}
@@ -146,7 +146,7 @@ int DrawString(int x, int y, const char* text, int fontId, UINT32 hexColorCode) 
 	return GraphicsManager::GetInstance()->DrawString(x, y, std::string(text), fontId, hexColorCode);
 }
 
-int DrawStringAlpha(int x, int y, const char* text, int fontId, UINT32 hexColorCode, float opacity) {
+int DrawStringBlend(int x, int y, const char* text, int fontId, UINT32 hexColorCode, float opacity) {
 	return GraphicsManager::GetInstance()->DrawString(x, y, std::string(text), fontId, hexColorCode, opacity);
 }
 
@@ -174,7 +174,7 @@ int DrawLine(int x, int y, int ax, int ay, UINT32 hexColorCode, float width) {
 	return GraphicsManager::GetInstance()->DrawLine(x, y, ax, ay, hexColorCode, width);
 }
 
-int DrawLineAlpha(int x, int y, int ax, int ay, UINT32 hexColorCode, float width, float opacity) {
+int DrawLineBlend(int x, int y, int ax, int ay, UINT32 hexColorCode, float width, float opacity) {
 	return GraphicsManager::GetInstance()->DrawLine(x, y, ax, ay, hexColorCode, width, opacity);
 }
 
@@ -182,7 +182,7 @@ int DrawSquare(int x, int y, int ax, int ay, UINT32 hexColorCode, float strokeWi
 	return GraphicsManager::GetInstance()->DrawSquare(x, y, ax, ay, hexColorCode, strokeWidth);
 }
 
-int DrawSquareAlpha(int x, int y, int ax, int ay, UINT32 hexColorCode, float strokeWidth, float opacity) {
+int DrawSquareBlend(int x, int y, int ax, int ay, UINT32 hexColorCode, float strokeWidth, float opacity) {
 	return GraphicsManager::GetInstance()->DrawSquare(x, y, ax, ay, hexColorCode, strokeWidth, opacity);
 }
 
@@ -190,7 +190,7 @@ int FillSquare(int x, int y, int ax, int ay, UINT32 hexColorCode) {
 	return GraphicsManager::GetInstance()->FillSquare(x, y, ax, ay, hexColorCode);
 }
 
-int FillSquareAlpha(int x, int y, int ax, int ay, UINT32 hexColorCode, float opacity) {
+int FillSquareBlend(int x, int y, int ax, int ay, UINT32 hexColorCode, float opacity) {
 	return GraphicsManager::GetInstance()->FillSquare(x, y, ax, ay, hexColorCode, opacity);
 }
 
@@ -198,7 +198,7 @@ int DrawRoundedSquare(int x, int y, int ax, int ay, UINT32 hexColorCode, float s
 	return GraphicsManager::GetInstance()->DrawRoundedSquare(x, y, ax, ay, hexColorCode, strokeWidth, radius);
 }
 
-int DrawRoundedSquareAlpha(int x, int y, int ax, int ay, UINT32 hexColorCode, float strokeWidth, float radius, float opacity) {
+int DrawRoundedSquareBlend(int x, int y, int ax, int ay, UINT32 hexColorCode, float strokeWidth, float radius, float opacity) {
 	return GraphicsManager::GetInstance()->DrawRoundedSquare(x, y, ax, ay, hexColorCode, strokeWidth, radius, opacity);
 }
 
@@ -206,7 +206,7 @@ int FillRoundedSquare(int x, int y, int ax, int ay, UINT32 hexColorCode, float r
 	return GraphicsManager::GetInstance()->FillRoundedSquare(x, y, ax, ay, hexColorCode, radius);
 }
 
-int FillRoundedSquareAlpha(int x, int y, int ax, int ay, UINT32 hexColorCode, float radius, float opacity) {
+int FillRoundedSquareBlend(int x, int y, int ax, int ay, UINT32 hexColorCode, float radius, float opacity) {
 	return GraphicsManager::GetInstance()->FillRoundedSquare(x, y, ax, ay, hexColorCode, radius, opacity);
 }
 
@@ -214,7 +214,7 @@ int DrawEllipse(int x, int y, int width, int height, UINT32 hexColorCode, float 
 	return GraphicsManager::GetInstance()->DrawEllipse(x, y, width, height, hexColorCode, strokeWidth);
 }
 
-int DrawEllipseAlpha(int x, int y, int width, int height, UINT32 hexColorCode, float strokeWidth, float opacity) {
+int DrawEllipseBlend(int x, int y, int width, int height, UINT32 hexColorCode, float strokeWidth, float opacity) {
 	return GraphicsManager::GetInstance()->DrawEllipse(x, y, width, height, hexColorCode, strokeWidth, opacity);
 }
 
@@ -222,7 +222,7 @@ int FillEllipse(int x, int y, int width, int height, UINT32 hexColorCode) {
 	return GraphicsManager::GetInstance()->FillEllipse(x, y, width, height, hexColorCode);
 }
 
-int FillEllipseAlpha(int x, int y, int width, int height, UINT32 hexColorCode, float opacity) {
+int FillEllipseBlend(int x, int y, int width, int height, UINT32 hexColorCode, float opacity) {
 	return GraphicsManager::GetInstance()->FillEllipse(x, y, width, height, hexColorCode, opacity);
 }
 

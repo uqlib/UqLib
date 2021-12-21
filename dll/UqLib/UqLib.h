@@ -105,7 +105,7 @@ extern "C" __declspec (dllexport) int DrawTexture(int x, int y, int graphicId);
  * @param opacity   不透明度（透明 0.0f ～ 1.0f 不透明）
  * @return 成功（0）、失敗（-1）
  */
-extern "C" __declspec (dllexport) int DrawTextureAlpha(int x, int y, int graphicId, float opacity);
+extern "C" __declspec (dllexport) int DrawTextureBlend(int x, int y, int graphicId, float opacity);
 
 /**
  * テクスチャ描画クリップ
@@ -134,7 +134,7 @@ extern "C" __declspec (dllexport) int DrawTextureClip(int x, int y, int graphicI
  * @param opacity   不透明度（透明 0.0f ～ 1.0f 不透明）
  * @return 成功（0）、失敗（-1）
  */
-extern "C" __declspec (dllexport) int DrawTextureClipAlpha(int x, int y, int graphicId, int sx, int sy, int sw, int sh, float opacity);
+extern "C" __declspec (dllexport) int DrawTextureClipBlend(int x, int y, int graphicId, int sx, int sy, int sw, int sh, float opacity);
 
 /**
  * 文字列描画
@@ -159,7 +159,7 @@ extern "C" __declspec (dllexport) int DrawString(int x, int y, const char* text,
  * @param opacity       不透明度（透明 0.0f ～ 1.0f 不透明）
  * @return 成功（0）、失敗（-1）
  */
-extern "C" __declspec (dllexport) int DrawStringAlpha(int x, int y, const char* text, int fontId, UINT32 hexColorCode, float opacity);
+extern "C" __declspec (dllexport) int DrawStringBlend(int x, int y, const char* text, int fontId, UINT32 hexColorCode, float opacity);
 
 /**
  * キーを押したか確認
@@ -226,7 +226,7 @@ extern "C" __declspec (dllexport) int DrawLine(int x, int y, int ax, int ay, UIN
  * @param opacity       不透明度（透明 0.0f ～ 1.0f 不透明）
  * @return 成功（0）、失敗（-1）
  */
-extern "C" __declspec (dllexport) int DrawLineAlpha(int x, int y, int ax, int ay, UINT32 hexColorCode, float width, float opacity);
+extern "C" __declspec (dllexport) int DrawLineBlend(int x, int y, int ax, int ay, UINT32 hexColorCode, float width, float opacity);
 
 /**
  * 四角形描画
@@ -253,7 +253,7 @@ extern "C" __declspec (dllexport) int DrawSquare(int x, int y, int sx, int sy, U
  * @param opacity       不透明度（透明 0.0f ～ 1.0f 不透明）
  * @return 成功（0）、失敗（-1）
  */
-extern "C" __declspec (dllexport) int DrawSquareAlpha(int x, int y, int sx, int sy, UINT32 hexColorCode, float strokeWidth, float opacity);
+extern "C" __declspec (dllexport) int DrawSquareBlend(int x, int y, int sx, int sy, UINT32 hexColorCode, float strokeWidth, float opacity);
 
 /**
  * 四角形 塗りつぶし描画
@@ -278,7 +278,7 @@ extern "C" __declspec (dllexport) int FillSquare(int x, int y, int sx, int sy, U
  * @param opacity       不透明度（透明 0.0f ～ 1.0f 不透明）
  * @return 成功（0）、失敗（-1）
  */
-extern "C" __declspec (dllexport) int FillSquareAlpha(int x, int y, int sx, int sy, UINT32 hexColorCode, float opacity);
+extern "C" __declspec (dllexport) int FillSquareBlend(int x, int y, int sx, int sy, UINT32 hexColorCode, float opacity);
 
 /**
  * 丸め四角形描画
@@ -307,7 +307,7 @@ extern "C" __declspec (dllexport) int DrawRoundedSquare(int x, int y, int sx, in
  * @param opacity       不透明度（透明 0.0f ～ 1.0f 不透明）
  * @return 成功（0）、失敗（-1）
  */
-extern "C" __declspec (dllexport) int DrawRoundedSquareAlpha(int x, int y, int sx, int sy, UINT32 hexColorCode, float strokeWidth, float radius, float opacity);
+extern "C" __declspec (dllexport) int DrawRoundedSquareBlend(int x, int y, int sx, int sy, UINT32 hexColorCode, float strokeWidth, float radius, float opacity);
 
 /**
  * 丸め四角形 塗りつぶし描画
@@ -334,7 +334,7 @@ extern "C" __declspec (dllexport) int FillRoundedSquare(int x, int y, int sx, in
  * @param opacity       不透明度（透明 0.0f ～ 1.0f 不透明）
  * @return 成功（0）、失敗（-1）
  */
-extern "C" __declspec (dllexport) int FillRoundedSquareAlpha(int x, int y, int sx, int sy, UINT32 hexColorCode, float radius, float opacity);
+extern "C" __declspec (dllexport) int FillRoundedSquareBlend(int x, int y, int sx, int sy, UINT32 hexColorCode, float radius, float opacity);
 
 /**
  * 楕円描画
@@ -361,7 +361,7 @@ extern "C" __declspec (dllexport) int DrawEllipse(int x, int y, int width, int h
  * @param opacity       不透明度（透明 0.0f ～ 1.0f 不透明）
  * @return 成功（0）、失敗（-1）
  */
-extern "C" __declspec (dllexport) int DrawEllipseAlpha(int x, int y, int width, int height, UINT32 hexColorCode, float strokeWidth, float opacity);
+extern "C" __declspec (dllexport) int DrawEllipseBlend(int x, int y, int width, int height, UINT32 hexColorCode, float strokeWidth, float opacity);
 
 /**
  * 楕円 塗りつぶし描画
@@ -386,7 +386,7 @@ extern "C" __declspec (dllexport) int FillEllipse(int x, int y, int width, int h
  * @param opacity       不透明度（透明 0.0f ～ 1.0f 不透明）
  * @return 成功（0）、失敗（-1）
  */
-extern "C" __declspec (dllexport) int FillEllipseAlpha(int x, int y, int width, int height, UINT32 hexColorCode, float opacity);
+extern "C" __declspec (dllexport) int FillEllipseBlend(int x, int y, int width, int height, UINT32 hexColorCode, float opacity);
 
 /**
  * 左クリックポイント取得
